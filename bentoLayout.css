@@ -1,0 +1,93 @@
+  
+  /* Work Bento */
+
+    .bento-work-1 {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      height: auto;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 1rem;
+      align-self: stretch;
+    }
+
+    .bento-work-1-1 {
+      display: flex;
+      align-self: stretch;
+      flex-direction: column;
+      width: 50%;
+      height: auto;
+      gap: 1rem;
+ 
+    }
+
+    .bento-work-1-2 {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: 50%;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 1rem;
+      align-self: stretch;
+    }
+
+    .bento-work-2 {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      flex: 1 1 0;
+      width: 100%;
+      gap: 1rem;
+      justify-content:flex-start;
+      align-items: flex-start;
+      align-self: stretch;
+    }
+
+
+    /* School Bento */
+
+    .bento-school-1 {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      height: auto;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 1rem;
+      align-self: stretch;
+    }
+
+
+
+
+
+
+
+
+    /* Responsive layout */
+
+
+    
+    @media (max-width: 768px) {
+
+      .bento-work-1-1 {
+        width: 100%;
+      }
+      
+      .bento-work-2 {
+        flex-direction: column;
+      }
+    }
+
+
+    @media (max-width: 480px) {
+
+      .bento-work-2 {
+        flex-direction: column;
+      }
+
+    }

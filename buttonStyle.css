@@ -1,0 +1,21 @@
+.bento-CTA {
+    display: inline-flex;
+    font-size: 1rem;
+    padding: 10px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 32px;
+    border: 1px solid #747474;
+    background-color: rgba(0, 0, 0, 0.185);
+    margin-top: 2rem;
+
+    color: #c7c7c7;
+}
+
+@media (max-width: 480px) {
+    .bento-CTA{
+        font-size: .6rem;
+        padding: 6px 16px;
+    }
+}

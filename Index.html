@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio of a UX Designer showcasing projects and skills."
+    />
+    <title>Rubayat | UX Designer</title>
+
+    <link rel="stylesheet" href="buttonStyle.css" />
+    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="bentoStyles.css" />
+    <link rel="stylesheet" href="bentoLayout.css" />
+    <link rel="stylesheet" href="schoolBentoGrid.css" />
+    <link rel="stylesheet" href="personalBentoGrid.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=lock" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  </head>
+  <body>
+    <div class="magnetic-cursor"></div>
+    <nav>
+          <div class="logo">RxD</div>
+          <button class="hamburger" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Resume</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+    </nav>
+    <div class="page-container">
+      <header>
+        <div class="hero">
+          <h1>Hi, I'm Rubayat. <span style="font-size: 1rem; color: rgb(88, 88, 88);">I know, you heard this name first time, <a href="https://en.wikipedia.org/wiki/Rubaiyat_of_Omar_Khayyam" target="_blank" style="color: rgb(175, 175, 175);"><u>here</u></a> it originates.</span></h1>
+          <h1> An UX Designer focused on <span class="magnetic-word">Interactions</span> and <span class="ascii-glitch" data-word="Problem Solving.">Problem Solving.</span></h1>
+           
+          <div style="max-width: 1400px; color: rgba(255, 255, 255, 0.445);">
+            <p>Currently associated with SLB(Previously Schlumberger) as an UX Designer, helping inhouse IT studio to solve problems across different business verticals.</p>
+          </div>
+
+        <div class="controls">
+          <p>Pick Gradient Colors</p1>
+            <div>
+              <label for="color1">Color 1: </label>
+              <input type="color" id="color1" class="color-picker" value="#202020">
+              <label for="color2">Color 2: </label>
+              <input type="color" id="color2" class="color-picker" value="#000000">
+            </div>
+        </div>
+
+
+        </div>
+        
+      </header>
+
+      <main>
+        <div class="separator">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="content" data-target="work">
+            <span class="locked-tooltip-container">
+              <span>Work</span>
+              <span class="material-symbols-outlined">lock</span>
+              <span class="locked-tooltip">These Projects are Password Protected</span>
+            </span>
+          </div>
+          <div class="line"></div>
+          <div class="content" data-target="school">
+            <span>School</span>
+          </div>
+          <div class="line"></div>
+          <div class="content" data-target="personal">
+            <span>Personal</span>
+          </div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+
+        <div class="bento bentoToggle" id="work">
+          <div class="bento-work-1">
+
+            <div class="bento-item size-1 bentoMove scroll-animate" style="background-image: url(SLB_Ride/Thumbnail.png);">
+                <h1>Fleet and Trip Management Dashboard</h1>
+                <a href="bhoral.html" class="bento-CTA">View Complete Project </a>
+           </div>
+
+            <div class="bento-work-1-1">
+                <div class="bento-item size-2 bentoMove" style="background-image: url(SLB_Ride/Complex_Problem.png);">
+                    <h2>Solving Complex Problems with Design Iterations</h2>
+                    <p>SLB Ride</p>
+                </div>
+              <div class="bento-work-1-2">
+                <div class="bento-item size-3 bentoMove" style="background-image: url(SLB_Ride/Microinteractions.png);">
+                  <h3>Micro Interactions</h3>
+                  <p>SLB Ride</p>
+                </div>
+
+                <div class="bento-item size-3 bentoMove" style="background-image: url(SLB_Ride/DriverApp.png  );">
+                  <h3>Drivers App</h3>
+                  <p>SLB Ride</p>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-work-2">
+                   <div class="bento-item size-4 bentoMove" style="background-image: url(SLB_Ride/myGenAI.png);">
+                       <h3>Making Enterprise GenAI more than a chatBot</h3>
+                  </div>
+                  <div class="bento-item size-4 bentoMove">
+                      <h3>Digitalising SLB's Fieldwork Permit Issuing Workflow </h3>
+                  </div>
+                  <div class="bento-item size-4 bentoMove">
+                      <h3>Setting up a Design System</h3>
+                  </div>
+          </div>
+        </div>
+
+        <div class="bento-grid-school bentoToggle" id="school">
+          <div class="bento-item b1 bentoMove">
+            <h1>Boral</h1>
+            <p>Assamese Folklore Archive</p>
+            <button>Complete Project →</button>
+          </div>
+          <div class="bento-item b2 bentoMove" onclick="window.location.href='bhoral.html'" style="cursor: pointer;">
+            <h2>Archive : A Participatory System Design Approach</h2>
+          </div>
+          <div class="bento-item b3 bentoMove">
+            <h2>Uber for Women</h2>
+          </div>
+          <div class="bento-item b4 bentoMove">
+            <h3>Service Ecosystem</h3>
+          </div>
+          <div class="bento-item b5 bentoMove">
+            <h3>Journey Mapping</h3>
+          </div>
+          <div class="bento-item b6 bentoMove">
+            <h2>AR Based Chemistry Learning tool</h2>
+          </div>
+          <div class="bento-item b7 bentoMove">
+            <h2>Decrypto Dashboard</h2>
+          </div>
+
+        </div>
+
+        <div class="bento-grid-personal bentoToggle" id="personal">
+          <div class="bento-item c1 bentoMove">
+            <h1>Exercise Tracking App</h1>
+            <button>Complete Project →</button>
+          </div>
+          <div class="bento-item c2 bentoMove">
+            <h2>Archive : A Participatory System Design Approach</h2>
+          </div>
+          <div class="bento-item c3 bentoMove">
+            <h2>Uber for Women</h2>
+          </div>
+          
+          <div class="bento-item c6 bentoMove">
+            <h2>AR Based Chemistry Learning tool</h2>
+          </div>
+          <div class="bento-item c7 bentoMove">
+            <h2>Decrypto Dashboard</h2>
+          </div>
+          <div class="bento-item c4 bentoMove">
+            <h3>Service Ecosystem</h3>
+          </div>
+          <div class="bento-item c5 bentoMove">
+            <h3>Journey Mapping</h3>
+          </div>
+
+        </div>
+      </main>
+
+      <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <p>
+          Let’s collaborate! I’d love to hear about your project and how I can
+          help.
+        </p>
+        <a href="mailto:alexdoe@example.com" class="cta">Get in Touch</a>
+      </section>
+
+      <footer>
+        <p>&copy; 2025 Rubayat. All Rights Reserved.</p>
+      </footer>
+    </div>
+
+
+    <script src="scripts.js"></script>
+    <script src="interactions.js"></script>
+
+
+  </body>
+</html>

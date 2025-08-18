@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Bento Box UI with Different Box Sizes</title>
+  <link rel="stylesheet" href="buttonStyle.css" />
+  <link rel="stylesheet" href="bentoStyles.css" />
+  
+</head>
+<body>
+
+  <div class="bento-box">
+        <div class="bento-sub-box-1">
+            <div class="bento-item size-1 SLB maggy">
+                <h3>Bhoral</h3>
+                <a href="bhoral.html" class="bento-CTA">View Complete Project </a>
+            </div>
+            <div class="bento-sub-box-1-1">
+            <div class="bento-item size-2 maggy">
+                <h3>Item 2 (Medium)</h3>
+            </div>
+            <div class="bento-sub-box-1-2">
+                <div class="bento-item size-3 maggy">
+                    <h3>Item 3 (Extra Large)</h3>
+                </div>
+                <div class="bento-item size-3 maggy">
+                    <h3>Item 3 (Extra Large)</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-sub-box-2">
+            <div class="bento-item size-3 maggy">
+                <h3>Item 3 (Extra Large)</h3>
+            </div>
+            <div class="bento-item size-3 maggy">
+                <h3>Item 3 (Extra Large)</h3>
+            </div>
+            <div class="bento-item size-3 maggy">
+                <h3>Item 3 (Extra Large)</h3>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.querySelectorAll(".maggy").forEach((button) => {
+        button.addEventListener("mousemove", (e) => {
+        const rect = button.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2; // Calculate x relative to button center
+        const y = e.clientY - rect.top - rect.height / 2; // Calculate y relative to button center
+
+            // Apply a small translation
+            button.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+                });
+
+            // Reset the button position when the mouse leaves
+            button.addEventListener("mouseleave", () => {
+            button.style.transform = "translate(0, 0)";
+             });
+        });
+    </script>
+
+</body>
+</html>

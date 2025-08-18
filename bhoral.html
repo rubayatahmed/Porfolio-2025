@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bhoral – Case Study</title>
+  <link rel="stylesheet" href="casestudy.css" />
+  <link rel="stylesheet" href="navbar.css" />
+  <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+  <nav style="color: black;">
+    <div class="logo">RxD</div>
+    <button class="hamburger" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" >
+            <li><a href="#about"  style="color: rgb(202, 202, 202);">About</a></li>
+            <li><a href="#portfolio" style="color: rgb(202, 202, 202);">Resume</a></li>
+            <li><a href="#contact" style="color: rgb(202, 202, 202);">Contact</a></li>
+          </ul>
+  </nav>
+  <header class="breadcrumb">
+    <a href="/">Home</a> / <a href="/case-studies">Case Studies</a> / Bhoral
+  </header>
+
+  <nav class="scrollspy-nav" id="scrollspy">
+    <a href="#overview">Overview</a>
+    <a href="#problem">Problem</a>
+    <a href="#process">Process</a>
+    <a href="#scope">Scope</a>
+    <a href="#testing">Testing</a>
+    <a href="#reflection">Reflection</a>
+  </nav>
+
+  <main class="container">
+    <section class="section overview" id="overview">
+      <h1>Designing a folklore repository system</h1>
+      <p>
+        Bhoral is a project focused on preserving and narrating Indian folklores in digital form,
+        beginning with Assam. The goal was to create a lightweight digital archive for stories,
+        accessible across devices and visually compelling to the modern audience.
+      </p>
+   </section>
+
+   
+  <div class="feature">
+        "A people without the knowledge of their past history, origin and culture is like a tree without roots."
+        - Marcus Garvey
+  </div>
+    
+   </section>
+
+   <section class="dual-col-img" style="border: 1px solid #ddd; background-color: rgb(243, 243, 243);">
+    <div class="img-col">
+      <img src="Bhoral/InternetARchive.png" alt="">
+    </div>
+    <div class="text-col">
+      <h3>This is Internet Archive.</h3>
+      <p>A huge repository of digitized data on the internet. You can literally go back in time and see how any website looked like. Don't believe!! Go check it out.</p>
+      
+      <p>That's what archives can do! It also play an important role in helping cultures and communities preserve their identity. But the majority of the digital archives currently in use were created using a western epistemology and a western definition of cultural heritage (Moradi et al. 2020).</p>
+    </div>
+
+  </section>
+
+  <section class="section">
+    
+
+  </section>
+
+  <section class="section">
+    <h2>Motivation</h2>
+    <h3>Located in the northeastern region of India, Assam - a state with rich heritage and diverse ethnic groups, where Cultural diversity is a hallmark. Being an Assamese myself, I initiated this project out of a personal drive to address this issue. The foundation of this project can be laid into the below contexts.</h3>
+    <div class="h-section">
+      <p><b>Rich Heritage : </b>The vibrant culture of Assam is a result of the continuous exchange of ideas and practices between the Indo-Aryans and the tribals.</p>
+      <p><b>Folk Heritage : </b>There are 24+ indigenous communities live in Assam and they have been effectively preserving their rich folk heritage orally for a very long time</p>
+      <p><b>Threats to the ethnicity : </b>However, the advent of globalization and the cultural migration has had a negative impact on the region's ethnicity.</p>
+    </div>
+    </section>
+
+    <section class="highlight-parallax">
+      <div class="highlight-bg" style="background-image: url(Bhoral/RiceField.jpg);"></div>
+      <div class="highlight-content">
+        <h1 id="featured" style="color: aliceblue;">That's how the Idea of Bhoral was born!</h1>
+        <p style="color: aliceblue;"">Bhoral(ভঁৰাল) in Assamese translates to 'A storehouse to preserve threshed grain for future use'</p>
+      </div>
+    </section>
+
+    <section class="dual-col" id="problem">
+      <div>
+        <h2>Problem</h2>
+        <p>
+          The rich folk culture of Assam is on the verge of disappearing, and the institutional archives that are in place right now failed to create a common repository to preserve it and have done nothing to engage the local ethnic groups
+        </p>
+      </div>
+      <div>
+        <h2>Goal</h2>
+        <p>
+          Design an interface that makes browsing and reading folk tales engaging,
+          while respecting their cultural origins and keeping them open for community contribution.
+        </p>
+      </div>
+    </section>
+
+    <section class="section"  id="process">
+      <h2>Design Process</h2>
+      <img src="Bhoral/Design Process.png" alt="Design process diagram" />
+      <p>
+        Not a planned process, but a series of steps that evolved organically as I learned more about the subject. But all started with a deep dive into understanding the technical and cultural aspects of digital archiving. Due to the time and resourse constraints, I had to limit and divert the scope later to designing the archiving website rather than the entire system.
+      </p>
+    </section>
+
+
+    <section class="section">
+      <h2>System Decomposition</h2>
+      <img src="Bhoral/SysDec.png" alt="Design process diagram" />     
+      <p>
+        I started with understanding the workflow of digital archiving to see it from a system design perspective hoping to find areas of improvement or any alternate interventions that fits our need. With a in depth system decomposition we got many loopholes both technical as well as at process level, which opens our road further to work on a more efficient solution.
+      </p>
+    </section>
+
+    <section class="section problem-solution">
+      <h3>Key Problems & Solutions</h3>
+      <p>An affinity mapping of all these problems resulted in these 7 major problems areas.</p>
+      <div class="grid">
+        <div class="problem">Collecting raw data democratically that has a huge utility, becomes a hurdle in diverse regions</div>
+        <div class="solution">Alternate methods of data acquisition, which increase user participation</div>
+
+        <div class="problem">Connecting already available resources meaningfully is missing</div>
+        <div class="solution">A collaborative network of already available repositories</div>
+
+        <div class="problem">Accessibility to the larger audience is missing because of the language barrier</div>
+        <div class="solution">Create features to help translate artifacts voluntarily</div>
+
+        <div class="problem">Less awareness among the locals</div>
+        <div class="solution">Use the platform and content to create awareness</div>
+
+        <div class="problem">Dependency on system admins and archivists makes this task labor intensive</div>
+        <div class="solution">The system should automate tasks based on contributors’ input</div>
+
+        <div class="problem">Poor findability and data integration</div>
+        <div class="solution">Well-designed information architecture and a common metadata schema</div>
+
+        <div class="problem">Poor features and user interface reduces engagement</div>
+        <div class="solution">Simple, intuitive interface with features to enhance browsing folklore</div>
+      </div>
+    </section>
+
+    <section class="highlight-parallax"  id="scope">
+      <div class="highlight-bg" style="background-image: url(Bhoral/Solo.jpg);"></div>
+      <div class="highlight-content">
+        <h1 id="featured" style="color: aliceblue;">Archiving isn't a solo endeavor</h1>
+        <p style="color: aliceblue;""> it requires collaboration from individuals across different fields, operating within an institution. As a designer, selecting the right problem area, regardless of personal motivations, proved challenging</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3>The scope has been <span style="color: rgb(165, 116, 42);">narrowed down to two verticals</span> from the 7 identified solutions</h3>
+    </section>
+
+    
+    
+    <section class="dual-col-related">
+      <div class="solution">
+        <img src="Bhoral/SchoolStudy.png" alt="School Field Study">
+        <p>1. Identifying alternative methods for data collection and testing them out</p>
+        <p style="color: rgb(146, 146, 146); font-style: italic;">Covered in this case study</p>
+      </div>
+      <div class="solution">
+        <img src="Bhoral/Discover.png" alt="">
+        <p>2. Designing the repository website focusing on presenting the data creatively</p>
+        <p style="color: rgb(146, 146, 146); font-style: italic;">Covered in a <a href="">seperate</a> case study</p>
+      </div>
+    </section>
+
+
+    <section class="section">
+      <h2>Identifying a suitable data collection method</h2>
+      <p>
+        Data collection and curation is challenging. Firstly, gathering raw data democratically proves difficult in diverse regions; secondly, there's a lack of meaningful connection with already available resources; thirdly, accessibility to a broader audience is overlooked; finally, there's low local awareness and difficulty in curation.
+      </p>
+      <p>
+        Four methods were Identified after going through existing research and discussions with experts, those are -
+      </p>
+      <div>
+        <div class="solution">
+          <p>1. Community Volunteers</p>
+        </div>
+        <div class="solution">
+          <p>2. Researchers and Scholars</p>
+        </div>
+        <div class="solution" style="background-color: #0e7c2617;">
+          <p>3. School and College students</p>
+        </div>
+        <div class="solution">
+          <p>4. People with interest through social Media</p>
+        </div>
+      </div>
+      <p>A multi-parameter analysis was done to go with one method to test. Which is <b>Evaluation with school students</b></p>
+      <img style="border: 1px solid #ddd;" src="Bhoral/Methods.png" alt="">
+    </section>
+
+    <section class="highlight-parallax"  id="testing">
+      <div class="highlight-bg" style="background-image: url(Bhoral/School.png);"></div>
+      <div class="highlight-content">
+        <h1 id="featured" style="color: aliceblue;">Testing the method</h1>
+        <p style="color: aliceblue;""> Regional(Bodo) Medium, 9th standard, Class strength - 45</p>
+        <p style="color: aliceblue;""> The teacher explained categories of folklore with examples</p>
+        <p style="color: aliceblue;""> Six groups were formed, Each group took one topic</p>
+        <p style="color: aliceblue;""> Send the photographs/video clips through WhatsApp</p>
+      </div>
+    </section>
+
+    <section class="dual-col-related">
+      <div style="padding: 1rem;">
+        <h3>A total of 138 folklore artefacts data is being collected.(45 Unique)</h3>
+        <p>This study can can be further expanded and it promises an continuous source of indigenous folklore data at the same time educating students at the grassroot level.</p>
+      </div>
+      <div class="solution">
+        <img src="Bhoral/data.png" alt="">
+      </div>
+    </section>
+
+
+    <section class="section">
+      <h3>Proposed System Mapping</h3>
+      <p>
+        Assuming we successfully amass a substantial content pool from these sources, I proceed to outline a system for an indigenous folklore archive repository.
+      </p>
+      <img src="bhoral/System_map.png" alt="Final UI preview" />
+    </section>
+
+    <section class="section" id="reflection">
+      <h2>Reflection</h2>
+      <p>
+        The study yielded significant success, showcasing the potential of the tested methodology in sourcing folklore data when implemented effectively. System mapping further facilitated the groundwork for designing the repository site. Overall it helped to see the problem with a new lens of participatory design approach, despite being limited by technical, resource and time constraints.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Rubayat Ahmed</p>
+  </footer>
+
+
+
+
+  <script>
+    // Parallax effect for highlight sections
+    document.addEventListener('scroll', function() {
+      document.querySelectorAll('.highlight-parallax .highlight-bg').forEach(bg => {
+        const rect = bg.parentElement.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        if (rect.top < windowHeight && rect.bottom > 0) {
+          const scrollPercent = (windowHeight - rect.top) / (windowHeight + rect.height);
+          bg.style.transform = `scale(1.08) translateY(${scrollPercent * 100 - 10}px)`;
+        }
+      });
+    });
+
+    // Scrollspy
+    const spyLinks = document.querySelectorAll('.scrollspy-nav a');
+    const sections = Array.from(spyLinks).map(link => document.querySelector(link.getAttribute('href')));
+    function onScrollSpy() {
+      let scrollPos = window.scrollY || window.pageYOffset;
+      let offset = 100;
+      let activeIndex = 0;
+      sections.forEach((section, i) => {
+        if (section && section.offsetTop - offset <= scrollPos) {
+          activeIndex = i;
+        }
+      });
+      spyLinks.forEach((link, i) => {
+        link.classList.toggle('active', i === activeIndex);
+      });
+    }
+    window.addEventListener('scroll', onScrollSpy);
+    window.addEventListener('resize', onScrollSpy);
+    document.addEventListener('DOMContentLoaded', onScrollSpy);
+  </script>
+</body>
+</html>

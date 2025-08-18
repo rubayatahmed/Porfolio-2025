@@ -1,0 +1,300 @@
+/* General Styles */
+body {
+  background: linear-gradient(45deg, #000000, #202020);
+  background-size: 400% 400%;
+  animation: gradientAnimation 5s ease infinite;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+
+/* Flexbox Layout */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  min-height: auto;
+}
+
+/* Header and Navigation */
+header {
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+  
+}
+
+
+/* Responsive Styles */
+
+
+/* Hero Section */
+.hero {
+  padding: 16rem 2rem;
+  display:grid;
+  justify-items: start;
+  text-align: left;
+  max-width: 1400px;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 100;
+  cursor:default;
+}
+
+.magnetic-word {
+  position: relative;
+  color: #FF5D5D;
+  cursor: none;
+}
+
+.magnetic-cursor {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0; /* hidden by default */
+  transition: opacity 0.4s ease;
+  mix-blend-mode: difference;
+  z-index: 9999;
+}
+
+.ascii-glitch {
+  color: #FF5D5D;
+  position: relative;
+  cursor: pointer;
+}
+
+
+.hero p {
+  font-size: 1.2rem;
+  margin: 2rem 0;
+}
+
+.cta {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background: #303030;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: transform 0.1s ease, background 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta:hover {
+  background: #666666;
+}
+
+.cta.magnetic {
+  transition: transform 0.1s ease-in;
+}
+
+.cta.magnetic:hover {
+  background: #555555;
+}
+
+/* About Section */
+.about {
+  background: #fff;
+  padding: 3rem 3rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.about h2 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.about p {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Portfolio Section */
+.portfolio {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.portfolio-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 2rem;
+}
+
+.portfolio-item {
+  background:#eeeeee;
+  padding: 3rem;
+}
+
+.contact {
+  color: #ffffff;
+  padding: 8rem 4rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.contact h2 {
+  margin-bottom: 1rem;
+}
+
+.contact p {
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+
+
+.separator {
+  padding: 0rem 2rem 0rem;
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.123);
+}
+.content {
+  color: rgba(255, 255, 255, 0.123);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px; /* Space between icon and text */
+  padding: 0 10px; /* Space between lines and content */
+  font-size: 20px; /* Adjust text size */
+}
+
+.content.active {
+  color: #fff;
+}
+
+.locked-tooltip-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.locked-tooltip {
+  visibility: hidden;
+  background: #222;
+  color: #7e7e7e;
+  text-align: center;
+  border-radius: 6px;
+  padding: 6px 12px;
+  position: absolute;
+  z-index: 100;
+  bottom: 100%; /* Position above the icon */
+  left: 0;
+  transform: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.locked-tooltip-container:hover .locked-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width: 1130px) {
+
+  .hero {
+    padding: 6rem 2rem 6rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .hero {
+    padding: 6rem 2rem 6rem;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+  .hero h1{
+    font-size: 2rem;
+  }
+  .hero p{
+    font-size: .7rem;
+  }
+  .content {
+    font-size: 1rem;
+  }
+
+}
+
+
+
+
+
+/*
+.controls {
+  text-align: center;
+}
+.color-picker {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 2rem;
+}

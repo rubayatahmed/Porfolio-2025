@@ -1,0 +1,104 @@
+
+.bento-grid-personal {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  max-width: 1400px;
+  padding: 2rem;
+}
+
+.bentoToggle {
+      opacity: 0;
+      height: 0;
+      padding: 0;
+      transform: scaleY(0.9) translateY(-10px);
+      transition: none;
+}
+
+.bentoToggle.active {
+      opacity: 1;
+      height: auto;
+      padding: 2rem;
+      transform: scaleY(1) translateY(0);
+      transition: all 1.2s ease;
+}
+
+
+
+.c1 {
+  grid-column: span 4;
+  grid-row: span 2;
+}
+.c2 {
+  grid-column: span 2;
+  grid-row: span 2;
+  aspect-ratio: 1;
+}
+.c3 {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+.c4 {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+.c5 {
+   grid-column: span 1;
+   grid-row: span 1;
+}
+.c6 {
+   grid-column: span 2;
+   grid-row: span 2;
+}
+.c7 {
+   grid-column: span 2;;
+   grid-row: span 2;
+   aspect-ratio: 1;
+}
+
+
+/* Styling button inside b1 */
+.c1 button {
+  margin-top: 1rem;
+  background: none;
+  border: 1px solid #444;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* 🧱 Responsive Breakpoints */
+
+/* Small Laptop */
+ @media (max-width: 1130px) {
+  .c6, .c7 {
+    aspect-ratio:unset;
+  }
+
+}
+
+
+/* Tablet breakpoint */
+@media (max-width: 784px) {
+  .bento-grid-personal {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .c1, .c2, .c3, .c4, .c5, .c6, .c7 {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 480px) {
+  .bento-grid-personal {
+    grid-template-columns: 1fr;
+  }
+
+  .c1, .c2, .c3, .c4, .c5, .c6, .c7 {
+    grid-column: span 1;
+  }
+}
