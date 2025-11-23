@@ -69,7 +69,13 @@ header {
 }
 
 .hero h1 {
-  font-size: 4rem;
+  font-size: 6rem;
+  font-weight: 100;
+  cursor:default;
+}
+
+.hero h2 {
+  font-size: 2rem;
   font-weight: 100;
   cursor:default;
 }
@@ -103,6 +109,8 @@ header {
 .hero p {
   font-size: 1.2rem;
   margin: 2rem 0;
+  max-width: 1400px;
+  color: rgba(255, 255, 255, 0.445);
 }
 
 .cta {
@@ -274,10 +282,17 @@ header {
 
 @media (max-width: 480px) {
   .hero h1{
+    font-size: 4rem;
+    line-height: 4.5rem;
+
+  }
+
+  .hero h2{
     font-size: 2rem;
+    line-height: 2.5rem;
   }
   .hero p{
-    font-size: .7rem;
+    font-size: 1rem;
   }
   .content {
     font-size: 1rem;
