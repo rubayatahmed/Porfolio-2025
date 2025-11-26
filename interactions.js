@@ -78,3 +78,5 @@ function startAsciiGlitch(el) {
 glitchElement.addEventListener('mouseenter', () => {
   startAsciiGlitch(glitchElement);
 });
+
+

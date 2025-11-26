@@ -32,7 +32,9 @@
     </nav>
 
     <header class="breadcrumb">
+      <div class="box">
       <a href="/">Home</a> / <a href="/case-studies">Case Studies</a> / Bhoral
+      </div>
     </header>
 
     <nav class="scrollspy-nav" id="scrollspy">
@@ -114,7 +116,7 @@
             </div>
       </section>
 
-      <section class="highlight-parallax"  id="problem">
+      <section class="highlight-parallax">
           <div class="highlight-bg" style="background-image: url(SLB_Ride/Thumbnail.png);"></div>
           <div class="highlight-content">
 
@@ -133,8 +135,115 @@
         </div>
       </section>
 
+      <section class="highlight-parallax">
+          <div class="highlight-bg" style="background-image: url(SLB_Ride/PlanningBoard_Feature.png);"></div>
+          <div class="highlight-content">
+
+            <h2 id="featured" style="color: aliceblue;">Planning Board</h2>
+            <br>
+            <p style="color: rgba(255, 255, 255, 0.445);">Requested rides are been shown on the planning board in All Rides section with status ‘New Request’. It was important to highlight major informations about the request to take action accordingly.</p>
+            <br>
+            
+          </div>
+      </section>
+
+      <section class="section">
+        <h3>While showing new rides in the list view the key challenge was to highlight most important details as it impacts the assigments.</h3>
+        <p>Requested rides are been shown in the planning board the in the All Rides section with status ‘New Request’. It was important to highlight major informations about the request to take action accordingly. For example -</p>
+        <div style="display: flex; flex-direction: column; gap: 1rem; color: black;">
+          <div style="display: flex; flex-direction: row; gap: 1rem; align-items: center;">
+            <img src="SLB_Ride/Icons/Passengers.svg" alt="">
+            <p>Shows the number of passenger</p>
+          </div>
+          <div style="display: flex; flex-direction: row; gap: 1rem; align-items: center;">
+            <img src="SLB_Ride/Icons/Airport.svg" alt="">
+            <p>Shows if the ride is to Airport</p>
+          </div>
+          <div style="display: flex; flex-direction: row; gap: 1rem; align-items: center;">
+            <img src="SLB_Ride/Icons/GoodPickup.svg" alt="">
+            <p>Shows is it is Goods delivery</p>
+          </div>
+          <div style="display: flex; flex-direction: row; gap: 1rem; align-items: center;">
+            <img src="SLB_Ride/Icons/VIP.svg" alt="">
+            <p>Shows is any VIP is travelling</p>
+          </div>
+        </div>
+        <img style="width: 100%;" src="SLB_Ride/RidesCloseUp.png" alt="Planning Board">
+      </section>
+
+      <section class="simple-dual-col">
+        <div class="col">
+          
+          <h3>Detailed Request View</h3>
+          <img src="SLB_Ride/RequestView.png" alt="Assign Ride">
+          <p>User go through the details of the request and made necessary changes in timing and approve/reject ride. The Ride Details screen is divided into 4 parts -</p>
+          <p>1. Request Metadata : The title bar containing the metadata</p>
+          <p>2. Request Details : The right hand side panel having all the details entered by user through the booking application to consider while planing. This section again categorised into 3 options - Address & Time, Other Details, passenger Details </p>
+          <p>3. Actions : The action bar at the bottom displays current status of ride and actionable buttons</p>
+
+          <p>4. Live Tracking Board : This is the central area that is disabled until user approves the ride. A gantt chart view of live trips are displayed here to assist the user in assignment in the next stage.</p>
+          
+        </div>
+        <div class="col">
+          <img style="width:400px; padding: 2rem;" src="SLB_Ride/Ride_Detail_panel.png" alt="Trip Details">
+        </div>
+      </section>
+
+      <section class="section">
+        <h3>Based on the details travel coordinator approves/rejects the requests. Once approved the live tracking board get's enabled so that vehicles can be assigned.</h3>
+        <p>Once approved it’s time for assigning the request to a vehicle and driver. As shown in the user flow we prioritise on showing the suitable upcoming trips around the locations, if nothing came out from that the user has option to assign it to a new vehicle/driver, where results in a new trip.</p>
+     
+        <img src="SLB_Ride/ASsignment process.png" alt="Planning Board">
+        <img src="SLB_Ride/Assignment_UI.png" alt="">
+      </section>
+
+      <section class="simple-dual-col">
+        <div class="col">
+          <h3>Allotment to an existing Upcoming trip isn't that straitforward!</h3>
+          <p>To allot a request into an upcoming trip, the following factors are crucial to know for the user, which has been incorporated in the adaptive cards in the timeline UI.</p>
+          <p>1. Available occupancy in the Vehicle</p>
+          <p>2. Pickup and drop of the trip to help the user to plan accordingly to optimise the time between stops</p>
+          <p>3. Time of the ride</p>
+
+        </div>
+        <div class="col">
+          <img src="SLB_Ride/Cards timeline.png" alt="Trip Details">
+        </div>
+      </section>
+
+      <section class="section">
+        <h3>Clicking on a suitable trip card opens up route details so that user can make a informed decision. The UI dynamically shows compatibility with the new ride added, which user can confirm if needed.</h3>
+        <video src="SLB_Ride/Trip Assignement.mov" alt="Video of assignment process" autoplay muted loop playsinline style="width: 100%;" > Your browser does not support the video tag.</video>
+        
+        <h3>On contrary, vehicles who are sitting idle are listed next in the tracking board, user shall click on assign button to assign that vehicle. This button is diabled for the vehicles who has trips overlapped at that time slot.</h3>
+        <img src="SLB_Ride/NewTripCreation.png" alt="">
+      </section>
+
+      <section class="highlight-parallax">
+          <div class="highlight-bg" style="background-image: url(SLB_Ride/PlanningBoard_AllTrips_Feature.png);"></div>
+          <div class="highlight-content">
+
+            <h2 id="featured" style="color: aliceblue;">All Trips & Live Tracking Board</h2>
+            <br>
+            <p style="color: rgba(255, 255, 255, 0.445);">Once trips are been planned it comes under the Trips tab on the planning board.  The list view with only the essential details like status and locations helps user to monitor the trips easily.</p>
+            <br>
+          </div>
+      </section>
+
+      <section class="section">
+        <h3>Once trips are been planned it comes under the Trips tab on the planning board.</h3>
+        <p>Once trips are been planned it comes under the Trips tab on the planning board.  The list view with only the essential details like status and locations helps user to monitor the trips easily.</p>
+        <img src="SLB_Ride/Planning Board_Planned Trips.png" alt="">
+      </section>
+
+      <section class="section">
+        <h3>Once trips are been planned it comes under the Trips tab on the planning board.</h3>
+        <p>Once trips are been planned it comes under the Trips tab on the planning board.  The list view with only the essential details like status and locations helps user to monitor the trips easily.</p>
+        <img src="SLB_Ride/Trip_view.png" alt="">
+      </section>
+
 
     </main>
-
+  <script src="casestudy.js"></script>
   </body>
 </html>

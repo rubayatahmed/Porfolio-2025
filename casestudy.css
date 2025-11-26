@@ -5,6 +5,10 @@
   padding: 0;
 }
 
+video {
+    clip-path: inset(2px);
+}
+
 body {
   font-family: "Poppins", sans-serif;
   line-height: 1.6;
@@ -13,7 +17,7 @@ body {
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 1440px;
   width: 100%;
   margin: 0 auto; /* This centers the container */
   align-items: center; /* Optional, for flex children */
@@ -216,11 +220,18 @@ p {
 
 /* Breadcrumb */
 .breadcrumb {
-  background: #f8f8f8;
   padding: 1rem 2rem;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
 }
 
+.breadcrumb .box {
+  background-color: #6464640f;
+  padding: .3rem 1rem;
+  border: #c7c7c763 solid 1px;
+  border-radius: 4rem;
+}
 .breadcrumb a {
   color: #555;
   text-decoration: none;
@@ -228,20 +239,30 @@ p {
 
 /* Scroll Spy Navigation */
 .scrollspy-nav {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s;
   position: sticky;
   top: 0;
-  background: #fff;
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(7.5px);
   z-index: 10;
   padding: 1rem 2rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eeeeee5d;
   display: flex;
   gap: 2rem;
   overflow-x: auto;
-  max-width: 1400px;
   width: 100%;
   margin: 0 auto;
   align-items: center;
+  justify-content: space-evenly;
 }
+
+.scrollspy-nav.show-scrollspy {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .scrollspy-nav a {
   color: #888;
   text-decoration: none;
@@ -346,46 +367,68 @@ p {
   object-fit: cover; /* use 'contain' to avoid cropping */
   display: block;
 }
-
-/* Simple dual column - two images side by side */
 .simple-dual-col {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   width: 100%;
   box-sizing: border-box;
-  align-items: flex-start;
   padding: 2rem;
-  align-items: center;
+  align-items: center; /* Both columns same height */
 }
 
 .simple-dual-col .col {
   flex: 1 1 50%;
   overflow: hidden;
-  display: block;
+  display: flex;
+  flex-direction: column;
   border-radius: 8px;
+  gap: 1rem;
 }
 
-.simple-dual-col img {
-  width: 100%;
+/* Left column: fits content naturally */
+.simple-dual-col .col:first-child {
   height: auto;
-  display: block;
-  object-fit: contain; /* use 'contain' to avoid cropping, keeps full image visible */
-  background: #ffffff; /* light bg if image has transparent areas */
+  justify-content: flex-start;
 }
 
-/* Mobile: stack in 2 rows (each takes 100% width) */
-@media (max-width: 480px) {
+/* Right column: stretches to match left, centers content */
+.simple-dual-col .col:last-child {
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+/* Center image or any content in right column */
+.simple-dual-col .col:last-child img,
+.simple-dual-col .col:last-child > * {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Mobile: stack in 2 rows */
+@media (max-width: 768px) {
   .simple-dual-col {
     flex-direction: column;
     gap: 1rem;
     padding: 1rem;
+    align-items: stretch;
   }
   .simple-dual-col .col {
     flex: 0 0 100%;
     width: 100%;
+    height: auto;
+    align-items: stretch;
+    justify-content: flex-start;
   }
-  .simple-dual-col img {
-    width: 100%;
+  .simple-dual-col .col:last-child {
+    align-items: center;
+    justify-content: center;
+  }
+  .simple-dual-col .col img {
     height: auto;
   }
 }
@@ -425,7 +468,12 @@ p {
   .dual-col,
   .scrollspy-nav,
   .breadcrumb {
-    padding: 2rem 1rem;
+    padding: 1rem;
+    min-height: auto;
+  }
+
+  .breadcrumb {
+    justify-content: flex-start;
   }
 
   .overview {
