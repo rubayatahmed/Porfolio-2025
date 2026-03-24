@@ -47,7 +47,7 @@
       <header>
         <div class="hero">
           <h1>Hi, I'm Rubayat.</h1>
-          <p>
+          <!-- <p>
             I know, it’s unique, it’s got its roots right
             <a
               href="https://en.wikipedia.org/wiki/Rubaiyat_of_Omar_Khayyam"
@@ -55,18 +55,19 @@
               style="color: rgb(175, 175, 175)"
               ><u>here</u></a
             >
-          </p>
-          <h2>
-            An UX Designer focused on
-            <span class="magnetic-word">Interactions</span> and
-            <span class="ascii-glitch" data-word="Problem Solving."
-              >Problem Solving.</span
+          </p> -->
+          <h2 style="color: #ffffff54;">
+            I love bringing
+            <span class="magnetic-word">clarity</span>  out of 
+            <span class="ascii-glitch" data-word="complexity."
+              >complexity.</span
             >
+            <br>
+            <br>
+            UX Designer at SLB (formerly Schlumberger), shaping enterprise experiences across cross-functional business verticals.
           </h2>
           <p>
-            Currently associated with SLB(Previously Schlumberger) as an UX
-            Designer, helping inhouse IT studio to solve problems across
-            different business verticals.
+            
           </p>
 
           <!-- <div class="controls">
@@ -110,12 +111,11 @@
           <div class="bento-work-1">
             <div
               class="bento-item size-1 bentoMove scroll-animate"
-              style="background-image: url(SLB_Ride/Thumbnail.png)"
+              data-href="SLBRide.html"
+              style=" cursor: pointer; background-image: url(SLB_Ride/Thumbnail.png)"
             >
               <h1>Fleet and Trip Management Dashboard</h1>
-              <a href="SLBRide.html" class="bento-CTA"
-                >View Complete Project
-              </a>
+              <p>Case Study</p>
             </div>
 
             <div class="bento-work-1-1">
@@ -123,8 +123,8 @@
                 class="bento-item size-2 bentoMove"
                 style="background-image: url(SLB_Ride/Complex_Problem.png)"
               >
-                <h2>Solving Complex Problems with Design Iterations</h2>
-                <p>SLB Ride</p>
+                <h2>Solving Complex Problems : The Agile Way</h2>
+                <p>Article</p>
               </div>
               <div class="bento-work-1-2">
                 <div
@@ -163,17 +163,17 @@
         </div>
 
         <div class="bento-grid-school bentoToggle" id="school">
-          <div class="bento-item b1 bentoMove">
-            <h1>Boral</h1>
-            <p>Assamese Folklore Archive</p>
-            <button>Complete Project →</button>
+          <div class="bento-item b1 bentoMove" data-href="bhoral_UI.html" style="cursor: pointer; background-image: url(ProjectThumbnails/Bhoral_Thumbnail.png)">
+            <h2>Boral</h2>
+            <p>UI Walkthough</p>
           </div>
           <div
             class="bento-item b2 bentoMove"
-            onclick="window.location.href='bhoral.html'"
-            style="cursor: pointer"
+            data-href="bhoral.html"
+            style="cursor: pointer; background-image: url(ProjectThumbnails/Participatory_Thumbnail.png);"
           >
-            <h2>Archive : A Participatory System Design Approach</h2>
+            <h2>Participatory Design : An exploration</h2>
+            <p>Case Study</p>
           </div>
           <div class="bento-item b3 bentoMove">
             <h2>Uber for Women</h2>
@@ -235,5 +235,6 @@
 
     <script src="scripts.js"></script>
     <script src="interactions.js"></script>
+    <div class="wipe-overlay"></div>
   </body>
 </html>

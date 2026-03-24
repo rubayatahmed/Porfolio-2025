@@ -105,3 +105,23 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   if (workTab) workTab.classList.add("active");
 });
+
+// Update event listener to target bento-boxes instead of buttons
+document.querySelectorAll('.bento-item').forEach(box => {
+  box.addEventListener('click', function (event) {
+    event.preventDefault(); // Prevent default behavior if any
+
+    // Get the target URL from a data attribute
+    const targetUrl = this.getAttribute('data-href');
+    if (!targetUrl) return; // Exit if no URL is set
+
+    // Add the active class to trigger the animation
+    const overlay = document.querySelector('.wipe-overlay');
+    overlay.classList.add('active');
+
+    // Wait for the animation to complete, then navigate
+    setTimeout(() => {
+      window.location.href = targetUrl;
+    }, 800); // Match the duration of the CSS transition
+  });
+});
