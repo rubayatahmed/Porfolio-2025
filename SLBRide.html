@@ -40,20 +40,20 @@
     <nav class="scrollspy-nav" id="scrollspy">
       <a href="#overview">Overview</a>
       <a href="#problem">Problem</a>
-      <a href="#process">Process</a>
+      <a href="#solution">Solution</a>
       <a href="#scope">Scope</a>
-      <a href="#testing">Testing</a>
+      <a href="#uiscreens">UI Screens</a>
       <a href="#reflection">Reflection</a>
     </nav>
 
-    <main class="container">
+    <main class="container" style="padding-bottom: 25vh;">
       <section class="section overview" id="overview">
         <div class="overview-grid">
           <div class="overview-left">
             <h3>Fleet Management Dashboard</h3>
             <br>
             <p>
-              Digitalising the process of fleet management and ride booking for
+              Digitalising the process of fleet and booking management for
               the travel coordinators of SLB along with maximising vehicle
               utilisation.
             </p>
@@ -78,7 +78,7 @@
         <div class="highlight-bg" style="background-image: url(SLB_Ride/andrew-lvov-obnd7KRIFZ8-unsplash.webp);"></div>
         <div class="highlight-content">
           <p style="color: rgba(255, 255, 255, 0.445);"">Design Brief</p>
-          <h1 id="featured" style="color: aliceblue;">Dgitising the process of fleet management and ride booking for the travel coordinators of SLB along with maximising vehicle utilisation.
+          <h1 id="featured" style="color: aliceblue;">Dgitising the process of fleet and booking management for the travel coordinators of SLB along with maximising vehicle utilisation.
           </h1>
         </div>
      </section>
@@ -88,40 +88,48 @@
         <h3 >Eric use SLB Ride to assign vehicles to rides while ensuring efficiency in capacity utilisation. In the past, he used a white board and manually called drivers to pick up rides but switches to SLB ride when it became a mess to handle many requests manually.</h3>
       </section>
 
-      <section class="section problem-solution" id="solution" style="padding-bottom: 8rem;">
+      <section class="section problem-solution" id="solution">
           
             <h2>Solution Overview</h2>  
 
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it</p>
             <img src="SLB_Ride/Process.png" alt="process image diagram">
-             <p>There are 4 priary Modules</p>  
 
-            <div class="grid">
-                <div class="solution">
-                    <h3>Master Data Creation and Maintenance (Vehicle/Driver)</h3>
-                    <p>Personal data input and Validation of ID’s, Licenses and certifications</p>
-                </div>
-                <div class="solution">
-                    <h3>Ride Requests Dashboard</h3>
-                    <p>Summarised fleet status, active rides and utilisation metrics.</p>
-                </div>
-                <div class="solution">
-                    <h3>Ride Assignment and Trip Creation</h3>
-                    <p>Summarised fleet status, active rides and utilisation metrics.</p>
-                </div>
-                <div class="solution">
-                    <h3>Scheduled Trips Dashboard</h3>
-                    <p>Summarised fleet status, active rides and utilisation metrics.</p>
-                </div>
-            
-            </div>
+      </section>
+
+      <section class="cs-section" id="scope">
+        <div class="cs-header">
+          <h2>Scope (to be delivered in multiple MVPs)</h2>
+        </div>
+        <div class="cs-grid">
+          <div class="cs-cell">
+            <h3>Driver & Vehicle Management</h3>
+            <p>Personal data input and validation of IDs, licenses and certifications.</p>
+            <img src="SLB_Ride/MasterData.png" alt="">
+          </div>
+          <div class="cs-cell">
+            <h3>Ride Requests Dashboard</h3>
+            <p>Consolidated view of all ride requests with their status and details.</p>
+            <img src="SLB_Ride/RideRequestDashboard.png" alt="">
+          </div>
+          <div class="cs-cell">
+            <h3>Ride Assignment and Trip Creation</h3>
+            <p>Efficiently assign rides to drivers and create trips based on availability and location.</p>
+            <img src="SLB_Ride/Assignment.png" alt="">
+          </div>
+          <div class="cs-cell">
+            <h3>Scheduled Trips Dashboard</h3>
+            <p>Consolidated view of all scheduled trips with their status and details.</p>
+            <img src="SLB_Ride/TripsDashboard.png" alt="">
+          </div>
+        </div>
       </section>
 
       <section class="highlight-parallax">
-          <div class="highlight-bg" style="background-image: url(SLB_Ride/Thumbnail.png);"></div>
+          <div class="highlight-bg" style="background-image: url(SLB_Ride/Masterdatacover.webp);"></div>
           <div class="highlight-content">
 
-            <h2 id="featured" style="color: aliceblue;">Master Data Creation and Maintenance</h2>
+            <h1 id="featured" style="color: aliceblue;">Master Data Management for Drivers and Vehicles</h1>
             <br>
             <p style="color: rgba(255, 255, 255, 0.445);"">We have a master-data creation module for onboarding third-party drivers and vehicles. Users submit the required information, and the system highlights important details such as license expiry dates and driver status.</p>
           </div>
@@ -137,16 +145,17 @@
       </section>
 
       <section class="highlight-parallax">
-          <div class="highlight-bg" style="background-image: url(SLB_Ride/PlanningBoard_Feature.png);"></div>
+          <div class="highlight-bg" style="background-image: url(SLB_Ride/RequestViewCover.webp);"></div>
           <div class="highlight-content">
 
-            <h2 id="featured" style="color: aliceblue;">Planning Board</h2>
+            <h1 id="featured" style="color: aliceblue;">Ride Requests Consolidation</h1>
             <br>
             <p style="color: rgba(255, 255, 255, 0.445);">Requested rides are been shown on the planning board in All Rides section with status ‘New Request’. It was important to highlight major informations about the request to take action accordingly.</p>
             <br>
             
           </div>
       </section>
+
 
       <section class="section">
         <h3>While showing new rides in the list view the key challenge was to highlight most important details as it impacts the assigments.</h3>
@@ -181,13 +190,24 @@
           <p>1. Request Metadata : The title bar containing the metadata</p>
           <p>2. Request Details : The right hand side panel having all the details entered by user through the booking application to consider while planing. This section again categorised into 3 options - Address & Time, Other Details, passenger Details </p>
           <p>3. Actions : The action bar at the bottom displays current status of ride and actionable buttons</p>
-
           <p>4. Live Tracking Board : This is the central area that is disabled until user approves the ride. A gantt chart view of live trips are displayed here to assist the user in assignment in the next stage.</p>
           
         </div>
         <div class="col">
           <img style="width:400px; padding: 2rem;" src="SLB_Ride/Ride_Detail_panel.png" alt="Trip Details">
         </div>
+      </section>
+
+      <section class="highlight-parallax">
+          <div class="highlight-bg" style="background-image: url(SLB_Ride/AssignmentCover.webp);"></div>
+          <div class="highlight-content">
+
+            <h1 id="featured" style="color: aliceblue;">Ride Assignment and Trip Creation Process</h1>
+            <br>
+            <p style="color: rgba(255, 255, 255, 0.445);">This part bringing the core value of the application, it allows users to efficiently assign rides to vehicles and create new trips based on availability and location.</p>
+            <br>
+            
+          </div>
       </section>
 
       <section class="section">
@@ -213,18 +233,20 @@
       </section>
 
       <section class="section">
-        <h3>Clicking on a suitable trip card opens up route details so that user can make a informed decision. The UI dynamically shows compatibility with the new ride added, which user can confirm if needed.</h3>
+        <h3>Check compatibility between the rides</h3>
+        <p>Clicking on a suitable trip card opens up route details so that user can make a informed decision. The UI dynamically shows compatibility with the new ride added, which user can confirm if needed.</p>
         <video src="SLB_Ride/Trip Assignement.mov" alt="Video of assignment process" autoplay muted loop playsinline style="width: 100%;" > Your browser does not support the video tag.</video>
         
-        <h3>On contrary, vehicles who are sitting idle are listed next in the tracking board, user shall click on assign button to assign that vehicle. This button is diabled for the vehicles who has trips overlapped at that time slot.</h3>
+        <h3>Or Assign a New Trip</h3>
+        <p>On contrary, vehicles who are sitting idle are listed next in the tracking board, user shall click on assign button to assign that vehicle. This button is diabled for the vehicles who has trips overlapped at that time slot.</p>
         <img src="SLB_Ride/NewTripCreation.png" alt="">
       </section>
 
       <section class="highlight-parallax">
-          <div class="highlight-bg" style="background-image: url(SLB_Ride/PlanningBoard_AllTrips_Feature.png);"></div>
+          <div class="highlight-bg" style="background-image: url(SLB_Ride/TripsDashboardCover.webp);"></div>
           <div class="highlight-content">
 
-            <h2 id="featured" style="color: aliceblue;">All Trips & Live Tracking Board</h2>
+            <h1 id="featured" style="color: aliceblue;">Scheduled Trips Dashboard</h1>
             <br>
             <p style="color: rgba(255, 255, 255, 0.445);">Once trips are been planned it comes under the Trips tab on the planning board.  The list view with only the essential details like status and locations helps user to monitor the trips easily.</p>
             <br>
@@ -232,19 +254,89 @@
       </section>
 
       <section class="section">
-        <h3>Once trips are been planned it comes under the Trips tab on the planning board.</h3>
+        <h3>And thus ride becomes trips!</h3>
         <p>Once trips are been planned it comes under the Trips tab on the planning board.  The list view with only the essential details like status and locations helps user to monitor the trips easily.</p>
         <img src="SLB_Ride/Planning Board_Planned Trips.png" alt="">
       </section>
 
       <section class="section">
-        <h3>Once trips are been planned it comes under the Trips tab on the planning board.</h3>
-        <p>Once trips are been planned it comes under the Trips tab on the planning board.  The list view with only the essential details like status and locations helps user to monitor the trips easily.</p>
+        <h3>Live Tracking Board</h3>
+        <p>Monitoring Planned Trips on the live tracking board give the user a holistic view of current assignments</p>
+        
         <img src="SLB_Ride/Trip_view.png" alt="">
+      </section>
+
+      <div class="cs-section">
+        <div class="cs-header">
+          <h2>Visual Cues of the Tracking Board</h2>
+        </div>
+        <div class="cs-grid">
+          <div class="cs-cell">
+            <h3>Selected Trip</h3>
+            <p>In a view dominated by similar trip cards it is very important to highlight the selected trip for better visibility and interaction.</p>
+            <img src="SLB_Ride/SelectedTrip.png" alt="">
+          </div>
+          <div class="cs-cell">
+            <h3>Colour Coding</h3>
+            <p>Colour coding is used to indicate the status of the trip, such as orange for ongoing, violet for upcoming, and grey for completed.</p>
+            <img src="SLB_Ride/Color_coding.png" alt="">
+          </div>
+          <div class="cs-cell">
+            <h3>Tooltips</h3>
+            <p>Hovering over a trip card provides additional information through tooltips. Also for longer address line tooltip helps to read the full address.</p>
+            <img src="SLB_Ride/Tool Tips.png" alt="">
+          </div>
+          <div class="cs-cell">
+            <h3>Next Day Indicator</h3>
+            <p>The next day is in the timeline is indicated by a pattern visual marker, which helps users quickly identify the difference.</p>
+            <img src="SLB_Ride/Next Day.png" alt="">
+          </div>
+        </div>
+      </div>
+
+      <section id="uiscreens">
+        <img src="SLB_Ride/SLBRide_Header.png" alt="" style="width: 100%; display: block;">
+        <img src="SLB_Ride/SLBRide_Header2.png" alt="" style="width: 100%; display: block;">
+      </section>
+
+      <section class="section ending" id="reflection">
+        <h2>Reflection</h2>
+        <div class="ending-body">
+          <p>Designing the SLB Ride application was a complex yet rewarding experience. The project involved addressing various challenges, from creating an intuitive user interface to ensuring efficient ride assignment and fleet management. One of the key takeaways from this project was the importance of user-centric design. By understanding the needs and pain points of the travel coordinators, we were able to create a solution that not only streamlined their workflow but also enhanced their overall experience.</p>
+          <p>Another significant aspect was the integration of real-time data and adaptive UI elements — providing users with up-to-date information on ride requests, vehicle availability, and trip statuses. Overall, the project reinforced the value of iterative design and continuous feedback.</p>
+          <p class="caption">Cover images from Unsplash.com</p>
+        </div>
+      </section>
+
+      <section class="cs-section">
+        <div class="cs-header">
+          <h2>More Projects</h2>
+        </div>
+        <div class="cs-grid">
+          <a href="bhoral.html" class="project-card">
+            <div class="project-card-img">
+              <img src="ProjectThumbnails/Bhoral_Thumbnail.png" alt="Bhoral project thumbnail">
+            </div>
+            <div class="project-card-info">
+              <h3>Bhoral</h3>
+              <p>Designing a folklore repository system</p>
+            </div>
+          </a>
+          <a href="bhoral_UI.html" class="project-card">
+            <div class="project-card-img">
+              <img src="ProjectThumbnails/Participatory_Thumbnail.png" alt="Participatory design project thumbnail">
+            </div>
+            <div class="project-card-info">
+              <h3>Participatory Design</h3>
+              <p>Community-centred design research</p>
+            </div>
+          </a>
+        </div>
       </section>
 
 
     </main>
+
   <script src="casestudy.js"></script>
   </body>
 </html>
