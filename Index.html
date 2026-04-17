@@ -19,10 +19,6 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=lock"
-    />
-    <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
@@ -43,6 +39,7 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+    <div class="nav-overlay"></div>
     <div class="page-container">
       <header>
         <div class="hero">
@@ -87,27 +84,32 @@
           <div class="line"></div>
           <div class="line"></div>
           <div class="content" data-target="work">
-            <span class="locked-tooltip-container">
-              <span>Work</span>
-              <span class="material-symbols-outlined">lock</span>
-              <span class="locked-tooltip"
-                >These Projects are Password Protected</span
-              >
-            </span>
-          </div>
-          <div class="line"></div>
-          <div class="content" data-target="school">
-            <span>School</span>
+            <span>Work Projects</span>
           </div>
           <div class="line"></div>
           <div class="content" data-target="personal">
-            <span>Personal</span>
+            <span>Personal Projects</span>
+          </div>
+          <div class="line"></div>
+          <div class="content" data-target="others">
+            <span>Others</span>
           </div>
           <div class="line"></div>
           <div class="line"></div>
         </div>
 
         <div class="bento bentoToggle" id="work">
+          <!-- Password overlay -->
+          <div class="work-lock-overlay" id="workLockOverlay">
+            <div class="work-lock-box">
+              <p>These projects are password protected</p>
+              <div class="work-lock-input">
+                <input type="password" id="workPassword" placeholder="Enter password" autocomplete="off" />
+                <button id="workUnlockBtn">Unlock</button>
+              </div>
+              <p class="work-lock-error" id="workLockError">Incorrect password</p>
+            </div>
+          </div>
           <div class="bento-work-1">
             <div
               class="bento-item size-1 bentoMove scroll-animate"
@@ -162,7 +164,7 @@
           </div>
         </div>
 
-        <div class="bento-grid-school bentoToggle" id="school">
+        <div class="bento-grid-school bentoToggle" id="personal">
           <div class="bento-item b1 bentoMove" data-href="bhoral_UI.html" style="cursor: pointer; background-image: url(ProjectThumbnails/Bhoral_Thumbnail.png)">
             <h2>Boral</h2>
             <p>UI Walkthough</p>
@@ -176,29 +178,30 @@
             <p>Case Study</p>
           </div>
           <div class="bento-item b3 bentoMove">
-            <h2>Uber for Women</h2>
+            <h2>Project Placeholder</h2>
           </div>
           <div class="bento-item b4 bentoMove">
             <h3>Service Ecosystem</h3>
           </div>
           <div class="bento-item b5 bentoMove">
-            <h3>Journey Mapping</h3>
+            <h3>Project Placeholder</h3>
           </div>
           <div class="bento-item b6 bentoMove">
             <h2>AR Based Chemistry Learning tool</h2>
           </div>
           <div class="bento-item b7 bentoMove">
-            <h2>Decrypto Dashboard</h2>
+            <h2>Habit Tracker</h2>
           </div>
         </div>
 
-        <div class="bento-grid-personal bentoToggle" id="personal">
+        <div class="bento-grid-personal bentoToggle" id="others">
           <div class="bento-item c1 bentoMove">
-            <h1>Exercise Tracking App</h1>
-            <button>Complete Project →</button>
+            <h1>Articles, writings and short notes</h1>
+            <p>I write about design, technology, and philosophy. Just sharing my thoughts and experiences.</p>
           </div>
           <div class="bento-item c2 bentoMove">
-            <h2>Archive : A Participatory System Design Approach</h2>
+            <h2>Movies of the month</h2>
+            <p>I am a cinephile and love writing my thoughts sometimes for movies which affects me deeply.</p>
           </div>
           <div class="bento-item c3 bentoMove">
             <h2>Uber for Women</h2>

@@ -18,11 +18,16 @@ document.querySelectorAll(".magnetic").forEach((button) => {
 // Function to open hamburger
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
+const navOverlay = document.querySelector(".nav-overlay");
 
-hamburger.addEventListener("click", () => {
+function toggleNav() {
   navLinks.classList.toggle("show");
-  console.log("Toggled show class:", navLinks.classList.contains("show"));
-});
+  hamburger.classList.toggle("active");
+  if (navOverlay) navOverlay.classList.toggle("show");
+}
+
+hamburger.addEventListener("click", toggleNav);
+if (navOverlay) navOverlay.addEventListener("click", toggleNav);
 
 // Function to apply the magnetic effect to cbrnto boxes
 document.querySelectorAll(".bentoMove").forEach((button) => {
@@ -125,3 +130,36 @@ document.querySelectorAll('.bento-item').forEach(box => {
     }, 800); // Match the duration of the CSS transition
   });
 });
+
+// Work bento password lock
+(function () {
+  const PASS = '1111';
+  const overlay = document.getElementById('workLockOverlay');
+  const input = document.getElementById('workPassword');
+  const btn = document.getElementById('workUnlockBtn');
+  const error = document.getElementById('workLockError');
+
+  if (!overlay) return;
+
+  // Check session
+  if (sessionStorage.getItem('work_unlocked') === 'true') {
+    overlay.classList.add('unlocked');
+    return;
+  }
+
+  function attempt() {
+    if (input.value === PASS) {
+      sessionStorage.setItem('work_unlocked', 'true');
+      overlay.classList.add('unlocked');
+    } else {
+      error.classList.add('visible');
+      input.value = '';
+      setTimeout(function () { error.classList.remove('visible'); }, 2000);
+    }
+  }
+
+  btn.addEventListener('click', attempt);
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') attempt();
+  });
+})();

@@ -14,29 +14,35 @@
 
   <body>
     <nav style="color: black">
-      <div class="logo">RxD</div>
+      <div class="nav-breadcrumb">
+        <a href="Index.html">Home</a> / SLB Ride
+      </div>
       <button class="hamburger" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span style="background: #333;"></span>
+        <span style="background: #333;"></span>
+        <span style="background: #333;"></span>
       </button>
       <ul class="nav-links">
-        <li><a href="#about" style="color: rgb(202, 202, 202)">About</a></li>
-        <li>
-          <a href="#portfolio" style="color: rgb(202, 202, 202)">Resume</a>
-        </li>
-        <li>
-          <a href="#contact" style="color: rgb(202, 202, 202)">Contact</a>
-        </li>
+        <li><a href="Index.html#about">About</a></li>
+        <li><a href="Index.html#portfolio">Resume</a></li>
+        <li><a href="Index.html#contact">Contact</a></li>
       </ul>
     </nav>
+    <div class="nav-overlay"></div>
 
-    <header class="breadcrumb">
-      <div class="box">
-      <a href="/">Home</a> / <a href="/case-studies">Case Studies</a> / Bhoral
-      </div>
-    </header>
+    <!-- Mobile nav (visible <=1130px) -->
+    <nav class="cs-mobilenav" id="mobilenav">
+      <a href="#overview">Overview</a>
+      <a href="#problem">Problem</a>
+      <a href="#solution">Solution</a>
+      <a href="#scope">Scope</a>
+      <a href="#uiscreens">UI Screens</a>
+      <a href="#reflection">Reflection</a>
+    </nav>
 
+    <div class="cs-layout">
+
+    <!-- Desktop side nav -->
     <nav class="scrollspy-nav" id="scrollspy">
       <a href="#overview">Overview</a>
       <a href="#problem">Problem</a>
@@ -336,6 +342,7 @@
 
 
     </main>
+    </div><!-- .cs-layout -->
 
   <script src="casestudy.js"></script>
   </body>

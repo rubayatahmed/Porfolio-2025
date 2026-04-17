@@ -80,25 +80,29 @@
 }
 
 
-/* Tablet breakpoint */
+/* Tablet and mobile breakpoint */
 @media (max-width: 784px) {
-  .bento-grid-personal {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  .c1, .c2, .c3, .c4, .c5, .c6, .c7 {
-    grid-column: span 2;
-    grid-row: span 1;
-  }
-}
-
-/* Mobile breakpoint */
-@media (max-width: 480px) {
   .bento-grid-personal {
     grid-template-columns: 1fr;
   }
 
   .c1, .c2, .c3, .c4, .c5, .c6, .c7 {
     grid-column: span 1;
+  }
+
+  .c1 {
+    aspect-ratio: 1;
+  }
+
+  .c2, .c6, .c7 {
+    aspect-ratio: 1.5;
+  }
+
+  .c3{
+    aspect-ratio: 2;
+  }
+
+  .c4, .c5 {
+    aspect-ratio: 3;
   }
 }

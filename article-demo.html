@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solving Complex Problems: The Agile Way – Rubayat Ahmed</title>
+  <link rel="stylesheet" href="navbar.css" />
+  <link rel="stylesheet" href="article.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body class="article-page">
+
+  <nav style="color: var(--text-primary);">
+    <div class="nav-breadcrumb" style="color: var(--text-muted);">
+      <a href="Index.html" style="color: var(--text-muted);">Home</a> / Article
+    </div>
+    <button class="hamburger" aria-label="Toggle navigation">
+      <span style="background: var(--text-primary);"></span>
+      <span style="background: var(--text-primary);"></span>
+      <span style="background: var(--text-primary);"></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="Index.html#about">About</a></li>
+      <li><a href="Index.html#portfolio">Resume</a></li>
+      <li><a href="Index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="nav-overlay"></div>
+
+  <!-- Mobile sticky nav (visible <=960px) -->
+  <nav class="article-mobilenav" id="mobilenav">
+    <a href="#intro">Intro</a>
+    <a href="#mindset">Mindset</a>
+    <a href="#framework">Framework</a>
+    <a href="#practice">In Practice</a>
+    <a href="#takeaway">Takeaway</a>
+  </nav>
+
+  <div class="article-layout">
+
+    <!-- Desktop side nav -->
+    <aside class="article-sidenav" id="sidenav">
+      <a href="#intro">Introduction</a>
+      <a href="#mindset">The Right Mindset</a>
+      <a href="#framework">A Lightweight Framework</a>
+      <a href="#practice">In Practice</a>
+      <a href="#takeaway">Key Takeaway</a>
+    </aside>
+
+    <main class="article-main">
+
+      <!-- Top bar: meta + likes -->
+      <div class="article-topbar">
+        <div class="article-meta">
+          <span class="date">April 2026</span>
+          <span class="reading-time">6 min read</span>
+        </div>
+        <div class="topbar-actions">
+          <button class="like-btn" id="likeBtn" aria-label="Like this article">
+            <span class="heart">&#9825;</span>
+            <span class="like-count" id="likeCount">0</span>
+          </button>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+            <span class="toggle-knob"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <h1>Solving Complex Problems: The Agile Way</h1>
+        <p class="subtitle">
+          How breaking the problem down, staying close to the user, and iterating
+          relentlessly helped our team ship better outcomes faster.
+        </p>
+      </header>
+
+      <!-- Article Body -->
+      <article class="article-body">
+
+        <h2 id="intro">Introduction</h2>
+        <p>
+          In enterprise environments, complexity is the default. You inherit legacy
+          systems, ambiguous requirements, and stakeholders with conflicting priorities.
+          The temptation is to solve everything at once — to produce the perfect spec
+          before a single pixel is placed. After several years of shipping products inside
+          large organisations, I've come to believe the opposite: the fastest path to
+          clarity is through action, not analysis.
+        </p>
+        <p>
+          This article captures the principles I keep returning to when the problem feels
+          too big to hold in my head. None of them are original — they're borrowed from
+          agile methodology, design thinking, and plain common sense. What matters isn't
+          the framework label; it's the discipline of applying them consistently.
+        </p>
+
+        <hr />
+
+        <h2 id="mindset">The Right Mindset</h2>
+        <p>
+          Before talking about process, it helps to talk about posture. Complex problems
+          punish rigidity. They reward people who can sit with ambiguity long enough to
+          let a pattern emerge, but not so long that momentum dies.
+        </p>
+
+        <blockquote>
+          "The measure of intelligence is the ability to change."
+          <cite>— Albert Einstein</cite>
+        </blockquote>
+
+        <p>
+          In practice this means starting every project by admitting what you don't know.
+          Write those unknowns down — they become your research backlog. Every sprint
+          should retire at least one unknown, either through user research, a prototype
+          test, or a technical spike. If you end a sprint with the same list of
+          uncertainties you started with, something went wrong.
+        </p>
+
+        <h3>Comfort with being wrong</h3>
+        <p>
+          The best design teams I've worked with treat early-stage concepts as disposable.
+          Wireframes are hypotheses, not commitments. When user feedback disproves a
+          hypothesis, the response should be curiosity, not defensiveness. This sounds
+          obvious written down, but in a room full of stakeholders it's surprisingly hard
+          to say "we were wrong about that, here's what we're trying next."
+        </p>
+
+        <hr />
+
+        <h2 id="framework">A Lightweight Framework</h2>
+        <p>
+          Heavyweight frameworks collapse under their own weight. The teams I've seen
+          succeed use a stripped-down loop:
+        </p>
+
+        <ol>
+          <li><strong>Frame</strong> — define the problem in one sentence. If you can't, you don't understand it yet.</li>
+          <li><strong>Explore</strong> — diverge quickly. Sketches, competitor analysis, analogous inspiration. Timebox this aggressively.</li>
+          <li><strong>Decide</strong> — converge. Pick the strongest direction and commit for one iteration.</li>
+          <li><strong>Build</strong> — make it real enough to test. Fidelity should match confidence: low confidence = low fidelity.</li>
+          <li><strong>Test</strong> — put it in front of users. Listen more than you explain.</li>
+          <li><strong>Learn</strong> — document what surprised you. Feed it back into the next Frame.</li>
+        </ol>
+
+        <blockquote>
+          "Plans are useless, but planning is indispensable."
+          <cite>— Dwight D. Eisenhower</cite>
+        </blockquote>
+
+        <p>
+          The loop takes one to two weeks. At the end of each cycle you should be able to
+          point at something concrete — a validated assumption, a discarded direction, a
+          shippable increment — and say "this is what we learned."
+        </p>
+
+        <h3>When to break the loop</h3>
+        <p>
+          Not every problem fits a neat iterative cycle. Sometimes you discover mid-sprint
+          that the framing was wrong, and the honest thing to do is restart the loop
+          early. Other times you'll get a clear signal in the first test and can skip
+          straight to building the production version. The framework is a default, not a
+          cage.
+        </p>
+
+        <hr />
+
+        <h2 id="practice">In Practice</h2>
+        <p>
+          On the SLB Ride project, the initial brief asked for a "ride-booking dashboard."
+          That framing was too broad. After two rounds of user interviews with travel
+          coordinators we reframed the problem to: <em>how might we help coordinators
+          maximise vehicle utilisation while reducing manual phone calls?</em>
+        </p>
+        <p>
+          This sharper lens eliminated half the feature backlog immediately. We didn't
+          need a full scheduling calendar; we needed a live tracking board that showed
+          available capacity at a glance. We didn't need an elaborate notification system;
+          we needed inline status indicators that made the current state obvious.
+        </p>
+
+        <blockquote>
+          "Simplicity is the ultimate sophistication."
+          <cite>— Leonardo da Vinci</cite>
+        </blockquote>
+
+        <p>
+          The first MVP shipped in six weeks. It was ugly and missing features, but it
+          replaced the whiteboard that travel coordinators had been using for years. The
+          second version, informed by three weeks of real usage data, addressed 80% of
+          the pain points. By the third iteration, adoption had spread to four additional
+          locations without any top-down mandate — people simply preferred it over the
+          old process.
+        </p>
+
+        <h3>Collaboration across verticals</h3>
+        <p>
+          One unexpected lesson was how much alignment improved when we invited
+          stakeholders into the test sessions. Watching a coordinator struggle with a
+          workflow is more persuasive than any slide deck. It shifted conversations from
+          "I think we should..." to "we saw that users need..." — a subtle but powerful
+          change in how decisions were made.
+        </p>
+
+        <hr />
+
+        <h2 id="takeaway">Key Takeaway</h2>
+        <p>
+          Complex problems don't get solved by complex processes. They get solved by
+          teams that move quickly, stay close to the people they're designing for, and
+          treat every deliverable as a step toward understanding rather than a final
+          answer.
+        </p>
+        <p>
+          If there's one habit worth building, it's this: after every sprint, ask your
+          team — what did we learn that we didn't know two weeks ago? If the answer is
+          "nothing," change something. If the answer is specific and surprising, you're
+          on the right track.
+        </p>
+
+      </article>
+
+      <footer class="article-footer">
+        <p>&copy; 2025 Rubayat Ahmed</p>
+      </footer>
+
+    </main>
+  </div>
+
+  <script>
+    // ── Like System (localStorage-backed) ──
+    // For a shared count across users, replace with a POST/GET to your API.
+    (function () {
+      const STORAGE_KEY = 'article_like_solving_complex_problems';
+      const btn = document.getElementById('likeBtn');
+      const countEl = document.getElementById('likeCount');
+
+      let state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || { liked: false, count: 12 };
+
+      function render() {
+        countEl.textContent = state.count;
+        btn.classList.toggle('liked', state.liked);
+        btn.querySelector('.heart').innerHTML = state.liked ? '&#9829;' : '&#9825;';
+      }
+
+      btn.addEventListener('click', function () {
+        state.liked = !state.liked;
+        state.count += state.liked ? 1 : -1;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        render();
+      });
+
+      render();
+    })();
+
+    // ── Scrollspy (shared between side nav & mobile nav) ──
+    (function () {
+      const sideLinks = document.querySelectorAll('.article-sidenav a');
+      const mobileLinks = document.querySelectorAll('.article-mobilenav a');
+      const allLinks = [...sideLinks, ...mobileLinks];
+
+      const sectionIds = [...new Set([...sideLinks].map(a => a.getAttribute('href').slice(1)))];
+      const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+      function onScroll() {
+        let current = 0;
+        const offset = 120;
+        sections.forEach((sec, i) => {
+          if (sec.getBoundingClientRect().top - offset <= 0) {
+            current = i;
+          }
+        });
+        allLinks.forEach(link => {
+          const href = link.getAttribute('href').slice(1);
+          link.classList.toggle('active', href === sectionIds[current]);
+        });
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    // ── Theme Toggle ──
+    (function () {
+      const THEME_KEY = 'article_theme';
+      const body = document.body;
+      const toggle = document.getElementById('themeToggle');
+
+      // Restore saved preference
+      if (localStorage.getItem(THEME_KEY) === 'light') {
+        body.classList.add('light');
+      }
+
+      toggle.addEventListener('click', function () {
+        body.classList.toggle('light');
+        localStorage.setItem(THEME_KEY, body.classList.contains('light') ? 'light' : 'dark');
+      });
+    })();
+
+    // ── Hamburger toggle (reuse from main site) ──
+    (function () {
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      const navOverlay = document.querySelector('.nav-overlay');
+
+      function toggleNav() {
+        if (navLinks) navLinks.classList.toggle('show');
+        if (hamburger) hamburger.classList.toggle('active');
+        if (navOverlay) navOverlay.classList.toggle('show');
+      }
+
+      if (hamburger) hamburger.addEventListener('click', toggleNav);
+      if (navOverlay) navOverlay.addEventListener('click', toggleNav);
+    })();
+  </script>
+
+</body>
+</html>

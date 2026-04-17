@@ -16,9 +16,12 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 
-  // Scrollspy
-  const spyLinks = document.querySelectorAll(".scrollspy-nav a");
-  const sections = Array.from(spyLinks).map((link) =>
+  // Scrollspy — drives both desktop side nav and mobile nav
+  const sideLinks = document.querySelectorAll(".scrollspy-nav a");
+  const mobileLinks = document.querySelectorAll(".cs-mobilenav a");
+  const allLinks = [...sideLinks, ...mobileLinks];
+
+  const sections = Array.from(sideLinks).map((link) =>
     document.querySelector(link.getAttribute("href"))
   );
 
@@ -31,24 +34,42 @@ document.addEventListener("DOMContentLoaded", function () {
         activeIndex = i;
       }
     });
-    spyLinks.forEach((link, i) => {
-      link.classList.toggle("active", i === activeIndex);
+    allLinks.forEach((link, i) => {
+      // Both navs have the same link order, use modulo for mobile links
+      const idx = i < sideLinks.length ? i : i - sideLinks.length;
+      link.classList.toggle("active", idx === activeIndex);
     });
   }
 
   window.addEventListener("scroll", onScrollSpy);
   window.addEventListener("resize", onScrollSpy);
-  onScrollSpy(); // Run once on page load
+  onScrollSpy();
 
-  // Show scrollspy-nav after scrolling 100px
-  const scrollspy = document.querySelector(".scrollspy-nav");
-  if (scrollspy) {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 100) {
-        scrollspy.classList.add("show-scrollspy");
-      } else {
-        scrollspy.classList.remove("show-scrollspy");
-      }
-    });
+  // Hamburger menu toggle
+  const hamburger = document.querySelector(".hamburger");
+  const navLinks = document.querySelector(".nav-links");
+  const navOverlay = document.querySelector(".nav-overlay");
+
+  function toggleNav() {
+    if (navLinks) navLinks.classList.toggle("show");
+    if (hamburger) hamburger.classList.toggle("active");
+    if (navOverlay) navOverlay.classList.toggle("show");
   }
+
+  if (hamburger) hamburger.addEventListener("click", toggleNav);
+  if (navOverlay) navOverlay.addEventListener("click", toggleNav);
+
+  // Show/hide both navs after scrolling 100px
+  const scrollspy = document.querySelector(".scrollspy-nav");
+  const mobilenav = document.querySelector(".cs-mobilenav");
+
+  window.addEventListener("scroll", () => {
+    const show = window.scrollY > 100;
+    if (scrollspy) {
+      scrollspy.classList.toggle("show-scrollspy", show);
+    }
+    if (mobilenav) {
+      mobilenav.classList.toggle("show-scrollspy", show);
+    }
+  });
 });
