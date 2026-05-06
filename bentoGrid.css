@@ -1,0 +1,117 @@
+/* ── Bento Grid — Shared Styles ── */
+
+/* Toggle visibility for tab switching */
+.bentoToggle {
+  opacity: 0;
+  height: 0;
+  padding: 0;
+  transform: scaleY(0.9) translateY(-10px);
+  transition: none;
+  pointer-events: none;
+}
+
+.bentoToggle.active {
+  opacity: 1;
+  height: auto;
+  padding: 2rem;
+  transform: scaleY(1) translateY(0);
+  transition: all 1.2s ease;
+  pointer-events: auto;
+}
+
+/* Shared grid container defaults */
+.bento-grid-work,
+.bento-grid-personal,
+.bento-grid-others {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  max-width: 1400px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Bento cell appearance */
+.bento-item {
+  background-color: #000000;
+  color: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 170%;
+  border: #ffffff0a 2.5px solid;
+}
+
+.bento-item.bentoMove {
+  transition: transform 0.05s ease-in;
+}
+
+/* Typography */
+.bento-item h1 {
+  font-size: var(--text-2xl);
+  font-weight: 100;
+}
+
+.bento-item h2 {
+  font-size: var(--text-2xl);
+  font-weight: 300;
+}
+
+.bento-item h3 {
+  font-size: var(--text-lg);
+  font-weight: 400;
+}
+
+.bento-item p {
+  margin-top: 1rem;
+  color: #575757;
+}
+
+/* CTA button inside cells */
+.bento-item button {
+  margin-top: 1rem;
+  background: none;
+  border: 1px solid #444;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: var(--text-sm);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 1130px) {
+  .bento-item h2 {
+    font-size: var(--text-xl);
+  }
+  .bento-item h3 {
+    font-size: var(--text-base);
+  }
+}
+
+@media (max-width: 480px) {
+  .bento-item {
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+
+  .bento-item h1 {
+    font-size: var(--text-xl);
+  }
+
+  .bento-item h2 {
+    font-size: var(--text-lg);
+  }
+
+  .bento-item h3 {
+    font-size: var(--text-xs);
+  }
+
+  .bento-item p {
+    font-size: var(--text-xs);
+  }
+}

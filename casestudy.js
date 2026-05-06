@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const allLinks = [...sideLinks, ...mobileLinks];
 
   const sections = Array.from(sideLinks).map((link) =>
-    document.querySelector(link.getAttribute("href"))
+    document.querySelector(link.getAttribute("href")),
   );
 
   function onScrollSpy() {
@@ -72,4 +72,33 @@ document.addEventListener("DOMContentLoaded", function () {
       mobilenav.classList.toggle("show-scrollspy", show);
     }
   });
+
+  // Carousel functionality
+  const track = document.querySelector(".carousel-track");
+  const items = Array.from(track.children);
+  const nextButton = document.querySelector(".carousel-btn.next");
+  const prevButton = document.querySelector(".carousel-btn.prev");
+
+  let currentIndex = 0;
+
+  const updateCarousel = () => {
+    items.forEach((item, index) => {
+      const offset = index - currentIndex;
+      item.style.transform = `translateX(${offset * 100}%)`;
+      item.style.visibility = "visible"; // Make all divs visible
+    });
+  };
+
+  nextButton.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % items.length;
+    updateCarousel();
+  });
+
+  prevButton.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    updateCarousel();
+  });
+
+  // Initialize carousel positions
+  updateCarousel();
 });

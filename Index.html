@@ -9,13 +9,13 @@
     />
     <title>Rubayat | UX Designer</title>
 
-    <link rel="stylesheet" href="buttonStyle.css" />
+    <link rel="stylesheet" href="typography.css" />
     <link rel="stylesheet" href="navbar.css" />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="bentoStyles.css" />
-    <link rel="stylesheet" href="bentoLayout.css" />
-    <link rel="stylesheet" href="schoolBentoGrid.css" />
-    <link rel="stylesheet" href="personalBentoGrid.css" />
+    <link rel="stylesheet" href="bentoGrid.css" />
+    <link rel="stylesheet" href="workGrid.css" />
+    <link rel="stylesheet" href="personalGrid.css" />
+    <link rel="stylesheet" href="othersGrid.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
@@ -98,7 +98,7 @@
           <div class="line"></div>
         </div>
 
-        <div class="bento bentoToggle" id="work">
+        <div class="bento-grid-work bentoToggle" id="work">
           <!-- Password overlay -->
           <div class="work-lock-overlay" id="workLockOverlay">
             <div class="work-lock-box">
@@ -110,61 +110,54 @@
               <p class="work-lock-error" id="workLockError">Incorrect password</p>
             </div>
           </div>
-          <div class="bento-work-1">
-            <div
-              class="bento-item size-1 bentoMove scroll-animate"
-              data-href="SLBRide.html"
-              style=" cursor: pointer; background-image: url(SLB_Ride/Thumbnail.png)"
-            >
-              <h1>Fleet and Trip Management Dashboard</h1>
-              <p>Case Study</p>
-            </div>
-
-            <div class="bento-work-1-1">
-              <div
-                class="bento-item size-2 bentoMove"
-                style="background-image: url(SLB_Ride/Complex_Problem.png)"
-              >
-                <h2>Solving Complex Problems : The Agile Way</h2>
-                <p>Article</p>
-              </div>
-              <div class="bento-work-1-2">
-                <div
-                  class="bento-item size-3 bentoMove"
-                  style="background-image: url(SLB_Ride/Microinteractions.png)"
-                >
-                  <h3>Micro Interactions</h3>
-                  <p>SLB Ride</p>
-                </div>
-
-                <div
-                  class="bento-item size-3 bentoMove"
-                  style="background-image: url(SLB_Ride/DriverApp.png)"
-                >
-                  <h3>Drivers App</h3>
-                  <p>SLB Ride</p>
-                </div>
-              </div>
-            </div>
+          <div
+            class="bento-item w1 bentoMove scroll-animate"
+            data-href="SLBRide.html"
+            style="cursor: pointer; background-image: url(SLB_Ride/Thumbnail.png)"
+          >
+            <h1>Fleet and Trip Management Dashboard</h1>
+            <p>Case Study</p>
           </div>
-
-          <div class="bento-work-2">
-            <div
-              class="bento-item size-4 bentoMove"
-              style="background-image: url(SLB_Ride/myGenAI.png)"
-            >
-              <h3>Making Enterprise GenAI more than a chatBot</h3>
-            </div>
-            <div class="bento-item size-4 bentoMove">
-              <h3>Digitalising SLB's Fieldwork Permit Issuing Workflow</h3>
-            </div>
-            <div class="bento-item size-4 bentoMove">
-              <h3>Setting up a Design System</h3>
-            </div>
+          <div
+            class="bento-item w2 bentoMove"
+            style="background-image: url(SLB_Ride/Complex_Problem.png)"
+          >
+            <h2>Solving Complex Problems : The Agile Way</h2>
+            <p>Article</p>
+          </div>
+          <div
+            class="bento-item w3 bentoMove"
+            style="background-image: url(SLB_Ride/Microinteractions.png)"
+          >
+            <h3>Micro Interactions</h3>
+            <p>SLB Ride</p>
+          </div>
+          <div
+            class="bento-item w4 bentoMove"
+            style="background-image: url(SLB_Ride/DriverApp.png)"
+          >
+            <h3>Drivers App</h3>
+            <p>SLB Ride</p>
+          </div>
+          <div
+            class="bento-item w5 bentoMove"
+            style="background-image: url(SLB_Ride/myGenAI.png)"
+          >
+            <h3>Making Enterprise GenAI more than a chatBot</h3>
+          </div>
+          <div
+            class="bento-item w6 bentoMove"
+            data-href="permitbuilder.html"
+            style="cursor: pointer;"
+          >
+            <h3>Digitalising SLB's Fieldwork Permit Issuing Workflow</h3>
+          </div>
+          <div class="bento-item w7 bentoMove">
+            <h3>Setting up a Design System</h3>
           </div>
         </div>
 
-        <div class="bento-grid-school bentoToggle" id="personal">
+        <div class="bento-grid-personal bentoToggle" id="personal">
           <div class="bento-item b1 bentoMove" data-href="bhoral_UI.html" style="cursor: pointer; background-image: url(ProjectThumbnails/Bhoral_Thumbnail.png)">
             <h2>Boral</h2>
             <p>UI Walkthough</p>
@@ -194,7 +187,7 @@
           </div>
         </div>
 
-        <div class="bento-grid-personal bentoToggle" id="others">
+        <div class="bento-grid-others bentoToggle" id="others">
           <div class="bento-item c1 bentoMove">
             <h1>Articles, writings and short notes</h1>
             <p>I write about design, technology, and philosophy. Just sharing my thoughts and experiences.</p>
@@ -204,20 +197,14 @@
             <p>I am a cinephile and love writing my thoughts sometimes for movies which affects me deeply.</p>
           </div>
           <div class="bento-item c3 bentoMove">
-            <h2>Uber for Women</h2>
-          </div>
-
-          <div class="bento-item c6 bentoMove">
-            <h2>AR Based Chemistry Learning tool</h2>
-          </div>
-          <div class="bento-item c7 bentoMove">
-            <h2>Decrypto Dashboard</h2>
+            <h2>Photo Carousel</h2>
           </div>
           <div class="bento-item c4 bentoMove">
-            <h3>Service Ecosystem</h3>
+            <h2>About me</h2>
+            <p>Paragraph</p>
           </div>
           <div class="bento-item c5 bentoMove">
-            <h3>Journey Mapping</h3>
+            <h2>Travel Diaries</h2>
           </div>
         </div>
       </main>

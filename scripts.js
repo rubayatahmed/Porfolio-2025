@@ -89,6 +89,7 @@ document.querySelectorAll(".separator .content").forEach((tab) => {
     tab.classList.add("active");
 
     const targetId = tab.getAttribute("data-target");
+    sessionStorage.setItem("activeTab", targetId);
     document.querySelectorAll(".bentoToggle").forEach((box) => {
       if (box.id === targetId) {
         box.classList.add("active");
@@ -99,16 +100,17 @@ document.querySelectorAll(".separator .content").forEach((tab) => {
   });
 });
 
-// Show the first bento box by default
+// Restore last active tab, or default to "work"
 document.addEventListener("DOMContentLoaded", function () {
-  const firstBox = document.querySelector(".bentoToggle#work");
-  if (firstBox) firstBox.classList.add("active");
+  const savedTab = sessionStorage.getItem("activeTab") || "work";
 
-  // Make the "Work" tab white on load
-  const workTab = document.querySelector(
-    '.separator .content[data-target="work"]'
+  const targetBox = document.querySelector(".bentoToggle#" + savedTab);
+  if (targetBox) targetBox.classList.add("active");
+
+  const targetTab = document.querySelector(
+    '.separator .content[data-target="' + savedTab + '"]'
   );
-  if (workTab) workTab.classList.add("active");
+  if (targetTab) targetTab.classList.add("active");
 });
 
 // Update event listener to target bento-boxes instead of buttons

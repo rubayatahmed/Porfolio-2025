@@ -12,12 +12,12 @@ nav {
 
 .logo {
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: var(--text-xl);
 }
 
 /* Breadcrumb inside nav (replaces logo on inner pages) */
 .nav-breadcrumb {
-  font-size: 0.8rem;
+  font-size: var(--text-xs);
   color: #888;
 }
 
@@ -95,7 +95,7 @@ nav {
   color: #222;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: var(--text-base);
   transition: color 0.2s ease;
 }
 
