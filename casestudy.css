@@ -166,7 +166,7 @@ p {
 .highlight-parallax .highlight-content {
   position: relative;
   z-index: 2;
-  max-width: 50%;
+  max-width: 75%;
 }
 
 .highlight-parallax p {
