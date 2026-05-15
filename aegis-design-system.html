@@ -213,7 +213,9 @@
             style="width: 100%; display: block"
           />
           <br />
-          <h3>Building components becomes harder when designers are the users.</h3>
+          <h3>
+            Building components becomes harder when designers are the users.
+          </h3>
           <p>
             Each component in the design system is designed with a clear
             structure and hierarchy, making it easy for teams to understand how
@@ -243,43 +245,108 @@
           />
         </section>
 
-        <div class="section" id="testing">
-          <h2>Testing and Iteration</h2>
-          <p>
-            After the initial development of the design system, I conducted
-            usability testing with internal teams to gather feedback and identify
-            areas for improvement. Based on the feedback received, I iterated on
-            the design system, making adjustments to components and documentation
-            to better meet the needs of our users.
-          </p>
+        <section class="cs-section" id="testing">
+          <div class="cs-header">
+            <h2>Testing and Iteration</h2>
+            <p>
+              After the initial development of the design system, I conducted
+              testing of the library with internal teams to gather feedback and
+              identify areas for improvement. The testing was two folded - first
+              was to test the usability and effectiveness of the design system
+              itself, and the second was to test the brand consistency accross
+              components.
+            </p>
+            <p>
+              I focused on gathering feedback on the following aspects:
+            </p>
+          </div>
+          <div class="cs-grid">
+            <div class="cs-cell">
+              <h3>Library Usability</h3>
+              <div>
+                <div class="solution">
+                  <p>1. Was it easy to find the components you needed?</p>
+                </div>
+                <div class="solution">
+                  <p>2. Did you feel the need to detach components? Why?</p>
+                </div>
+                <div class="solution">
+                  <p>3. Were component variants sufficient (sizes, states, and other properties)?</p>
+                </div>
+                <div class="solution">
+                  <p>4. Did components behave as expected (Auto layout, constraints)?</p> 
+                </div>  
+              </div>
+            </div>
 
-        </div>
+            <div class="cs-cell">
+              <h3>Brand Consistency</h3>
+              <div>
+                <div class="solution">
+                  <p>1. Did the components feel consistent with the overall brand identity?</p>
+                </div>
+                <div class="solution">
+                  <p>2. Were there any components that felt out of place or inconsistent with the rest of the library?</p>
+                </div>
+                <div class="solution">
+                  <p>3. Did the dark mode properly correspond to the light mode?</p>
+                </div>
+              </div>
+          </div>
+        </section>
 
-        <div class="section" id="impact">
-          <h2>Impact and Future Plans</h2>
-          <p>
-            The implementation of the Aegis Design System has led to a
-            significant improvement in the consistency and efficiency of our
-            design and development processes. Teams have reported a reduction in
-            time spent on design and development tasks, as well as an increase in
-            the overall quality of our digital products. Moving forward, I plan
-            to continue iterating on the design system based on user feedback and
-            evolving needs, as well as exploring opportunities for expanding the
-            system to include additional components and features.
-          </p>
+        <div class="cs-section" id="impact">
+          <div class="cs-header">
+            <h2>Impact</h2>
+            <p>
+              The implementation of the Aegis Design System has led to a
+              significant improvement in the consistency and efficiency of our
+              design and development processes. Teams have reported a reduction in
+              time spent on design and development tasks, as well as an increase
+              in the overall quality of our digital products.
+            </p>
+            <p>
+              Even the usage of the library has surpassed our product teams design system.
+            </p>
+            <img
+              src="DesignSystem/analytics.png"
+              alt=""
+              style="width: 100%; display: block"
+             />
+          </div>
+          <div class="cs-grid">
+            <div class="cs-cell">
+              <p>
+                Dipesh Says
+              </p>
+              <div class="emphasised-text" style="height:fit-content;">
+                <h2>The design system has been a game-changer for our team, setting up a project without worrying about brand colors and standards is such a relief</h2>
+              </div>
+            </div>
+            <div class="cs-cell">
+              <p>
+                Daniela Says
+              </p>
+              <div class="emphasised-text" style="height:fit-content;">
+                <h2>It has saved us countless time and effort, specially the darkmode implementation. Most of the time, we don't have to worry about consistency anymore.</h2>
+              </div>
+            </div>
+          </div>
         </div>
 
         <section class="section" id="reflection">
           <h2>Reflection</h2>
           <p>
-            Building a design system is a complex and ongoing process that
-            requires a deep understanding of both design principles and the needs
-            of users. Through this project, I have gained valuable insights into
-            the importance of consistency, scalability, and user-centered design
-            in creating effective design systems. I have also learned the value of
-            collaboration and iteration in the design process, as well as the
-            importance of clear documentation and guidelines for ensuring the
-            successful adoption of a design system across teams.
+          Building a design system is an evolving process that goes far beyond creating reusable components and tokens. This project helped me understand how to think at a systems level — designing not just a library, but the underlying structure that drives consistency, scalability, and usability across products.
+          </p>
+          <p>
+          Working on the library also gave me a deeper appreciation for how systematic Figma infrastructure is. Features like variables, tokens, and component properties create a strong bridge between design and development, making design decisions more structured, transferable, and implementation-friendly.
+          </p>
+          <p>
+          I also see increasing long-term value in design systems alongside AI-assisted workflows. As interfaces become more dynamically generated, structured systems, semantic tokens, and reusable patterns will become even more critical in ensuring consistency and quality at scale.
+          </p>
+          <p>
+          Hence, I am also exploring integrating the design system with Storybook through Code Connect to strengthen the connection between design artifacts and production-ready components, which will bring even more value for agentic workflows.
           </p>
         </section>
       </main>

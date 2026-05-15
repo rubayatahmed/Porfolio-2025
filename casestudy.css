@@ -370,9 +370,9 @@ p {
 .cs-cell {
   display: flex;
   flex-direction: column;
+  border-bottom: 1px solid #e0e0e0;
   gap: 1rem;
   padding: 2rem;
-  border-bottom: 1px solid #e0e0e0;
   aspect-ratio: 1 / 1;
   overflow: hidden;
 }
@@ -477,6 +477,13 @@ p {
   line-height: 1.2;
   color: #111;
 }
+.emphasised-text h2 {
+  font-size: var(--text-2xl);
+  color: #000000;
+  font-style: italic;
+}
+
+
 /* Responsive Adjustments */
 @media (max-width: 1130px) {
   .scrollspy-nav {
@@ -640,10 +647,13 @@ p {
   }
   .cs-grid {
     grid-template-columns: 1fr;
+    border: none;
   }
   .cs-cell {
     gap: 0.5rem;
     padding: 1rem;
+    aspect-ratio: auto;
+    border: none;
   }
   .cs-cell:nth-child(odd) {
     border-right: none;
@@ -686,5 +696,9 @@ p {
     flex-direction: column;
     gap: 0;
     padding: 0;
+  }
+
+  .emphasised-text {
+  width: 90%;
   }
 }

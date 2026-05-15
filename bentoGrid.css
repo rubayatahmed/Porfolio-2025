@@ -49,24 +49,19 @@
   transition: transform 0.05s ease-in;
 }
 
-/* Typography */
-.bento-item h1 {
-  font-size: var(--text-2xl);
-  font-weight: 100;
-}
 
 .bento-item h2 {
-  font-size: var(--text-2xl);
+  font-size: var(--text-xl);
   font-weight: 300;
 }
 
 .bento-item h3 {
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
   font-weight: 400;
 }
 
 .bento-item p {
-  margin-top: 1rem;
+  margin-top: .5rem;
   color: #575757;
 }
 
@@ -86,7 +81,7 @@
 
 @media (max-width: 1130px) {
   .bento-item h2 {
-    font-size: var(--text-xl);
+    font-size: var(--text-base);
   }
   .bento-item h3 {
     font-size: var(--text-base);
@@ -94,24 +89,24 @@
 }
 
 @media (max-width: 480px) {
+  .bentoToggle.active {
+    padding: 1rem;
+  }
   .bento-item {
     border-radius: 1rem;
     padding: 1rem;
   }
 
-  .bento-item h1 {
-    font-size: var(--text-xl);
-  }
 
   .bento-item h2 {
     font-size: var(--text-lg);
   }
 
   .bento-item h3 {
-    font-size: var(--text-xs);
+    font-size: var(--text-lg);
   }
 
   .bento-item p {
-    font-size: var(--text-xs);
+    font-size: var(--text-sm);
   }
 }
