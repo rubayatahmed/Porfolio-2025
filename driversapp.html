@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drivers' App</title>
+    <link rel="stylesheet" href="typography.css" />
+    <link rel="stylesheet" href="casestudy.css" />
+    <link rel="stylesheet" href="navbar.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav style="color: black">
+      <div class="nav-breadcrumb">
+        <a href="Index.html">Home</a> / Aegis Design System
+      </div>
+      <button class="hamburger" aria-label="Toggle navigation">
+        <span style="background: #333"></span>
+        <span style="background: #333"></span>
+        <span style="background: #333"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="Index.html#about">About</a></li>
+        <li><a href="Index.html#portfolio">Resume</a></li>
+        <li><a href="Index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-overlay"></div>
+
+    <!-- Mobile nav (visible <=1130px) -->
+    <nav class="cs-mobilenav" id="mobilenav">
+      <a href="#overview">Overview</a>
+      <a href="#problem">Problem</a>
+      <a href="#process">Process</a>
+      <a href="#scope">Scope</a>
+      <a href="#testing">Testing</a>
+      <a href="#reflection">Reflection</a>
+    </nav>
+
+    <div class="cs-layout">
+      <!-- Desktop side nav -->
+      <nav class="scrollspy-nav" id="scrollspy">
+        <a href="#overview">Overview</a>
+        <a href="#requirement">Requirement</a>
+        <a href="#understanding">Understanding</a>
+        <a href="#solution">Solution</a>
+        <a href="#reflection">Reflection</a>
+      </nav>
+
+      <main class="container"  style="padding-bottom: 25vh;">
+        <section class="section overview" id="overview">
+          <div class="overview-grid">
+            <div class="overview-left">
+              <h3>Drivers' App for Trip management</h3>
+              <br />
+              <p>
+                Mobile application design for SLB drivers to view and manage
+                their trips, access important information, and communicate with
+                passengers.
+              </p>
+            </div>
+
+            <aside
+              class="overview-right"
+              aria-labelledby="project-meta-heading"
+            >
+              <h4 id="project-meta-heading" class="sr-only">Project details</h4>
+              <ul class="project-meta">
+                <li><strong>Category:</strong>Work Prroductivity Project</li>
+                <li><strong>Year:</strong> 2024</li>
+                <li>
+                  <strong>Expertise:</strong>Interaction Design, Interface Design, Prototyping, Ergonomics
+                </li>
+                <li><strong>Area:</strong>Mobility, Transportation</li>
+              </ul>
+            </aside>
+          </div>
+        </section>
+
+        <section class="highlight-parallax">
+          <div
+            class="highlight-bg"
+            style="background-image: url(Driverspp/Hero.webp)"
+          ></div>
+          <div class="highlight-content">
+            <h1 id="featured" style="color: aliceblue">
+              Designing for affordance
+            </h1>
+            <p></p>
+          </div>
+        </section>
+
+        <section class="section" id="requirement">
+          <h2>Requirement</h2>
+          <p>
+            A mobile application for contract based cab drivers, to help communicate ride details and track live status. This is a part of a <a href="SLBRide.html" class="external-link" target="_blank" rel="noopener noreferrer">bigger system for in-house fleet management.
+              <svg class="external-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M14 3h7v7h-2V6.41l-9.29 9.3-1.41-1.42 9.3-9.29H14V3z"/>
+                <path fill="currentColor" d="M5 5h5V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5h-2v5H5V5z"/>
+              </svg></a>
+          </p>
+          <p>
+            The app will be used by proffessional drivers who are already familiar with using mobile apps for navigation and communication, so the design should be intuitive and easy to use, with a focus on providing clear and concise information about the ride details and status.
+          </p>
+          <p>
+            The primary goal is to communicate clearly the multiple pickup/drops of combined trips, and to provide real time updates on the ride status, so that it can be tracked by admins primarily.
+          </p>
+        </section>
+
+        <div class="cs-section" id="understanding">
+          <div class="cs-header">
+            <h2>Understanding silent user needs</h2>
+            <p>
+              A fleet-driver app operates in a high cognitive load + high risk environment, where the user is <b>constantly moving, has limited attention, interacts in bursts of 1–2 seconds, often uses one hand, works under stress/time pressure, and depends on continuous situational awareness.</b>
+            </p>
+            <p>
+              In such cases these 2 UX Principles becomes non negotiable -
+            </p>
+          </div>
+          <div class="cs-grid">
+            <div class="cs-cell">
+              <h3>
+                State-Based UI
+              </h3>
+              <p>
+                Driver apps are mostly finite-state systems. Good system shows only the information needed for the current state. Use Progressive Disclosure to show information only when needed. For example, during the trip, the app should primarily show the navigation and ride details, while other features like settings or support should be easily accessible but not in the primary view.
+              </p>
+              <p style="font-size: var(--text-sm);"><a href="https://developer.android.com/design/ui/cars/guides/foundations/design-principles" class="external-link" target="_blank" rel="noopener noreferrer">Android Automotive Design Principles
+                <svg class="external-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path fill="currentColor" d="M14 3h7v7h-2V6.41l-9.29 9.3-1.41-1.42 9.3-9.29H14V3z"/>
+                  <path fill="currentColor" d="M5 5h5V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5h-2v5H5V5z"/>
+                </svg></a></p>
+              <p style="font-size: var(--text-sm);"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0268401219300969" class="external-link" target="_blank" rel="noopener noreferrer">Mobile apps and employee behavior: An empirical investigation of the implementation of a fleet-management app
+                <svg class="external-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path fill="currentColor" d="M14 3h7v7h-2V6.41l-9.29 9.3-1.41-1.42 9.3-9.29H14V3z"/>
+                  <path fill="currentColor" d="M5 5h5V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5h-2v5H5V5z"/>
+                </svg></a></p>
+              
+            </div>
+            <div class="cs-cell">
+              <h3>
+                Glanceability
+              </h3>
+                <p>
+                The app should be designed to be glanceable, with clear and concise information that can be easily understood at a glance. Use of color, typography, and iconography must help to communicate important information quickly and effectively. The interface must be understandable within ~1 second glances.
+                </p>
+                <p style="font-size: var(--text-sm);"><a href="https://www.sciencedirect.com/science/article/abs/pii/S1071581920301099" class="external-link" target="_blank" rel="noopener noreferrer">Drivers’ acceptance of mobile navigation applications: An extended technology acceptance model considering drivers’ sense of direction, navigation application affinity and distraction perception
+                  <svg class="external-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path fill="currentColor" d="M14 3h7v7h-2V6.41l-9.29 9.3-1.41-1.42 9.3-9.29H14V3z"/>
+                    <path fill="currentColor" d="M5 5h5V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5h-2v5H5V5z"/>
+                  </svg></a></p>
+                <p style="font-size: var(--text-sm);"> <a href="https://developer.tomtom.com/tomtom-design-system/en/design-guidelines/design-for-driving-guidelines" class="external-link" target="_blank" rel="noopener noreferrer">TomTom Design for Driving Guidelines
+                  <svg class="external-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path fill="currentColor" d="M14 3h7v7h-2V6.41l-9.29 9.3-1.41-1.42 9.3-9.29H14V3z"/>
+                    <path fill="currentColor" d="M5 5h5V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5h-2v5H5V5z"/>
+                  </svg></a></p>
+            </div>
+          </div>
+        </div>
+
+        <section class="highlight-parallax">
+          <div
+            class="highlight-bg"
+            style="background-image: url(Driverspp/State-Aware.webp)"
+          ></div>
+          <div class="highlight-content">
+            <h1 id="featured" style="color: aliceblue">
+              State-aware interfaces designed for split-second understanding.
+            </h1>
+            <p></p>
+          </div>
+        </section>
+
+        <div class="section" id="solution">
+            <h2>Solution Overview</h2>
+            <p>
+              The requirements were mostly simple but the design has to be very intuitive and clear, adheering to the principles of glanceability and state-based UI. There were few limitations in terms of technology -
+            </p>  
+            <div class="solution">
+             <p>No live navigation on the app, user need to go to their default map app and use navigation there.</p>
+             <p>2</p>
+             <p>3</p>
+            </div>
+            
+            <p>similarly there were few assumptions made about the user's context and behavior, based on our discussions with stakeholders -</p>
+            <div class="solution">
+             <p>Users are familiar with using mobile apps for navigation and communication</p>
+             <p>Users will use the app while driving, while the phone is mounted on the dashboard</p>
+             <p>Users will primarily use the app for checking ride details and communicating with passengers, rather than for navigation.</p>
+            <p>
+              In such cases these 2 UX Principles becomes non negotiable -
+            </p>
+          </div>
+          <p>Now let’s see how we integrated these principles in out solution. we will discuss this through the 2 states of the UI, which are <b>Idle State</b> and <b>Driving State</b></p>
+        </div>
+
+        <div class="cs-section">
+          <div class="cs-header">
+            <h3>Idle State</h3>
+            <p>
+              Idle state means when there is no active trip which can be assumed as the vehicle is at rest and the driver is in calm state to go through the details of the upcoming rides. Hence in this state the UI is bit more detailed.</b>
+            </p>
+          </div>
+          <div class="cs-grid">
+            <div class="cs-cell">
+              <p>Home Screen</p>
+              <img src="Driverspp/UI1.webp" alt="">
+              
+            </div>
+            <div class="cs-cell">
+              <p>Trip Detail View</p>
+              <img src="Driverspp/UI2.webp" alt="">
+            </div>
+          </div>
+          <div class="cs-header">
+            <h3>Driving State</h3>
+            <p>
+              In contrast to the idle state, driving state demands, less attention. A driver’s focus belongs on the road — the UI should respect that. Hence we changed the trip cards designs to show less information if an ongoing trip detected.</b>
+            </p>
+          </div>
+          <div class="cs-grid">
+            <div class="cs-cell">
+              <p>Home Screen</p>
+              <img src="Driverspp/UI6.png" alt="">
+              
+            </div>
+            <div class="cs-cell">
+              <p>Ongiong Trip View</p>
+              <img src="Driverspp/UI5.png" alt="">
+            </div>
+          </div>
+        </div>
+
+        <section class="highlight-parallax">
+          <div
+            class="highlight-bg"
+            style="background-image: url(Driverspp/Trust.webp)"
+          ></div>
+          <div class="highlight-content">
+            <h1 id="featured" style="color: aliceblue">
+              Predictable interactions that build trust.
+            </h1>
+            <p></p>
+          </div>
+        </section>
+
+        <section class="section">
+            <div class="emphasised-text" style="height:fit-content;">
+                <h2>Drivers should never misinterpret interaction possibilities & visual cues while moving.</h2>
+            </div>
+            <p>
+                The design should ensure that all interactive elements are clearly distinguishable and that the user can easily understand what actions are possible at any given moment. This is crucial for building trust with the users, as they need to feel confident that they can interact with the app safely while driving. For example, buttons should be large enough to be easily tapped, and important information should be prominently displayed to avoid any confusion or misinterpretation.
+            </p>
+
+            <p>Here is a list of key design implications:</p>
+
+            <div class="solution">
+                <p>Swipe action buttons feel directional</p>
+                <p>Buttons look tappable, having a primary colour always</p>
+                <p>Pickup related supplementary information(Colorful Icons) shown at their relevant pickup time and drop time</p>
+                <p>Pickup and drop with number of passengers are consistent with green and red semantic color everywhere</p>
+            </div>
+        </section>
+
+        <section class="simple-dual-col" style="border-top: 0px;">
+            <div class="col">
+            <img src="Driverspp/UI3.png" alt="Pop ups">
+            </div>
+            <div class="col">
+            <img src="Driverspp/UI4.png" alt="Driver add screen">
+            </div>
+        </section>
+
+        <div class="section" style="border-top: 0px;">
+            <p> 
+                 After the first pilot, we observed another issue: the “Call” and “View All Stops” actions were positioned too close to each other, leading to unintended taps. While the spacing may seem sufficient by standard UI guidelines, in our context—where users are often in motion and distracted—this proximity becomes a critical usability concern.
+            </p>
+        </div>
+
+        <section class="simple-dual-col" style="border-top: 0px;">
+            <div class="col">
+            <img src="Driverspp/TapAreaPrePilot.png" alt="Pop ups">
+            </div>
+            <div class="col">
+            <img src="Driverspp/TapAreaPostPilot.png" alt="Driver add screen">
+            </div>
+        </section>
+
+        
+        <section class="section">
+            <div class="emphasised-text" style="height:fit-content;">
+                <h2>Only the right information, at the right moment.</h2>
+            </div>
+            <p>
+                The trip cards have small variations based on the states, to keep the cognitive load low. For trips that are scheduled for today, date is redundant information to display, instead we decided to show ETA and Trips duration for upcoming and completed trips respectively. Sometimes reading time can take more mental load rather that how many hours left to the trip.
+            </p>
+            <p>Similarly when ongoing trip is there, the card compresses and hide the locations. User can still click and see the details. But during driving, the most important thing for a driver would be to see when the next trip.
+                
+            </p>
+        </section>
+
+        <section class="simple-dual-col" style="border-top: 0px;">
+            <div class="col">
+            <img src="Driverspp/UI7.png" alt="Pop ups">
+            </div>
+            <div class="col">
+            <img src="Driverspp/UI8.png" alt="Driver add screen">
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="emphasised-text" style="height:fit-content;">
+                <h2>On the other hand the trip details page has all the necessary informations.</h2>
+            </div>
+            
+            <img
+                src="Driverspp/UI9.png"
+                alt=""
+                style="width: 100%; display: block"
+            />
+            <p>
+                 The trip details page is designed to provide comprehensive information about the trip, including pickup and drop-off locations, passenger details, and any special instructions. This allows drivers to have all the necessary information at their fingertips when they need it, without overwhelming them with too much information on the main screen.
+            </p>
+        </section>
+
+
+        <section class="section" id="reflection">
+        <h2>Reflection</h2>
+        
+        <div class="ending-body">
+          <div class="emphasised-text" style="height:fit-content;">
+            <h1>This project reinforced how critical experiences demand interfaces where affordances adapt to the user’s context, state, and attention.</h1>
+          </div>
+          <p>Working on this project constantly reinforced the idea of putting myself in the driver’s shoes. Every design decision was shaped by the real-world constraints drivers face every day, pushing me to continuously rethink interactions through the lens of their context, attention, and safety.</p>
+          <p>However, I also recognize that the lack of primary user research and usability testing limited the depth of insights and opportunities for refinement. Nevertheless, I see this project as a valuable learning experience that strengthened my understanding of designing for critical, context-driven mobility experiences.</p>
+          <br>
+          <p class="caption">Cover images are from Unsplash.com</p>
+          <p class="caption">Content on the UI screens have been changed to maintain confidentiality.</p>
+        </div>
+      </section>
+
+      <section class="cs-section">
+        <div class="cs-header">
+          <h2>More Projects</h2>
+        </div>
+        <div class="cs-grid">
+          <a href="bhoral.html" class="project-card">
+            <div class="project-card-img">
+              <img src="ProjectThumbnails/Bhoral_Thumbnail.png" alt="Bhoral project thumbnail">
+            </div>
+            <div class="project-card-info">
+              <h3>Bhoral</h3>
+              <p>Designing a folklore repository system</p>
+            </div>
+          </a>
+          <a href="bhoral_UI.html" class="project-card">
+            <div class="project-card-img">
+              <img src="ProjectThumbnails/Participatory_Thumbnail.png" alt="Participatory design project thumbnail">
+            </div>
+            <div class="project-card-info">
+              <h3>Participatory Design</h3>
+              <p>Community-centred design research</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+        
+
+
+
+
+
+
+
+
+      </main>
+
+      <script src="casestudy.js"></script>
+    </div>
+    <!-- .cs-layout -->
+
+  </body>
+</html>

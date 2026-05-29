@@ -398,6 +398,34 @@ p {
   gap: 1.5rem;
 }
 
+/* External link with icon (used in case study pages) */
+.external-link {
+  display: inline;
+  color: #709dc4; /* muted gray */
+  text-decoration: none;
+  transition: color 120ms ease-in-out;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+.external-link .external-icon {
+  width: 0.95em;
+  height: 0.95em;
+  display: inline-block;
+  vertical-align: text-bottom;
+  margin-left: 0.25em;
+  color: inherit;
+  fill: currentColor;
+  transition: transform 120ms ease-in-out, color 120ms ease-in-out;
+}
+.external-link:hover,
+.external-link:focus {
+  color: #495057; /* slightly darker on hover */
+}
+.external-link:hover .external-icon,
+.external-link:focus .external-icon {
+  transform: translateX(0.2em);
+}
+
 .ending-body {
   display: flex;
   flex-direction: column;
@@ -483,7 +511,6 @@ p {
   font-style: italic;
 }
 
-
 /* Responsive Adjustments */
 @media (max-width: 1130px) {
   .scrollspy-nav {
@@ -559,9 +586,9 @@ p {
     padding: 1rem;
     border: none;
   }
-  .section {
+  /* .section {
     min-height: 75vh;
-  }
+  } */
 
   .dual-col-related {
     border-top: none;
@@ -699,6 +726,6 @@ p {
   }
 
   .emphasised-text {
-  width: 90%;
+    width: 90%;
   }
 }
