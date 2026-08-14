@@ -108,23 +108,31 @@ document.addEventListener("DOMContentLoaded", function () {
   if (targetBox) targetBox.classList.add("active");
 
   const targetTab = document.querySelector(
-    '.separator .content[data-target="' + savedTab + '"]'
+    '.separator .content[data-target="' + savedTab + '"]',
   );
   if (targetTab) targetTab.classList.add("active");
 });
 
 // Update event listener to target bento-boxes instead of buttons
-document.querySelectorAll('.bento-item').forEach(box => {
-  box.addEventListener('click', function (event) {
+document.querySelectorAll(".bento-item").forEach((box) => {
+  box.addEventListener("click", function (event) {
     event.preventDefault(); // Prevent default behavior if any
 
     // Get the target URL from a data attribute
-    const targetUrl = this.getAttribute('data-href');
+    const targetUrl = this.getAttribute("data-href");
     if (!targetUrl) return; // Exit if no URL is set
 
-    // Add the active class to trigger the animation
-    const overlay = document.querySelector('.wipe-overlay');
-    overlay.classList.add('active');
+    const overlay = document.querySelector(".wipe-overlay");
+
+    if (/^https?:\/\//i.test(targetUrl)) {
+      // Open external links in a new tab without leaving the overlay active
+      window.open(targetUrl, "_blank");
+      if (overlay) overlay.classList.remove("active");
+      return;
+    }
+
+    // Add the active class to trigger the animation for internal navigation
+    if (overlay) overlay.classList.add("active");
 
     // Wait for the animation to complete, then navigate
     setTimeout(() => {
@@ -135,33 +143,35 @@ document.querySelectorAll('.bento-item').forEach(box => {
 
 // Work bento password lock
 (function () {
-  const PASS = '1111';
-  const overlay = document.getElementById('workLockOverlay');
-  const input = document.getElementById('workPassword');
-  const btn = document.getElementById('workUnlockBtn');
-  const error = document.getElementById('workLockError');
+  const PASS = "1111";
+  const overlay = document.getElementById("workLockOverlay");
+  const input = document.getElementById("workPassword");
+  const btn = document.getElementById("workUnlockBtn");
+  const error = document.getElementById("workLockError");
 
   if (!overlay) return;
 
   // Check session
-  if (sessionStorage.getItem('work_unlocked') === 'true') {
-    overlay.classList.add('unlocked');
+  if (sessionStorage.getItem("work_unlocked") === "true") {
+    overlay.classList.add("unlocked");
     return;
   }
 
   function attempt() {
     if (input.value === PASS) {
-      sessionStorage.setItem('work_unlocked', 'true');
-      overlay.classList.add('unlocked');
+      sessionStorage.setItem("work_unlocked", "true");
+      overlay.classList.add("unlocked");
     } else {
-      error.classList.add('visible');
-      input.value = '';
-      setTimeout(function () { error.classList.remove('visible'); }, 2000);
+      error.classList.add("visible");
+      input.value = "";
+      setTimeout(function () {
+        error.classList.remove("visible");
+      }, 2000);
     }
   }
 
-  btn.addEventListener('click', attempt);
-  input.addEventListener('keydown', function (e) {
-    if (e.key === 'Enter') attempt();
+  btn.addEventListener("click", attempt);
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") attempt();
   });
 })();

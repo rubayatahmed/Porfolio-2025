@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="typography.css" />
+    <link rel="stylesheet" href="casestudy.css" />
+    <link rel="stylesheet" href="navbar.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav style="color: black">
+      <div class="nav-breadcrumb">
+        <a href="Index.html">Home</a> / Habit Tracker
+      </div>
+      <button class="hamburger" aria-label="Toggle navigation">
+        <span style="background: #333"></span>
+        <span style="background: #333"></span>
+        <span style="background: #333"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="Index.html#about">About</a></li>
+        <li><a href="Index.html#portfolio">Resume</a></li>
+        <li><a href="Index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-overlay"></div>
+
+    <!-- Mobile nav (visible <=1130px) -->
+    <nav class="cs-mobilenav" id="mobilenav">
+      <a href="#overview">Overview</a>
+      <a href="#problem">Problem</a>
+      <a href="#process">Process</a>
+      <a href="#scope">Scope</a>
+      <a href="#testing">Testing</a>
+      <a href="#reflection">Reflection</a>
+    </nav>
+
+    <div class="cs-layout">
+      <!-- Desktop side nav -->
+      <nav class="scrollspy-nav" id="scrollspy">
+        <a href="#overview">Overview</a>
+        <a href="#requirement">Requirement</a>
+        <a href="#understanding">Understanding</a>
+        <a href="#solution">Solution</a>
+        <a href="#reflection">Reflection</a>
+      </nav>
+
+      <main class="container"  style="padding-bottom: 25vh;">
+        <div class="cs-topbar">
+          <div class="cs-meta">
+            <span class="date">April 2026</span>
+            <span class="reading-time">5 min read</span>
+          </div>
+          <div class="topbar-actions">
+            <button class="like-btn" id="likeBtn" aria-label="Like this case study">
+              <span class="heart">&#9825;</span>
+              <span class="like-count" id="likeCount">0</span>
+            </button>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+              <span class="toggle-knob"></span>
+            </button>
+          </div>
+        </div>
+        <section class="section overview" id="overview">
+          <div class="overview-grid">
+            <div class="overview-left">
+              <h3>Habit Tracker and Visualiser</h3>
+              <br />
+              <p>
+                An exploration into designing a habit tracking and visualisation system and building it using claude.
+              </p>
+            </div>
+
+            <aside
+              class="overview-right"
+              aria-labelledby="project-meta-heading"
+            >
+              <h4 id="project-meta-heading" class="sr-only">Project details</h4>
+              <ul class="project-meta">
+                <li><strong>Category:</strong>Prroductivity Project</li>
+                <li><strong>Year:</strong> 2026</li>
+                <li
+                  <strong>Expertise:</strong>Interaction Design, Prototyping, Data Visualization, Vibe Coding
+                </li>
+                <li><strong>Area:</strong>Productivity, Health & Wellness</li>
+              </ul>
+            </aside>
+          </div>
+        </section>
+
+        <img src="Habittracker/HomePageDefault.png" alt="" style="width: 100%; display: block" />
+
+        <!-- <section class="highlight-parallax" id="introduction">
+          <div
+            class="highlight-bg"
+            style="background-image: url(Habittracker/heroHt.webp)"
+          ></div>
+          <div class="highlight-content">
+            <h2 id="featured" style="color: aliceblue">
+              If you’ve ever tracked your habits consistently, you probably know that strangely satisfying feeling of looking back at a calendar full of completed days.
+            </h2>
+            <p></p>
+          </div>
+        </section> -->
+
+        <section class="section" id="context">
+          <h2>Context</h2>
+          <div class="emphasised-text" style="height:fit-content;">
+              <h2>If you’ve ever tracked your habits consistently, you probably know that strangely satisfying feeling of looking back at a calendar full of completed days</h2>
+          </div>
+          <p>
+            I have been tracking my habits with notion calendar templates, it has been great to be honest, I like seeing it on calendar. I noticed that most habit trackers focus heavily on streaks and gamification, while my own workflow relied more on visual consistency and reflection through calendar logging in Notion. 
+          </p>
+          <img src="Habittracker/Notion.png" alt="">
+          <p>
+            But over time, I started to feel the friction of notion interactions, I know it’s a great tool and admire the design, but to do a specific task regularly it felt somewhat overwhelming. Also the visualisation aspects was pretty limited having less scope for customisation. Which led to me to this project.
+          </p>
+        </section>
+
+        <section class="section" id="personal-choices">
+          <h2>Personal Choices</h2>
+          <p>
+            I recognize that there is significant potential to explore habit formation through behavioral psychology, gamification, rewards, accountability systems, and other behavior-driven approaches. However, I intentionally chose to constrain the scope of this project to a specific design direction.
+            </p>
+          <div class="emphasised-text" style="height:fit-content;">
+                <h2>My goal was to build a habit tracker around the calendar as the primary organizing principle.</h2>
+            </div>
+          <p>
+            Similar to how Uber is built around a map, Airbnb is built around location-based discovery, Figma is built around an infinite canvas, Trello is built around boards and cards, Notion is built around blocks, and Spotify is built around collections of playlists and libraries, this product is centered on the calendar. The calendar is not just a feature—it is the foundation upon which the entire experience is built.
+          </p>
+        </section>
+
+        <section class="section" id="assumptions">
+          <h2>A few Assumptions</h2>
+          <p>
+            To keep the project focused, I made several assumptions based on some existing research and my own experience with habit tracking. 
+          </p>
+          <div>
+            <div class="solution">
+              <p>
+                1. Users derive value from seeing their progress over time, and visual self-monitoring can support continued awareness and engagement.
+              </p>
+              <p style="font-size: var(--text-sm);"><a href="https://www.microsoft.com/en-us/research/publication/timeaware-leveraging-framing-effects-enhance-personal-productivity/?locale=zh-cn" class="external-link" target="_blank" rel="noopener noreferrer">A study on self-monitoring systems found that visual feedback an...
+                <svg class="external-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path fill="currentColor" d="M14 3h7v7h-2V6.41l-9.29 9.3-1.41-1.42 9.3-9.29H14V3z"/>
+                  <path fill="currentColor" d="M5 5h5V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5h-2v5H5V5z"/>
+                </svg></a></p>
+            </div>
+            <div class="solution">
+              <p>
+                2. Calendar-based interfaces are familiar to most users and are effective for identifying temporal patterns, trends, and gaps in behavior over time.
+              </p>
+              <p style="font-size: var(--text-sm);"><a href="https://www.microsoft.com/en-us/research/publication/datelens-a-fisheye-calendar-interface-for-pdas/" class="external-link" target="_blank" rel="noopener noreferrer">Microsoft's DateLens research found that calendar-based visualiza...
+                <svg class="external-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path fill="currentColor" d="M14 3h7v7h-2V6.41l-9.29 9.3-1.41-1.42 9.3-9.29H14V3z"/>
+                  <path fill="currentColor" d="M5 5h5V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5h-2v5H5V5z"/>
+                </svg></a></p>
+            </div>
+            <div class="solution">
+              <p>
+                3. Reflection and awareness are more valuable for this concept than gamification, streaks, rewards, or competitive mechanics.
+              </p>
+              <p style="font-size: var(--text-sm);"><a href="https://journals.asm.org/doi/10.1128/jmbe.00103-23" class="external-link" target="_blank" rel="noopener noreferrer">Studies on reflective systems show that increased self-awarenes...
+                <svg class="external-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path fill="currentColor" d="M14 3h7v7h-2V6.41l-9.29 9.3-1.41-1.42 9.3-9.29H14V3z"/>
+                  <path fill="currentColor" d="M5 5h5V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5h-2v5H5V5z"/>
+                </svg></a></p>
+            </div>
+            <div class="solution">
+                <p>4. Users primarily want to answer a simple question: "How consistently have I shown up over time?"</p>
+            </div>
+            <div class="solution">
+                <p>5. Users are already motivated to track habits and do not require extensive behavioral interventions to get started.</p>
+            </div>
+            <div class="solution">
+                <p>6. To limit the project's scope, I assumed users would be comfortable using a desktop-first experience. While habit tracking is commonly associated with mobile devices, the objective of this project was to explore the calendar interaction model rather than optimize for mobile usage.</p>
+            </div>
+            
+          </div>
+        </section>
+
+        <section class="highlight-parallax" id="solution">
+          <div
+            class="highlight-bg"
+            style="background-image: url(Habittracker/heroHt.webp)"
+          ></div>
+          <div class="highlight-content">
+            <h1 id="featured" style="color: aliceblue">
+              Quantifying hobbies
+            </h1>
+            <p></p>
+          </div>
+        </section>
+
+        <div class="cs-section" id="the_input">
+          <div class="cs-header">
+            <h2>The Input</h2>
+            <br />
+            <div class="emphasised-text" style="height:fit-content;">
+                <h2>To make behavior visible, it first had to become measurable.</h2>
+            </div>
+            <br />
+            <p>
+             So we needed a way to quantify everyday behavior. I was already doing it in notion using various input fields, but the problem with notion was that the fields were too vanila so I put together five primary inputs that can accommodate almost all types of hobbies. 
+            </p>
+            <div class="solution">
+                <p>Checkboxes, Numerical Inputs, Slider(Percentage), Rating and Dropdown Values</p>
+            </div>
+          </div>
+
+          <div class="cs-grid" style="border: 0px;">
+            <div class="cs-cell" style="border: 0px;">
+              <img src="Habittracker/newHobby.webp" alt="">
+              
+            </div>
+            <div class="cs-cell" style="border: 0px;">
+              <img src="Habittracker/hobbyFilled.webp" alt="">
+            </div>
+
+            <div class="cs-cell" style="border: 0px;"> 
+              <img src="Habittracker/newHobbyGym.webp" alt="">
+              
+            </div>
+            <div class="cs-cell" style="border: 0px;">
+              <img src="Habittracker/editHobby.webp" alt="">
+            </div>
+            <div class="cs-cell" style="border: 0px; justify-content: center;">
+              <h3>Additional Notes</h3>
+              <p>
+                I also added a seperate note section apart from the hobbies, which can be used to add any additional information about the hobby or the day.
+              </p>
+              <p>
+                Idea is to fetch this texts fo AI summarization and provide a summary of the week or a specific period.
+              </p>
+            </div>
+            <div class="cs-cell" style="border: 0px;">
+              <img src="Habittracker/note.webp" alt="">
+            </div>
+          </div>  
+        </div>
+
+        <section class="section" id="the_calendar">
+          <h2>The Calendar</h2>
+          <p>
+            The calendar is the core of the habit tracking experience, providing a visual representation of the user's progress over time. Each day is represented by a card that displays the logging status and allows for quick interactions.
+          </p>
+          
+          <img
+            src="Habittracker/OnlyCalendarMonthly.webp"
+            alt=""
+            style="width: 100%; display: block"
+          />
+            
+          <img
+                src="Habittracker/DayCards.png"
+                alt=""
+                style="width: 100%; display: block"
+          />
+          <p>Carefully designed day cards on the calender view not only acts as interaction touchpoint but shows the logging status.</p>
+          
+          <h3>Monthly, Quarterly & Yearly Views</h3>
+          <p>
+           The calender view is designed to provide users with multiple perspectives on their habit tracking data. The monthly view offers a detailed look at daily logging, while the quarterly and yearly views provide a broader overview of trends and patterns over time. This multi-level approach might not be usefull while logging information but it came from the visualisation purpose.
+          </p>
+          <p>Here are the Quarterly and Yearly Views:</p>
+          <img
+            src="Habittracker/OnlyCalendarQuarterly.webp"
+            alt=""
+            style="width: 100%; display: block"
+             />
+          <img
+            src="Habittracker/OnlyCalendarYearly.webp"
+            alt=""
+            style="width: 100%; display: block"
+          />
+          <p>
+            The default calender on it's own visualises the logging status, but It can do much more than this if we combine the habit data and show it meaningfully. For example how many days I had sketched last month, what was my average working hours in the last quarter, how many days I had a good sleep in the last year. This is where the visualisation comes into play. 
+          </p>
+          <p>
+            This feature has been highly insprired by Github's contribution chart, which shows the contribution of a user over the year in a calender heatmap. I wanted to do something similar but with more flexibility and customisation.
+          </p>
+          <img
+            src="Habittracker/Github.png"
+            alt=""
+            style="width: 100%; display: block"
+          />
+          <p>
+            Now, let's see how the visualisation works and look like in the next section.
+          </p>
+        </section>
+
+        <section class="cs-section" id="the_visualisation">
+          <div class="cs-header">
+              <h2>The Visualisation</h2>
+              <div class="emphasised-text" style="height:fit-content;">
+                <h1>The value of visualization lies not in showing data, but in helping people discover what they couldn't easily see before</h1>
+              </div>
+              <h3>The Overview Panel</h3>
+              <p>The Overview panel provides a comprehensive view of the user's habit tracking data, It summarizes key metrices like days logged, streaks, and completion rates, average values, max-min values for all the hobbies that the user has tracked. Based on the type of the hobby the key matrices also vary. For example a graph for discrete values or a percentage bar for binary values.</p>
+              <p>The overview panel represent the calender period so if you change it to a different time frame, you will see the corresponding data. Along with it the top header displays a quick summary of the user's progress.</p>            
+              <img src="Habittracker/HomePageOverviewPanel.png" alt="" style="width: 100%; display: block" />
+              <video src="Habittracker/VisCalendar.mov" autoplay loop muted playsinline style="width: 100%; display: block"></video>
+          </div>
+          <div class="cs-grid" style="border: 0px;">
+            <div class="cs-cell" style="border: 0px; justify-content: center;">
+              <h3>Translating numbers into the calendar</h3>
+              <p>
+                the 5 types of inputs that I have mentioned earlier can be visualised in the calender in 3 ways, One is by showing two colors for binary values, second is by showing a seperate color for each discrete value for the dropdown values and lastly a increasing color intensity for the percentage values, numbers and ratings. This way the user can easily see the progress of a specific hobby in the calender view.
+              </p>
+            </div>
+            <div class="cs-cell" style="border: 0px;">
+              <img src="Habittracker/VisTypes1.png" alt="">
+            </div>
+            <div class="cs-cell" style="border: 0px;">
+              <img src="Habittracker/VisTypes2.png" alt="">
+            </div>
+            <div class="cs-cell" style="border: 0px;">
+              <img src="Habittracker/VisTypes3.png" alt="">
+            </div>
+            
+          </div>
+          <div class="cs-header">
+            <h2>Trends, Insights and Meanings</h2>
+            <p>
+              Another layer of direct insights has also been provided for each hobbies which take up the top header space and provide intelligent analysis of the hobby's progress over the selected time frame. This is a simple way to provide insights to users who loves to see the numbers and trends but don't want to go through the hassle of analysing the data themselves.
+            </p>
+            <img src="Habittracker/TIM.png" alt="" style="width: 100%; display: block" />
+            <br>
+            <p>
+              Combining all of these features together, the habit tracker and visualiser provides a comprehensive and flexible solution for tracking and visualising habits over time. Here is a quick overview of the entire visualisation product.
+            </p>
+            <br
+          </div>
+          
+        </section>
+
+        <img src="Habittracker/MockupIpad.webp" alt="" style="width: 100%; display: block" />
+
+        <!-- <img src="Habittracker/15.png" alt="" style="width: 100%; display: block" />
+        <img src="Habittracker/16.png" alt="" style="width: 100%; display: block" />
+        <img src="Habittracker/18.png" alt="" style="width: 100%; display: block" /> -->
+
+        <section class="section" id="reflection">
+        <h2>Reflection</h2>
+        
+        <div class="ending-body">
+          <div class="emphasised-text" style="height:fit-content;">
+            <h1>Interactive data visualisation with meaningful insights can create magic.</h1>
+          </div>
+          <img src="Habittracker/Mockup.png" alt="" style="width: 100%; display: block" />
+          <p>This project pushed me to think critically about how data can be presented in a way that is not only informative but also engaging and actionable.</p>
+          <p>I see a great potential of this approach of data centric habit tracking. Hence continueing this work and developing it further using spec-driven development framework. Once the coded prototype is ready I'll move to the next phase of designing which will be focused on making it mobile first and accessible thorugh various input integrations such as whatsapp, smartwatch and more. Also the gamification elements can be of great help to consider.</p>
+          <br>
+          
+          <p class="caption">Cover images are from Unsplash.com</p>
+          <p class="caption">Content on the UI screens have been changed to maintain confidentiality.</p>
+        </div>
+        
+        </section>
+
+        
+
+      <section class="cs-section" id="more-projects">
+        <div class="cs-header">
+          <h2>More Projects</h2>
+        </div>
+        <div class="cs-grid">
+          <a href="bhoral.html" class="project-card">
+            <div class="project-card-img">
+              <img src="ProjectThumbnails/Bhoral_Thumbnail.png" alt="Bhoral project thumbnail">
+            </div>
+            <div class="project-card-info">
+              <h3>Bhoral</h3>
+              <p>Designing a folklore repository system</p>
+            </div>
+          </a>
+          <a href="bhoral_UI.html" class="project-card">
+            <div class="project-card-img">
+              <img src="ProjectThumbnails/Participatory_Thumbnail.png" alt="Participatory design project thumbnail">
+            </div>
+            <div class="project-card-info">
+              <h3>Participatory Design</h3>
+              <p>Community-centred design research</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+        
+
+
+
+
+
+
+
+
+      </main>
+
+      <script src="casestudy.js"></script>
+    </div>
+    <!-- .cs-layout -->
+
+  </body>
+</html>

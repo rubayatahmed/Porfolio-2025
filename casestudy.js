@@ -73,6 +73,53 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Theme toggle support for case study pages
+  const THEME_KEY = "casestudy_theme";
+  const body = document.body;
+  const themeToggle = document.getElementById("themeToggle");
+
+  if (localStorage.getItem(THEME_KEY) === "dark") {
+    body.classList.add("dark");
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      body.classList.toggle("dark");
+      localStorage.setItem(
+        THEME_KEY,
+        body.classList.contains("dark") ? "dark" : "light",
+      );
+    });
+  }
+
+  const likeBtn = document.getElementById("likeBtn");
+  const likeCount = document.getElementById("likeCount");
+  const LIKE_KEY = "casestudy_like_count";
+  const LIKE_ACTIVE_KEY = "casestudy_liked";
+  let likes = parseInt(localStorage.getItem(LIKE_KEY) || "0", 10);
+  const liked = localStorage.getItem(LIKE_ACTIVE_KEY) === "true";
+
+  if (likeBtn && likeCount) {
+    likeCount.textContent = likes;
+    if (liked) {
+      likeBtn.classList.add("liked");
+    }
+
+    likeBtn.addEventListener("click", () => {
+      if (likeBtn.classList.contains("liked")) {
+        likes = Math.max(0, likes - 1);
+        likeBtn.classList.remove("liked");
+        localStorage.setItem(LIKE_ACTIVE_KEY, "false");
+      } else {
+        likes += 1;
+        likeBtn.classList.add("liked");
+        localStorage.setItem(LIKE_ACTIVE_KEY, "true");
+      }
+      likeCount.textContent = likes;
+      localStorage.setItem(LIKE_KEY, likes);
+    });
+  }
+
   // Carousel functionality
   const track = document.querySelector(".carousel-track");
   const items = Array.from(track.children);

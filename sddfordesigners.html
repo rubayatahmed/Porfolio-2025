@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Designers in Spec Driven Development</title>
+    <link rel="stylesheet" href="typography.css" />
+    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="article.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="article-page">
+    <nav style="color: var(--text-primary)">
+      <div class="nav-breadcrumb" style="color: var(--text-muted)">
+        <a href="Index.html" style="color: var(--text-muted)">Home</a> / Article
+      </div>
+      <button class="hamburger" aria-label="Toggle navigation">
+        <span style="background: var(--text-primary)"></span>
+        <span style="background: var(--text-primary)"></span>
+        <span style="background: var(--text-primary)"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="Index.html#about">About</a></li>
+        <li><a href="Index.html#portfolio">Resume</a></li>
+        <li><a href="Index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-overlay"></div>
+
+    <!-- Mobile sticky nav (visible <=960px) -->
+    <nav class="article-mobilenav" id="mobilenav">
+      <a href="#intro">Intro</a>
+      <a href="#mindset">Mindset</a>
+      <a href="#framework">Framework</a>
+      <a href="#practice">In Practice</a>
+      <a href="#takeaway">Takeaway</a>
+    </nav>
+
+    <div class="article-layout">
+      <!-- Desktop side nav -->
+      <aside class="article-sidenav" id="sidenav">
+        <a href="#intro">Introduction</a>
+        <a href="#sdd">The SDD Framework</a>
+        <a href="#shift">The Inevitable Shift</a>
+        <a href="#conclusion">Conclusion</a>
+      </aside>
+
+      <main class="article-main">
+        <!-- Top bar: meta + likes -->
+        <div class="article-topbar">
+          <div class="article-meta">
+            <span class="date">May 2026</span>
+            <span class="reading-time">10 min read</span>
+          </div>
+          <div class="topbar-actions">
+            <button
+              class="like-btn"
+              id="likeBtn"
+              aria-label="Like this article"
+            >
+              <span class="heart">&#9825;</span>
+              <span class="like-count" id="likeCount"></span>
+            </button>
+            <button
+              class="theme-toggle"
+              id="themeToggle"
+              aria-label="Toggle light/dark mode"
+            >
+              <span class="toggle-knob"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Article Header -->
+        <header class="article-header">
+          <h1>Designers in Spec Driven Development</h1>
+          <p class="subtitle">
+            Exploring the role of designers in a specification-driven agentic
+            development framework.
+          </p>
+        </header>
+
+        <!-- Article Body -->
+        <article class="article-body">
+          <h2 id="intro">Introduction</h2>
+          <p>
+            With Spec‑Driven Development at the agentic forefront, it may appear
+            that designers no longer have a significant role—especially in
+            organizations with a mature, full‑fledged design system. This
+            assumption is partially true if we look only at the traditional
+            deliverables of designers today. In an SDD paradigm, designers no
+            longer merely hand off mockups or prototypes. Instead, they
+            co‑author the specification, which becomes the single source of
+            truth for the product. The designer’s responsibility shifts toward
+            expressing design intent with greater precision — encoding user
+            behavior, UI state changes, and system reactions in a way that is
+            unambiguous and machine‑understandable.
+          </p>
+          <p>
+            This is the shift I explore in this article: designers must learn a
+            new declarative language—an amalgamation of user behavior and UI
+            response. The former is something designers already excel at. The
+            latter represents a new kind of deliverable, one that bridges design
+            thinking and system logic. Far from diminishing the designer’s role,
+            Spec‑Driven Development elevates it—moving designers closer to the
+            core of how software is conceived, specified, and built.
+          </p>
+
+          <hr />
+
+          <h2 id="sdd">What is SDD?</h2>
+          <p>
+            For decades, software architecture has operated under a largely
+            unchallenged assumption that code is the ultimate authority.
+            Architecture diagrams, design documents, interface contracts, and
+            requirement specifications all existed to guide implementation.
+            Because code was the hardest thing to do, to change and maintain
+            that took much effort. SDD inverts this relationship entirely.   The
+            problems with vibe coding or coding in natural language led to a
+            more structured way of maintaining memory around prompts and product
+            specification. One such approach is what Github launched last year
+            was Spec Driven Development. As the name suggest it is a Agentic
+            Software Development approach but driven completely by Specs or
+            Specifications. These specs are nothing but detailed guidelines,
+            product documentations, user stories, task lists, and all the
+            necessary processes that any developer or architect in a team
+            follows in the SDLC, just that it is documented in a way that
+            becomes a directive principles for the agents. When something is
+            asked to it, instead of going haywire or hallucinating it refers to
+            these specs and stay in a defined process or boundary.
+          </p>
+
+          <blockquote>
+            The specification becomes the authoritative definition of system
+            reality, and implementations are continuously derived, validated,
+            and, when necessary, regenerated to conform to that specification
+          </blockquote>
+
+          <p>
+            SDD’s can be implemented in any of your agentic code editor, upon
+            installing, you need to describe your project(a PRD would be
+            better), set some universal guidelines(which is called Constitution)
+            and start it. It has 5 steps or 5 commands, each command does one
+            job of a person or a team. These steps are,
+          </p>
+
+          <img src="ArticleFIles/Steps.png" alt="" />
+
+          <p>
+            As you can see Designers still have a seat at the table, but it has
+            evolved. Let’s discuss that in detail now…
+          </p>
+
+          <hr />
+
+          <h2 id="shift">How does it change our way of working</h2>
+          <p>
+            So How does it impact us? Articulating your designs to AI in a more
+            logical and machine understandable natural language, will unlock a
+            superpower for designer. You are now in a position to impact the
+            final product rather transferring your intent to a developer to
+            build, which not only remove the developer handoff frictions, it
+            might end it completely. There will be nothing to handoff. That’s
+            where the deliverables changes, and your process to deliver those
+            artefacts changes as well. For example a small card content loading
+            animation. You as designer have designed the component, animated the
+            actions and behaviours, Then you demoed it to the developer and he
+            understands the intent and behaviour and implement the UI in code.
+            Today, this intent can be understood by the LLMs in a second, it
+            just need the context and details. You give that in a language which
+            is amalgamation of the user behaviour and UI behaviour. And Bingo!
+            All the friction and effort in between goes away. Preserving Intent
+            in an Automated Architecture like SDD becomes a necessity. All that
+            matters in the more context it gets the more accurate it will be.
+            There are three context giving method for any design to development
+            process exits at presence.
+          </p>
+
+          <img src="ArticleFIles/Methods.png" alt="" />
+          The output of the system relies on a Foundational Context
+          Infrastructure Layer (codebase, design system, and documentation)
+          combined with Interaction Context (user prompts, visuals, and actual
+          designs) to generate accurate outputs. This is a one-time setup that
+          persists across the project and acts as a shared source of truth. It
+          establishes consistent design principles, component structures, and
+          implementation constraints across all features and screens. In
+          contrast, Interaction Context is provided at the time of use. This
+          includes prompts, visuals references, and design inputs (such as Figma
+          MCP). It adds task-specific detail and helps the AI generate outputs
+          tailored to a particular screen, flow, or interaction. In practice,
+          designers should combine these methods to express context more
+          effectively, as all of them has their own strengths and weaknesses.
+          <hr />
+
+          <h2 id="conclusion">The age of well crafted softwares</h2>
+          <p>
+            Problems still needs to be defined. Experience still needs to be
+            designed. These two things are the core and the surface, what in
+            between them will be handled by AI. The problem that you are solving
+            will come from the real world where AI still can’t reach as of now,
+            and the solution which also will be used by the real world always
+            need cater to real humans, where quality is still a non negotiable,
+            even users expectations will increase, as the benchmark of software
+            build by Agents has already reached a good level. Be it taking care
+            of consistency, accessibility guidelines, standard UX patterns,
+            visual hierarchy — all these are taken care by the AI to a
+            acceptable level so that you can focus on bringing more creative,
+            more intuitive, more personalised designs on the table. You will
+            bring good taste, better user understanding, and innovative
+            interface logics. That’s how as designer we need to uplift what AI
+            is already doing. And by doing so we’ll move towards the
+            desirability factor to our softwares. 
+          </p>
+          <p>
+            Problems still needs to be defined. Experience still needs to be
+            designed. These two things are the core and the surface, what in
+            between them will be handled by AI. The problem that you are solving
+            will come from the real world where AI still can’t reach as of now,
+            and the solution which also will be used by the real world always
+            need cater to real humans, where quality is still a non negotiable,
+            even users expectations will increase, as the benchmark of software
+            build by Agents has already reached a good level. Be it taking care
+            of consistency, accessibility guidelines, standard UX patterns,
+            visual hierarchy — all these are taken care by the AI to a
+            acceptable level so that you can focus on bringing more creative,
+            more intuitive, more personalised designs on the table. You will
+            bring good taste, better user understanding, and innovative
+            interface logics. That’s how as designer we need to uplift what AI
+            is already doing. And by doing so we’ll move towards the
+            desirability factor to our softwares.
+          </p>
+
+          <blockquote>
+            SDD imposes a superior role to humans which is to use our cognitive
+            abilities to govern how softwares are made. 
+          </blockquote>
+
+          <p>
+            The traditional craft of
+            software engineering will move towards a more abstract layer which
+            the machines can’t really own. And here the tastes of designers will
+            play a vital role in shaping the experiences of users. In a world
+            where everyone can build decent softwares, the value of well crafted
+            softwares will always keep increasing. And this has to come from
+            minds that continuously get inspired, innovate and brings
+            personality to their craft.
+          </p>
+        </article>
+
+        <footer class="article-footer">
+          <p>&copy; 2025 Rubayat Ahmed</p>
+        </footer>
+      </main>
+    </div>
+
+    <script>
+      // ── Like System (localStorage-backed) ──
+      // For a shared count across users, replace with a POST/GET to your API.
+      (function () {
+        const STORAGE_KEY = "article_like_solving_complex_problems";
+        const btn = document.getElementById("likeBtn");
+        const countEl = document.getElementById("likeCount");
+
+        let state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+          liked: false,
+          count: 12,
+        };
+
+        function render() {
+          countEl.textContent = state.count;
+          btn.classList.toggle("liked", state.liked);
+          btn.querySelector(".heart").innerHTML = state.liked
+            ? "&#9829;"
+            : "&#9825;";
+        }
+
+        btn.addEventListener("click", function () {
+          state.liked = !state.liked;
+          state.count += state.liked ? 1 : -1;
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+          render();
+        });
+
+        render();
+      })();
+
+      // ── Scrollspy (shared between side nav & mobile nav) ──
+      (function () {
+        const sideLinks = document.querySelectorAll(".article-sidenav a");
+        const mobileLinks = document.querySelectorAll(".article-mobilenav a");
+        const allLinks = [...sideLinks, ...mobileLinks];
+
+        const sectionIds = [
+          ...new Set(
+            [...sideLinks].map((a) => a.getAttribute("href").slice(1)),
+          ),
+        ];
+        const sections = sectionIds
+          .map((id) => document.getElementById(id))
+          .filter(Boolean);
+
+        function onScroll() {
+          let current = 0;
+          const offset = 120;
+          sections.forEach((sec, i) => {
+            if (sec.getBoundingClientRect().top - offset <= 0) {
+              current = i;
+            }
+          });
+          allLinks.forEach((link) => {
+            const href = link.getAttribute("href").slice(1);
+            link.classList.toggle("active", href === sectionIds[current]);
+          });
+        }
+
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+      })();
+
+      // ── Theme Toggle ──
+      (function () {
+        const THEME_KEY = "article_theme";
+        const body = document.body;
+        const toggle = document.getElementById("themeToggle");
+
+        // Restore saved preference
+        if (localStorage.getItem(THEME_KEY) === "light") {
+          body.classList.add("light");
+        }
+
+        toggle.addEventListener("click", function () {
+          body.classList.toggle("light");
+          localStorage.setItem(
+            THEME_KEY,
+            body.classList.contains("light") ? "light" : "dark",
+          );
+        });
+      })();
+
+      // ── Hamburger toggle (reuse from main site) ──
+      (function () {
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+        const navOverlay = document.querySelector(".nav-overlay");
+
+        function toggleNav() {
+          if (navLinks) navLinks.classList.toggle("show");
+          if (hamburger) hamburger.classList.toggle("active");
+          if (navOverlay) navOverlay.classList.toggle("show");
+        }
+
+        if (hamburger) hamburger.addEventListener("click", toggleNav);
+        if (navOverlay) navOverlay.addEventListener("click", toggleNav);
+      })();
+    </script>
+  </body>
+</html>
