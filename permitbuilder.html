@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,18 +15,17 @@
 
   <body>
     <nav style="color: black">
-      <div class="nav-breadcrumb">
-        <a href="Index.html">Home</a> / SLB Ride
-      </div>
+      <div class="nav-breadcrumb"><a href="Index.html">Home</a> / SLB Ride</div>
       <button class="hamburger" aria-label="Toggle navigation">
-        <span style="background: #333;"></span>
-        <span style="background: #333;"></span>
-        <span style="background: #333;"></span>
+        <span style="background: #333"></span>
+        <span style="background: #333"></span>
+        <span style="background: #333"></span>
       </button>
       <ul class="nav-links">
-        <li><a href="Index.html#about">About</a></li>
-        <li><a href="Index.html#portfolio">Resume</a></li>
-        <li><a href="Index.html#contact">Contact</a></li>
+        <li><a href="Index.html#home">Home</a></li>
+        <li><a href="Index.html#work">Work</a></li>
+        <li><a href="Index.html#personal">Personal</a></li>
+        <li><a href="Index.html#others">About</a></li>
       </ul>
     </nav>
     <div class="nav-overlay"></div>
@@ -42,257 +41,438 @@
     </nav>
 
     <div class="cs-layout">
+      <!-- Desktop side nav -->
+      <nav class="scrollspy-nav" id="scrollspy">
+        <a href="#overview">Overview</a>
+        <a href="#problem">Problem</a>
+        <a href="#solution">Solution</a>
+        <a href="#reflection">Reflection</a>
+      </nav>
 
-    <!-- Desktop side nav -->
-    <nav class="scrollspy-nav" id="scrollspy">
-      <a href="#overview">Overview</a>
-      <a href="#problem">Problem</a>
-      <a href="#solution">Solution</a>
-      <a href="#reflection">Reflection</a>
-    </nav>
-
-    <main class="container" style="padding-bottom: 25vh;">
-      <div class="cs-topbar">
-        <div class="cs-meta">
-          <span class="date">April 2026</span>
-          <span class="reading-time">5 min read</span>
+      <main class="container" style="padding-bottom: 25vh">
+        <div class="cs-topbar">
+          <div class="cs-meta">
+            <span class="date">April 2026</span>
+            <span class="reading-time">5 min read</span>
+          </div>
+          <div class="topbar-actions">
+            <button
+              class="like-btn"
+              id="likeBtn"
+              aria-label="Like this case study"
+            >
+              <span class="heart">&#9825;</span>
+              <span class="like-count" id="likeCount">0</span>
+            </button>
+            <button
+              class="theme-toggle"
+              id="themeToggle"
+              aria-label="Toggle dark/light mode"
+            >
+              <span class="toggle-knob"></span>
+            </button>
+          </div>
         </div>
-        <div class="topbar-actions">
-          <button class="like-btn" id="likeBtn" aria-label="Like this case study">
-            <span class="heart">&#9825;</span>
-            <span class="like-count" id="likeCount">0</span>
-          </button>
-          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
-            <span class="toggle-knob"></span>
-          </button>
-        </div>
-      </div>
 
-      <section class="section overview" id="overview">
-        <div class="overview-grid">
-          <div class="overview-left">
-            <h3>Permit to Work - Digitalisation</h3>
-            <br>
+        <section class="section overview" id="overview">
+          <div class="overview-grid">
+            <div class="overview-left">
+              <h3>Permit to Work - Digitalisation</h3>
+              <br />
+              <p>
+                Digitalising the process of permit to work issuance for the
+                fieldwork teams of SLB to ensure safety and compliance while
+                improving efficiency and transparency.
+              </p>
+            </div>
+
+            <aside
+              class="overview-right"
+              aria-labelledby="project-meta-heading"
+            >
+              <h4 id="project-meta-heading" class="sr-only">Project details</h4>
+              <ul class="project-meta">
+                <li><strong>Category:</strong>Work Project</li>
+                <li><strong>Year:</strong> 2024</li>
+                <li>
+                  <strong>Expertise:</strong>Interface Design, Responsive Design
+                </li>
+                <li><strong>Area:</strong>Digital Form, Workflow Automation</li>
+              </ul>
+            </aside>
+          </div>
+        </section>
+
+        <section class="highlight-parallax">
+          <div
+            class="highlight-bg"
+            style="background-image: url(PermitBuilder/Hero_PermitBUilder.webp)"
+          ></div>
+          <div class="highlight-content">
+            <h1 id="featured" style="color: aliceblue">
+              For better safety, and safer environment
+            </h1>
+          </div>
+        </section>
+
+        <section class="section" id="problem">
+          <h2>Understanding the Problem</h2>
+          <p>
+            In safety-critical environments, all field activities such as
+            installation, repair, or maintenance require formal permits to
+            ensure worker and environmental safety. At SLB, this process was
+            historically managed through manual workflows involving physical
+            forms, supervisor consultations, and multiple approval layers.
+          </p>
+
+          <p>It creates many problems -</p>
+          <div>
+            <div class="problem">
+              <p>1. More time consumption</p>
+            </div>
+            <div class="problem">
+              <p>2. Higher chances of human error</p>
+            </div>
+            <div class="problem">
+              <p>3. Displacement or missing documents</p>
+            </div>
+            <div class="problem">
+              <p>4. Redundant data filling in physical forms</p>
+            </div>
+            <div class="problem">
+              <p>
+                5. Effort to organise these forms and send to relevent places
+              </p>
+            </div>
+            <div class="problem">
+              <p>6. less scope of writing assistance for workers</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Problem Statement</h2>
+          <h3>
+            Users face delays and friction due to generic, step-heavy permit
+            workflows. The goal is to create a streamlined digital experience
+            that adapts to the specific permit type, reducing redundant inputs
+            and approval bottlenecks.
+          </h3>
+        </section>
+
+        <img
+          src="PermitBuilder/Design_overview_permitHolder.webp"
+          alt=""
+          style="width: 100%; display: block"
+        />
+
+        <section class="cs-section" id="solution">
+          <div class="cs-header">
+            <h2>Solution Overview</h2>
             <p>
-              Digitalising the process of permit to work issuance for the fieldwork teams of SLB to ensure safety and compliance while improving efficiency and transparency.
+              The manual workflow was transformed into a step-based digital
+              experience that progressively reveals information, reducing
+              cognitive load. Key elements—form fields, on-ground safety checks,
+              attachments, interlinked permits, and approval flows—were unified
+              into a cohesive system. This allowed users to build a complete
+              mental model of the permit before submission, while giving
+              administrators real-time visibility and control over the process.
+            </p>
+
+            <p>The key design implementations were:</p>
+          </div>
+          <div class="cs-grid">
+            <div class="cs-cell">
+              <h3>Restructuring the form</h3>
+              <p>
+                The form was restructured to reduce cognitive load and improve
+                the user experience.
+              </p>
+              <img src="PermitBuilder/1.png" alt="" />
+            </div>
+            <div class="cs-cell">
+              <h3>Transparent Approval Process</h3>
+              <p>
+                The visibility into the approval process allowed users to track
+                the status of their permit requests in real-time.
+              </p>
+              <img src="PermitBuilder/2.png" alt="" />
+            </div>
+            <div class="cs-cell">
+              <h3>Mobile Responsive Design</h3>
+              <p>
+                Ensuring the application provides an optimal user experience
+                across all devices specially mobile devices.
+              </p>
+              <img src="PermitBuilder/4.png" alt="" />
+            </div>
+          </div>
+        </section>
+
+        <section class="highlight-parallax">
+          <div
+            class="highlight-bg"
+            style="background-image: url(PermitBuilder/Form_sectionHeader.webp)"
+          ></div>
+          <div class="highlight-content">
+            <h1 id="featured" style="color: aliceblue">
+              Digitisation vs Digitalisation
+            </h1>
+            <p>
+              The Permit restructuring was a transformative process, not just a
+              translation of the existing form into digital format. It involved
+              rethinking the entire user journey and redesigning the interface
+              to better suit the needs of the users and the context of use.
             </p>
           </div>
+        </section>
 
-          <aside class="overview-right" aria-labelledby="project-meta-heading">
-            <h4 id="project-meta-heading" class="sr-only">Project details</h4>
-            <ul class="project-meta">
-              <li><strong>Category:</strong>Work Project</li>
-              <li><strong>Year:</strong> 2024</li>
-              <li>
-                <strong>Expertise:</strong>Interface Design, Responsive Design
-              </li>
-              <li><strong>Area:</strong>Digital Form, Workflow Automation</li>
-            </ul>
-          </aside>
-        </div>
-      </section>
-
-      <section class="highlight-parallax">
-        <div class="highlight-bg" style="background-image: url(PermitBuilder/Hero_PermitBUilder.webp);"></div>
-        <div class="highlight-content">
-          <h1 id="featured" style="color: aliceblue;">For better safety, and safer environment
-          </h1>
-        </div>
-      </section>
-
-      <section class="section" id="problem">
-        <h2>Understanding the Problem</h2>
-        <p>In safety-critical environments, all field activities such as installation, repair, or maintenance require formal permits to ensure worker and environmental safety. At SLB, this process was historically managed through manual workflows involving physical forms, supervisor consultations, and multiple approval layers.</p>
-
-        <p>It creates many problems - </p>
-        <div>
-            <div class="problem">
-            <p>1. More time consumption</p>
-            </div>
-            <div class="problem">
-            <p>2. Higher chances of human error</p>
-            </div>
-            <div class="problem">
-            <p>3. Displacement or missing documents</p>
-            </div>
-            <div class="problem">
-            <p>4. Redundant data filling in physical forms</p>
-            </div>
-            <div class="problem">
-            <p>5. Effort to organise these forms and send to relevent places</p>
-            </div>
-            <div class="problem">
-            <p>6. less scope of writing assistance for workers</p>
-            </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>Problem Statement</h2>
-        <h3>Users face delays and friction due to generic, step-heavy permit workflows. The goal is to create a streamlined digital experience that adapts to the specific permit type, reducing redundant inputs and approval bottlenecks. </h3>
-      </section>
-
-            <img src="PermitBuilder/Design_overview_permitHolder.webp" alt="" style="width: 100%; display: block;">
-
-      <section class="cs-section" id="solution">
-        <div class="cs-header">
-          <h2>Solution Overview</h2>
-          <p>The manual workflow was transformed into a step-based digital experience that progressively reveals information, reducing cognitive load. Key elements—form fields, on-ground safety checks, attachments, interlinked permits, and approval flows—were unified into a cohesive system. This allowed users to build a complete mental model of the permit before submission, while giving administrators real-time visibility and control over the process.</p>
-
-          <p> The key design implementations were:</p> 
-        </div>
-        <div class="cs-grid">
-          <div class="cs-cell">
-            <h3>Restructuring the form</h3>
-            <p>The form was restructured to reduce cognitive load and improve the user experience.</p>
-            <img src="PermitBuilder/1.png" alt="">
-          </div>
-          <div class="cs-cell">
-            <h3>Transparent Approval Process</h3>
-            <p>The visibility into the approval process allowed users to track the status of their permit requests in real-time.</p>
-            <img src="PermitBuilder/2.png" alt="">
-          </div>
-          <div class="cs-cell">
-            <h3>Mobile Responsive Design</h3>
-            <p>Ensuring the application provides an optimal user experience across all devices specially mobile devices.</p>
-            <img src="PermitBuilder/4.png" alt="">
-          </div>
-        </div>
-      </section>
-
-      <section class="highlight-parallax">
-        <div class="highlight-bg" style="background-image: url(PermitBuilder/Form_sectionHeader.webp);"></div>
-        <div class="highlight-content">
-          <h1 id="featured" style="color: aliceblue;">Digitisation vs Digitalisation</h1>
-          <p>The Permit restructuring was a transformative process, not just a translation of the existing form into digital format. It involved rethinking the entire user journey and redesigning the interface to better suit the needs of the users and the context of use.</p>
-        </div>
-      </section>
-
-      <section class="simple-dual-col">
-        <div class="col">
-          <img src="PermitBuilder/Form.webp" alt="Assign Ride">
-          <p>The physical form had had a complex structure with multiple sections and redundant fields.</p>
-          <p style="color: rgb(118, 118, 118);"><i>(Blurred due to protect company confidentiality)</i></p>
-          
-        </div>
-        <div class="col">
-          <img style="width:400px; padding: 2rem;" src="PermitBuilder/Steppers_Agies.svg" alt="Trip Details">
-          <p> A more logical approach to structuring the permit application was implemented, reducing ambiguity and making it more intuitive for users. The 7 step process now provides a clearer path for users to follow.</p>
-          
-        </div>
-      </section>
-
-      <section class="section">
-        <p>It starts with filling out basic information</p>
-        <img src="PermitBuilder/UI_1.webp" alt="">
-        <p>There are a total of 7 Permits in this process, they are defined by the type of Work. For example repairing a pipe at a height comes under permit type “Work At Height”. This has been a pain for new workers to check the Permit Work every time to verify. The new UI has been designed a such a way that permit selection is not a headache of users, user selects what job they are doing and permits get auto selected based on that, keeping override options intact.</p>
-        <img src="PermitBuilder/UI_2.webp" alt="">
-        <p>Permit Specific Details are visible for only selected permits, this is where we eliminate lot of mental overload on users. You just fill the things you need.</p>
-        <img src="PermitBuilder/UI_3.webp" alt="">
-        <p>Once all the sections of the form has been filled, users can review and submit their applications. This view is same from this point onwards and Authority and Experts also see this view of the final application.</p>
-        <img src="PermitBuilder/UI_4.webp" alt="">
-      </section>
-
-      <section class="highlight-parallax">
-        <div class="highlight-bg" style="background-image: url(PermitBuilder/Approval_sectionHeader.webp);"></div>
-        <div class="highlight-content">
-          <h1 id="featured" style="color: aliceblue;">Visibility of Approval Process</h1>
-          <p>The visibility into the approval process need to be transparent to users, ensuring they can track the status of their requests in real-time. This also help the administration in managing and responding to requests more efficiently.</p>
-        </div>
-      </section>
-
-      <section class="section">
-        <p>The approval process being multidirectional and multistep often leads to confusions and difficult to track both from permit holders and approvers. Also an another level adds up when expert approval also comes in the picture.</p>
-        <img src="PermitBuilder/FlowDiagram.webp" alt="">
-        <p>After mapping the approval flow, the challenge was to seamlessly integrate it with the UI. I Focused on two aspects mainly - 1. Tranparency 2. Keeping the Chain of events clear to understand</p>
-        <p>And to do that I have created layout that keeps the permit always visible for refernence and a section for all apporval related information and Actions.</p>
-        <img src="PermitBuilder/ApproveFlow.webp" alt="">
-        <img src="PermitBuilder/All_statuses.webp" alt="">
-      </section>
-
-      <section class="highlight-parallax">
-        <div class="highlight-bg" style="background-image: url(PermitBuilder/Responsive_sectionHeader.webp);"></div>
-        <div class="highlight-content">
-          <h1 id="featured" style="color: aliceblue;">On the Go!</h1>
-          <p>Enabling users to create, access, and manage permits from anywhere was a key business priority to improve accessibility. However, moving the process online alone would not be sufficient without delivering a seamless mobile experience.</p>
-        </div>
-      </section>
-      
-      <div class="section">
-        <div class="emphasised-text">
-          <h1>Instead of designing for screens, we designed for continuity across contexts.</h1>
-        </div>
-        <div class="simple-dual-col" style="border: none; padding: 0;">
+        <section class="simple-dual-col">
           <div class="col">
-            <img src="PermitBuilder/Mobile_mock1.webp" alt="Mobile Mockup 1">
+            <img src="PermitBuilder/Form.webp" alt="Assign Ride" />
+            <p>
+              The physical form had had a complex structure with multiple
+              sections and redundant fields.
+            </p>
+            <p style="color: rgb(118, 118, 118)">
+              <i>(Blurred due to protect company confidentiality)</i>
+            </p>
           </div>
           <div class="col">
-            <img src="PermitBuilder/Mobile_mock2.webp" alt="Mobile Mockup 2">
+            <img
+              style="width: 400px; padding: 2rem"
+              src="PermitBuilder/Steppers_Agies.svg"
+              alt="Trip Details"
+            />
+            <p>
+              A more logical approach to structuring the permit application was
+              implemented, reducing ambiguity and making it more intuitive for
+              users. The 7 step process now provides a clearer path for users to
+              follow.
+            </p>
           </div>
-        </div>
+        </section>
 
-        <h2>CSS Flexbox and Grids</h2>
-        <p> The product was designed to work seamlessly across both mobile and desktop, not as an afterthought, but as a parallel priority from the outset. Instead of following a strict mobile-first or desktop-first approach, the experience was crafted simultaneously for both contexts. The layout system was built with responsiveness at its core. To do that design decisions were closely aligned with implementation using flexible layout principles, particularly leveraging CSS Flexbox and Grid. This translated into a predominantly linear and modular structure, allowing content to reflow naturally without breaking hierarchy or usability.</p>
-        <img src="PermitBuilder/Layout.webp" alt="Layout">
-        <h2>Adaptive UI Elements</h2>
-        <p>To address the contrast between limited mobile space and expansive desktop views, adaptive UI patterns were used. On smaller screens, components like the stepper collapeses, some components hide secordary informations like icons to reduce cognitive load. On desktop, the same components expand to provide richer context and visibility, enabling faster scanning and informed decision-making.</p>
-        <img src="PermitBuilder/AdaptiveUI1.webp" alt="Mobile Mockup 1">
-        <p>Navigation was treated as a constant anchor across devices. Key elements such as the stepper and the bottom action bar remained persistently accessible, ensuring users always know where they are and what to do next. Also the design accounted for real-world usage—particularly in field environments. Touch-friendly interactions, clear visual hierarchy, and minimized input friction were prioritized to support quick, error-free actions on mobile.</p>
-      </div>
+        <section class="section">
+          <p>It starts with filling out basic information</p>
+          <img src="PermitBuilder/UI_1.webp" alt="" />
+          <p>
+            There are a total of 7 Permits in this process, they are defined by
+            the type of Work. For example repairing a pipe at a height comes
+            under permit type “Work At Height”. This has been a pain for new
+            workers to check the Permit Work every time to verify. The new UI
+            has been designed a such a way that permit selection is not a
+            headache of users, user selects what job they are doing and permits
+            get auto selected based on that, keeping override options intact.
+          </p>
+          <img src="PermitBuilder/UI_2.webp" alt="" />
+          <p>
+            Permit Specific Details are visible for only selected permits, this
+            is where we eliminate lot of mental overload on users. You just fill
+            the things you need.
+          </p>
+          <img src="PermitBuilder/UI_3.webp" alt="" />
+          <p>
+            Once all the sections of the form has been filled, users can review
+            and submit their applications. This view is same from this point
+            onwards and Authority and Experts also see this view of the final
+            application.
+          </p>
+          <img src="PermitBuilder/UI_4.webp" alt="" />
+        </section>
 
-
-      <img src="PermitBuilder/Reflection.webp" alt="" style="width: 100%; display: block;">
-
-      <section class="section ending" id="reflection">
-        <h2>Reflection</h2>
-        
-        <div class="ending-body">
-          <div class="emphasised-text" style="height:fit-content;">
-            <h1>Not every digitization effort requires reinvention — some benefit more from thoughtful optimization</h1>
+        <section class="highlight-parallax">
+          <div
+            class="highlight-bg"
+            style="
+              background-image: url(PermitBuilder/Approval_sectionHeader.webp);
+            "
+          ></div>
+          <div class="highlight-content">
+            <h1 id="featured" style="color: aliceblue">
+              Visibility of Approval Process
+            </h1>
+            <p>
+              The visibility into the approval process need to be transparent to
+              users, ensuring they can track the status of their requests in
+              real-time. This also help the administration in managing and
+              responding to requests more efficiently.
+            </p>
           </div>
-          <p>Working at SLB within an agile studio, I’ve often translated existing processes into digital experiences. This project reinforced an important distinction: not every digitization effort requires reinvention—some benefit more from thoughtful optimization. Meaningful impact doesn’t always come from disruption, but often from subtle, well-informed improvements.</p>
-          <p>While the business goal was clear—“convert these forms into an online platform”—this could have easily resulted in a direct, one-to-one replication of the manual process. However, I learned that as designers, our role goes beyond execution; it is to surface possibilities.</p>
-          <br>
-          <p class="caption">Cover images are from Unsplash.com</p>
-          <p class="caption">Content on the UI screens have been changed to maintain confidentiality.</p>
+        </section>
+
+        <section class="section">
+          <p>
+            The approval process being multidirectional and multistep often
+            leads to confusions and difficult to track both from permit holders
+            and approvers. Also an another level adds up when expert approval
+            also comes in the picture.
+          </p>
+          <img src="PermitBuilder/FlowDiagram.webp" alt="" />
+          <p>
+            After mapping the approval flow, the challenge was to seamlessly
+            integrate it with the UI. I Focused on two aspects mainly - 1.
+            Tranparency 2. Keeping the Chain of events clear to understand
+          </p>
+          <p>
+            And to do that I have created layout that keeps the permit always
+            visible for refernence and a section for all apporval related
+            information and Actions.
+          </p>
+          <img src="PermitBuilder/ApproveFlow.webp" alt="" />
+          <img src="PermitBuilder/All_statuses.webp" alt="" />
+        </section>
+
+        <section class="highlight-parallax">
+          <div
+            class="highlight-bg"
+            style="
+              background-image: url(PermitBuilder/Responsive_sectionHeader.webp);
+            "
+          ></div>
+          <div class="highlight-content">
+            <h1 id="featured" style="color: aliceblue">On the Go!</h1>
+            <p>
+              Enabling users to create, access, and manage permits from anywhere
+              was a key business priority to improve accessibility. However,
+              moving the process online alone would not be sufficient without
+              delivering a seamless mobile experience.
+            </p>
+          </div>
+        </section>
+
+        <div class="section">
+          <div class="emphasised-text">
+            <h1>
+              Instead of designing for screens, we designed for continuity
+              across contexts.
+            </h1>
+          </div>
+          <div class="simple-dual-col" style="border: none; padding: 0">
+            <div class="col">
+              <img
+                src="PermitBuilder/Mobile_mock1.webp"
+                alt="Mobile Mockup 1"
+              />
+            </div>
+            <div class="col">
+              <img
+                src="PermitBuilder/Mobile_mock2.webp"
+                alt="Mobile Mockup 2"
+              />
+            </div>
+          </div>
+
+          <h2>CSS Flexbox and Grids</h2>
+          <p>
+            The product was designed to work seamlessly across both mobile and
+            desktop, not as an afterthought, but as a parallel priority from the
+            outset. Instead of following a strict mobile-first or desktop-first
+            approach, the experience was crafted simultaneously for both
+            contexts. The layout system was built with responsiveness at its
+            core. To do that design decisions were closely aligned with
+            implementation using flexible layout principles, particularly
+            leveraging CSS Flexbox and Grid. This translated into a
+            predominantly linear and modular structure, allowing content to
+            reflow naturally without breaking hierarchy or usability.
+          </p>
+          <img src="PermitBuilder/Layout.webp" alt="Layout" />
+          <h2>Adaptive UI Elements</h2>
+          <p>
+            To address the contrast between limited mobile space and expansive
+            desktop views, adaptive UI patterns were used. On smaller screens,
+            components like the stepper collapeses, some components hide
+            secordary informations like icons to reduce cognitive load. On
+            desktop, the same components expand to provide richer context and
+            visibility, enabling faster scanning and informed decision-making.
+          </p>
+          <img src="PermitBuilder/AdaptiveUI1.webp" alt="Mobile Mockup 1" />
+          <p>
+            Navigation was treated as a constant anchor across devices. Key
+            elements such as the stepper and the bottom action bar remained
+            persistently accessible, ensuring users always know where they are
+            and what to do next. Also the design accounted for real-world
+            usage—particularly in field environments. Touch-friendly
+            interactions, clear visual hierarchy, and minimized input friction
+            were prioritized to support quick, error-free actions on mobile.
+          </p>
         </div>
-      </section>
 
-      <section class="cs-section">
-        <div class="cs-header">
-          <h2>More Projects</h2>
-        </div>
-        <div class="cs-grid">
-          <a href="bhoral.html" class="project-card">
-            <div class="project-card-img">
-              <img src="ProjectThumbnails/Bhoral_Thumbnail.png" alt="Bhoral project thumbnail">
+        <img
+          src="PermitBuilder/Reflection.webp"
+          alt=""
+          style="width: 100%; display: block"
+        />
+
+        <section class="section ending" id="reflection">
+          <h2>Reflection</h2>
+
+          <div class="ending-body">
+            <div class="emphasised-text" style="height: fit-content">
+              <h1>
+                Not every digitization effort requires reinvention — some
+                benefit more from thoughtful optimization
+              </h1>
             </div>
-            <div class="project-card-info">
-              <h3>Bhoral</h3>
-              <p>Designing a folklore repository system</p>
-            </div>
-          </a>
-          <a href="bhoral_UI.html" class="project-card">
-            <div class="project-card-img">
-              <img src="ProjectThumbnails/Participatory_Thumbnail.png" alt="Participatory design project thumbnail">
-            </div>
-            <div class="project-card-info">
-              <h3>Participatory Design</h3>
-              <p>Community-centred design research</p>
-            </div>
-          </a>
-        </div>
-      </section>
+            <p>
+              Working at SLB within an agile studio, I’ve often translated
+              existing processes into digital experiences. This project
+              reinforced an important distinction: not every digitization effort
+              requires reinvention—some benefit more from thoughtful
+              optimization. Meaningful impact doesn’t always come from
+              disruption, but often from subtle, well-informed improvements.
+            </p>
+            <p>
+              While the business goal was clear—“convert these forms into an
+              online platform”—this could have easily resulted in a direct,
+              one-to-one replication of the manual process. However, I learned
+              that as designers, our role goes beyond execution; it is to
+              surface possibilities.
+            </p>
+            <br />
+            <p class="caption">Cover images are from Unsplash.com</p>
+            <p class="caption">
+              Content on the UI screens have been changed to maintain
+              confidentiality.
+            </p>
+          </div>
+        </section>
 
+        <section class="cs-section">
+          <div class="cs-header">
+            <h2>More Projects</h2>
+          </div>
+          <div class="cs-grid">
+            <a href="bhoral.html" class="project-card">
+              <div class="project-card-img">
+                <img
+                  src="ProjectThumbnails/Bhoral_Thumbnail.png"
+                  alt="Bhoral project thumbnail"
+                />
+              </div>
+              <div class="project-card-info">
+                <h3>Bhoral</h3>
+                <p>Designing a folklore repository system</p>
+              </div>
+            </a>
+            <a href="bhoral_UI.html" class="project-card">
+              <div class="project-card-img">
+                <img
+                  src="ProjectThumbnails/Participatory_Thumbnail.png"
+                  alt="Participatory design project thumbnail"
+                />
+              </div>
+              <div class="project-card-info">
+                <h3>Participatory Design</h3>
+                <p>Community-centred design research</p>
+              </div>
+            </a>
+          </div>
+        </section>
+      </main>
+    </div>
+    <!-- .cs-layout -->
 
-
-
- 
-
-
-    </main>
-    </div><!-- .cs-layout -->
-
-  <script src="casestudy.js"></script>
+    <script src="casestudy.js"></script>
   </body>
 </html>

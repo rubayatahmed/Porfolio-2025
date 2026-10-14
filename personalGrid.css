@@ -27,13 +27,25 @@
   grid-row: 3/4;
 }
 
-
 /* ── Responsive ── */
+@media (max-width: 1130px) {
 
-@media (max-width: 784px) {
-  .bento-grid-personal {
-    grid-template-columns: repeat(2, 1fr);
+  .b3 {
+    grid-column: span 2;
+    grid-row: span 4;
   }
+  .b1,
+  .b2,
+  .b4,
+  .b5{
+    grid-column: span 2;
+    grid-row: span 2;
+    aspect-ratio: 1;
+  }
+}
+
+@media (max-width: 800px) {
+
 
   .b1 {
     grid-column: span 2;
@@ -41,7 +53,7 @@
     aspect-ratio: 1;
   }
 
-  .b2{
+  .b2 {
     grid-column: span 2;
     grid-row: span 1;
     aspect-ratio: 1;
@@ -53,7 +65,8 @@
     aspect-ratio: 1;
   }
 
-  .b4, .b5 {
+  .b4,
+  .b5 {
     grid-column: span 2;
     grid-row: span 1;
     aspect-ratio: 2;

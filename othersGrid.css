@@ -30,7 +30,7 @@
   padding: 1.5rem 2.25rem;
   text-align: center;
   font-family: georgia, serif;
-  font-size: clamp(1.5rem, 1.45vw, 1.6rem);
+  font-size: 1.5rem;
   line-height: 1.8;
   font-weight: 300;
   font-style: italic;
@@ -60,7 +60,31 @@
 
 /* ── Responsive ── */
 
-@media (max-width: 784px) {
+@media (max-width: 1130px) {
+
+  .c1 {
+    grid-column: span 3;
+    grid-row: span 2;
+  }
+
+  .c1 .quote-block {
+  font-size: 1.2rem;
+}
+
+  .c2 {
+    grid-column: span 3;
+    grid-row: span 2;
+  }
+  .c3,
+  .c4,
+  .c5 {
+    grid-column: span 2;
+    grid-row: span 1;
+    aspect-ratio: 1;
+  }
+}
+
+@media (max-width: 800px) {
   .bento-grid-others {
     grid-template-columns: repeat(2, 1fr);
   }

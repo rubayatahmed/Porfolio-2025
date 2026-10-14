@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="bentoGrid.css" />
     <link rel="stylesheet" href="workGrid.css" />
     <link rel="stylesheet" href="personalGrid.css" />
+    <link rel="stylesheet" href="homeGrid.css" />
     <link rel="stylesheet" href="othersGrid.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,75 +27,149 @@
   </head>
   <body>
     <div class="magnetic-cursor"></div>
-    <nav>
-      <div class="logo">RxD</div>
-      <button class="hamburger" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#portfolio">Resume</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="nav-overlay"></div>
     <div class="page-container">
-      <header>
-        <div class="hero">
-          <h1>Hi, I'm Rubayat.</h1>
-          <!-- <p>
-            I know, it’s unique, it’s got its roots right
-            <a
-              href="https://en.wikipedia.org/wiki/Rubaiyat_of_Omar_Khayyam"
-              target="_blank"
-              style="color: rgb(175, 175, 175)"
-              ><u>here</u></a
-            >
-          </p> -->
-          <h2 style="color: #ffffff54">
-            I love bringing
-            <span class="magnetic-word">clarity</span> out of
-            <span class="ascii-glitch" data-word="complexity."
-              >complexity.</span
-            >
-            <br />
-            <br />
-            UX Designer at SLB (formerly Schlumberger), shaping enterprise
-            experiences across cross-functional business verticals.
-          </h2>
-          <p></p>
-
-          <!-- <div class="controls">
-          <p>Pick Gradient Colors</p1>
-            <div>
-              <label for="color1">Color 1: </label>
-              <input type="color" id="color1" class="color-picker" value="#202020">
-              <label for="color2">Color 2: </label>
-              <input type="color" id="color2" class="color-picker" value="#000000">
-            </div>
-        </div> -->
-        </div>
-      </header>
-
+      
       <main>
-        <div class="separator">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="content" data-target="work">
-            <span>Work Projects</span>
+
+        <div class="floating-tab-menu" aria-label="Portfolio sections">
+          <button
+            class="floating-tab-btn active"
+            type="button"
+            data-target="home"
+          >
+            Home
+          </button>
+          <button class="floating-tab-btn" type="button" data-target="work">
+            Work
+          </button>
+          <button class="floating-tab-btn" type="button" data-target="personal">
+            Personal
+          </button>
+          <button class="floating-tab-btn" type="button" data-target="others">
+            About
+          </button>
+        </div>
+
+        <div class="bento-grid-home bentoToggle" id="home">
+          <div
+            class="bento-item a1 bentoMove"
+            style="flex-direction: column; align-items: flex-start"
+          >
+            <h1>Hi, I'm Rubayat.</h1>
+            <br />
+            <p>
+              I’m a designer who loves untangling messy problems, asking too
+              many questions, and making complicated things feel simple (or at
+              least less complicated).
+            </p>
+            <p>
+              With a background in computer science and a Master’s in
+              Interaction Design from IDC IIT Bombay, I am currently working as
+              a UX Designer at SLB (formerly Schlumberger), shaping enterprise
+              experiences across cross-functional business verticals.
+            </p>
           </div>
-          <div class="line"></div>
-          <div class="content" data-target="personal">
-            <span>Personal Projects</span>
+
+          <div
+            class="bento-item a2 bentoMove"
+            style="cursor: pointer; background-image: url(Hero.webp)"
+          ></div>
+
+          <div class="bento-item a3 bentoMove">
+            <div class="contact-card">
+              <h3>Want to say Hi?</h3>
+              <div class="email-row">
+                <p class="email-address">rubayat.ahmed@gmail.com</p>
+                <button class="copy-email-btn" type="button">Copy email</button>
+              </div>
+            </div>
           </div>
-          <div class="line"></div>
-          <div class="content" data-target="others">
-            <span>Others</span>
+          <div class="bento-item a4 bentoMove">
+            <div class="signature-card">
+              <div class="signature-header">
+                <h3>Leave a quick signature</h3>
+              </div>
+              <canvas
+                id="signatureCanvas"
+                class="signature-canvas"
+                width="420"
+                height="170"
+                aria-label="Signature pad"
+              ></canvas>
+              <div class="signature-actions">
+                <button class="signature-btn signature-clear-btn" type="button">
+                  Clear
+                </button>
+                <button class="signature-btn signature-save-btn" type="button">
+                  Save
+                </button>
+              </div>
+            </div>
           </div>
-          <div class="line"></div>
-          <div class="line"></div>
+
+          <div class="bento-item a5 bentoMove">
+            <div class="social-card">
+              <h3>Find me online</h3>
+              <div class="social-list">
+                <a
+                  class="social-link"
+                  href="https://www.linkedin.com/in/rubayat07/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn"
+                  data-tooltip="LinkedIn"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.4a1.56 1.56 0 0 1 0 3.1ZM5.5 9.8h2.9V18H5.5V9.8Zm4.7 0h2.77v1.12h.04c.38-.73 1.32-1.5 2.73-1.5 2.93 0 3.46 1.92 3.46 4.42V18h-2.9v-16.6c0-1.04-.02-2.38-1.45-2.38-1.46 0-1.68 1.14-1.68 2.31V18h-2.9V9.8Z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  class="social-link"
+                  href="https://www.instagram.com/ruba_yat07/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Instagram"
+                  data-tooltip="Instagram"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5Zm5.5-3.2a1.3 1.3 0 1 1-1.3-1.3 1.3 1.3 0 0 1 1.3 1.3Z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  class="social-link"
+                  href="https://www.behance.net/rubayatahmed"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Behance"
+                  data-tooltip="Behance"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M4 7.5h6.8c2.7 0 4.2 1.2 4.2 3.3 0 1.6-1 2.5-2.2 2.8 1.8.2 3 1.5 3 3.5 0 2.5-2.1 4.1-5.1 4.1H4V7.5Zm3.1 5.2h3.1c1.2 0 1.9-.5 1.9-1.5 0-1.1-.7-1.5-1.9-1.5H7.1v3Zm0 5.7h3.4c1.4 0 2.1-.6 2.1-1.8 0-1.2-.8-1.8-2.2-1.8H7.1v3.6Zm11.3-6.9h6.6v1.8h-6.6v-1.8Zm6.6 5.7c-.4 2.6-2.6 4.3-5.8 4.3-3.8 0-6.4-2.5-6.4-6.3s2.6-6.4 6.5-6.4c3.6 0 5.8 2.4 5.8 5.7h-3.2c-.2-1.3-1.2-2.2-2.7-2.2-1.9 0-3.1 1.2-3.1 3.3s1.2 3.4 3.1 3.4c1.7 0 2.8-.9 3-2.5h3.2Z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  class="social-link"
+                  href="https://letterboxd.com/Rubayat07/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Letterboxd"
+                  data-tooltip="Letterboxd"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 18.5v-13Zm3 2.2h10v1.6H7V7.7Zm0 4h10v1.6H7v-1.6Zm0 4h6.2v1.6H7v-1.6Z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="bento-grid-work bentoToggle" id="work">
@@ -172,6 +247,7 @@
             data-href="bhoral_UI.html"
             style="
               cursor: pointer;
+              background-color: #0a0a0aac;
               background-image: url(ProjectThumbnails/Bhoral_Thumbnail.png);
             "
           >
@@ -183,6 +259,7 @@
             data-href="bhoral.html"
             style="
               cursor: pointer;
+              background-color: #010101ac;
               background-image: url(ProjectThumbnails/Participatory_Thumbnail.png);
             "
           >
@@ -260,11 +337,7 @@
             </p>
           </div>
           <div class="bento-item c4 bentoMove">
-            <p>
-              Designed and built with love, lot of caffeine, and an unreasonable
-              amount of help from Claude and Copilot.
-            </p>
-            <br />
+            <h2>When I am not designing</h2>
             <p>
               If you are reading this on weekend, I'll probably be somehwhere in
               the western ghats riding my scramby!
@@ -307,7 +380,6 @@
           </div>
         </div>
       </template>
-
 
       <footer>
         <p>&copy; 2025 Rubayat. All Rights Reserved.</p>

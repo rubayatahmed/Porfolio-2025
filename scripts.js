@@ -21,12 +21,13 @@ const navLinks = document.querySelector(".nav-links");
 const navOverlay = document.querySelector(".nav-overlay");
 
 function toggleNav() {
+  if (!navLinks || !hamburger) return;
   navLinks.classList.toggle("show");
   hamburger.classList.toggle("active");
   if (navOverlay) navOverlay.classList.toggle("show");
 }
 
-hamburger.addEventListener("click", toggleNav);
+if (hamburger) hamburger.addEventListener("click", toggleNav);
 if (navOverlay) navOverlay.addEventListener("click", toggleNav);
 
 // Disable `bentoMove` behaviour on small screens (mobile view)
@@ -110,41 +111,223 @@ document
 // // Initialize with default colors
 // updateBackground();
 
-// Bento box tab switching with animation
-document.querySelectorAll(".separator .content").forEach((tab) => {
-  tab.addEventListener("click", function () {
-    // Remove active from all tabs
-    document
-      .querySelectorAll(".separator .content")
-      .forEach((t) => t.classList.remove("active"));
-    // Add active to clicked tab
-    tab.classList.add("active");
+function resetScrollToTop() {
+  window.scrollTo(0, 0);
+  if (document.documentElement) document.documentElement.scrollTop = 0;
+  if (document.body) document.body.scrollTop = 0;
+}
 
-    const targetId = tab.getAttribute("data-target");
-    sessionStorage.setItem("activeTab", targetId);
-    document.querySelectorAll(".bentoToggle").forEach((box) => {
-      if (box.id === targetId) {
-        box.classList.add("active");
-      } else {
-        box.classList.remove("active");
-      }
+// Bento box tab switching with animation
+document
+  .querySelectorAll(".separator .content, .floating-tab-btn")
+  .forEach((tab) => {
+    tab.addEventListener("click", function () {
+      const targetId = this.getAttribute("data-target");
+
+      document
+        .querySelectorAll(".separator .content, .floating-tab-btn")
+        .forEach((t) => {
+          t.classList.toggle(
+            "active",
+            t.getAttribute("data-target") === targetId,
+          );
+        });
+
+      sessionStorage.setItem("activeTab", targetId);
+      document.querySelectorAll(".bentoToggle").forEach((box) => {
+        box.classList.toggle("active", box.id === targetId);
+      });
+
+      resetScrollToTop();
     });
   });
-});
 
-// Restore last active tab, or default to "work"
+// Restore the tab from the URL hash when available; otherwise default to home on first load.
 function restoreLastTab() {
-  const savedTab = sessionStorage.getItem("activeTab") || "work";
-  const targetBox = document.querySelector(".bentoToggle#" + savedTab);
+  const validTabs = ["home", "work", "personal", "others"];
+  const hashTab = window.location.hash.replace("#", "").trim();
+  const savedTab = sessionStorage.getItem("activeTab");
+  const targetTab = validTabs.includes(hashTab) ? hashTab : "home";
+
+  const targetBox = document.querySelector(".bentoToggle#" + targetTab);
   if (targetBox) targetBox.classList.add("active");
-  const targetTab = document.querySelector(
-    '.separator .content[data-target="' + savedTab + '"]',
-  );
-  if (targetTab) targetTab.classList.add("active");
+
+  document
+    .querySelectorAll(".separator .content, .floating-tab-btn")
+    .forEach((tab) => {
+      const matches = tab.getAttribute("data-target") === targetTab;
+      tab.classList.toggle("active", matches);
+    });
+
+  resetScrollToTop();
+  sessionStorage.setItem("activeTab", targetTab);
 }
 document.addEventListener("DOMContentLoaded", restoreLastTab);
 if (document.readyState === "interactive" || document.readyState === "complete")
   restoreLastTab();
+
+document.querySelectorAll(".copy-email-btn").forEach((button) => {
+  button.addEventListener("click", async () => {
+    const emailEl = button
+      .closest(".email-row")
+      ?.querySelector(".email-address");
+    const email = emailEl?.textContent?.trim() || "rubayat.ahmed@gmail.com";
+
+    try {
+      await navigator.clipboard.writeText(email);
+      const original = button.textContent;
+      button.textContent = "Copied!";
+      button.disabled = true;
+      setTimeout(() => {
+        button.textContent = original;
+        button.disabled = false;
+      }, 1200);
+    } catch (error) {
+      const tempInput = document.createElement("input");
+      tempInput.value = email;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+
+      const original = button.textContent;
+      button.textContent = "Copied!";
+      button.disabled = true;
+      setTimeout(() => {
+        button.textContent = original;
+        button.disabled = false;
+      }, 1200);
+    }
+  });
+});
+
+const signatureCanvas = document.getElementById("signatureCanvas");
+if (signatureCanvas) {
+  const signatureCtx = signatureCanvas.getContext("2d");
+  const signatureKey = "rubayat-signature";
+  let isDrawing = false;
+  let lastX = 0;
+  let lastY = 0;
+
+  const setCanvasLineStyle = () => {
+    signatureCtx.lineCap = "round";
+    signatureCtx.lineJoin = "round";
+    signatureCtx.lineWidth = 2.2;
+    signatureCtx.strokeStyle = "#f8f8f8";
+  };
+
+  const getCanvasPoint = (event) => {
+    const rect = signatureCanvas.getBoundingClientRect();
+    const x =
+      ((event.clientX ?? event.touches?.[0]?.clientX ?? 0) - rect.left) *
+      (signatureCanvas.width / rect.width);
+    const y =
+      ((event.clientY ?? event.touches?.[0]?.clientY ?? 0) - rect.top) *
+      (signatureCanvas.height / rect.height);
+    return { x, y };
+  };
+
+  const startDrawing = (event) => {
+    isDrawing = true;
+    const point = getCanvasPoint(event);
+    lastX = point.x;
+    lastY = point.y;
+    signatureCtx.beginPath();
+    signatureCtx.moveTo(lastX, lastY);
+  };
+
+  const draw = (event) => {
+    if (!isDrawing) return;
+    const point = getCanvasPoint(event);
+    signatureCtx.beginPath();
+    signatureCtx.moveTo(lastX, lastY);
+    signatureCtx.lineTo(point.x, point.y);
+    signatureCtx.stroke();
+    lastX = point.x;
+    lastY = point.y;
+  };
+
+  const stopDrawing = () => {
+    if (!isDrawing) return;
+    isDrawing = false;
+    signatureCtx.closePath();
+    localStorage.setItem(signatureKey, signatureCanvas.toDataURL("image/png"));
+  };
+
+  const clearSignature = () => {
+    signatureCtx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
+    localStorage.removeItem(signatureKey);
+  };
+
+  const restoreSignature = () => {
+    const saved = localStorage.getItem(signatureKey);
+    if (!saved) return;
+
+    const image = new Image();
+    image.onload = () => {
+      signatureCtx.clearRect(
+        0,
+        0,
+        signatureCanvas.width,
+        signatureCanvas.height,
+      );
+      signatureCtx.drawImage(
+        image,
+        0,
+        0,
+        signatureCanvas.width,
+        signatureCanvas.height,
+      );
+    };
+    image.src = saved;
+  };
+
+  setCanvasLineStyle();
+  restoreSignature();
+
+  signatureCanvas.addEventListener("pointerdown", startDrawing);
+  signatureCanvas.addEventListener("pointermove", draw);
+  signatureCanvas.addEventListener("pointerup", stopDrawing);
+  signatureCanvas.addEventListener("pointerleave", stopDrawing);
+  signatureCanvas.addEventListener("pointercancel", stopDrawing);
+  signatureCanvas.addEventListener(
+    "touchstart",
+    (event) => {
+      event.preventDefault();
+      startDrawing(event.touches[0]);
+    },
+    { passive: false },
+  );
+  signatureCanvas.addEventListener(
+    "touchmove",
+    (event) => {
+      event.preventDefault();
+      draw(event.touches[0]);
+    },
+    { passive: false },
+  );
+  signatureCanvas.addEventListener("touchend", stopDrawing);
+
+  const clearButton = document.querySelector(".signature-clear-btn");
+  if (clearButton) {
+    clearButton.addEventListener("click", clearSignature);
+  }
+
+  const saveButton = document.querySelector(".signature-save-btn");
+  if (saveButton) {
+    saveButton.addEventListener("click", () => {
+      localStorage.setItem(
+        signatureKey,
+        signatureCanvas.toDataURL("image/png"),
+      );
+      const originalText = saveButton.textContent;
+      saveButton.textContent = "Saved";
+      setTimeout(() => {
+        saveButton.textContent = originalText;
+      }, 1000);
+    });
+  }
+}
 
 // Update event listener to target bento-boxes instead of buttons
 document.querySelectorAll(".bento-item").forEach((box) => {
@@ -309,7 +492,9 @@ document.querySelectorAll(".bento-item").forEach((box) => {
           delete this._origNodes;
           delete this._origTileHeight;
           if (this._inplaceObserver) {
-            try { this._inplaceObserver.disconnect(); } catch (e) {}
+            try {
+              this._inplaceObserver.disconnect();
+            } catch (e) {}
             delete this._inplaceObserver;
           }
           delete this.dataset.inplaceActive;
@@ -347,13 +532,16 @@ document.querySelectorAll(".bento-item").forEach((box) => {
       // Observe visibility of the tile — if it scrolls out of view, close the inplace content
       try {
         if (window.IntersectionObserver) {
-          const io = new IntersectionObserver((entries) => {
-            const e = entries && entries[0];
-            if (e && !e.isIntersecting) {
-              // tile is no longer visible in viewport
-              restore();
-            }
-          }, { threshold: 0.05 });
+          const io = new IntersectionObserver(
+            (entries) => {
+              const e = entries && entries[0];
+              if (e && !e.isIntersecting) {
+                // tile is no longer visible in viewport
+                restore();
+              }
+            },
+            { threshold: 0.05 },
+          );
           io.observe(this);
           this._inplaceObserver = io;
         }
