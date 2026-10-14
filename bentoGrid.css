@@ -43,12 +43,18 @@
   background-repeat: no-repeat;
   background-size: 170%;
   border: #ffffff0a 2.5px solid;
+  position: relative;
+  /* Tile height is not fixed here; injected content will be capped on the inplace container */
+  transition:
+    transform 420ms cubic-bezier(0.2, 0.9, 0.2, 1),
+    opacity 320ms ease-out,
+    box-shadow 320ms ease-out,
+    padding 320ms ease-out;
 }
 
 .bento-item.bentoMove {
   transition: transform 0.05s ease-in;
 }
-
 
 .bento-item h2 {
   font-size: var(--text-xl);
@@ -61,7 +67,7 @@
 }
 
 .bento-item p {
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   color: #575757;
 }
 
@@ -77,6 +83,158 @@
   font-size: var(--text-sm);
 }
 
+/* Legacy expanded-* styles removed — using in-place `.inplace-content` instead */
+
+/* In-place content swap container: keeps box size and allows vertical scroll if content overflows */
+.inplace-content {
+  /* JS controls max-height dynamically on desktop; keep no hard cap here to avoid feedback loops */
+  max-height: none;
+  overflow-y: auto;
+  padding-right: 0.25rem; /* give space for scrollbar */
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 1000ms ease,
+    transform 2060ms cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+/* Subtle custom scrollbar */
+.inplace-content::-webkit-scrollbar {
+  width: 8px;
+}
+.inplace-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.inplace-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+}
+/* Firefox */
+.inplace-content {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.06) transparent;
+}
+
+.inplace-content.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade/slide templates and article lists inside the inplace container */
+.inplace-content .template-articles,
+.inplace-content .expanded-articles {
+  opacity: 0;
+  /* transform: translateY(6px); */
+  transition:
+    opacity 1500ms ease,
+    transform 2060ms cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+.inplace-content.show .template-articles,
+.inplace-content.show .expanded-articles {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Default content wrapper inside a bento item */
+.bento-default {
+  display: block;
+}
+.bento-default.hidden-default {
+  display: none !important;
+}
+
+/* Smooth, focused expand/hide for the Articles tile (c2) */
+.bento-item.c2 {
+  transition:
+    transform 2000ms cubic-bezier(0.2, 0.9, 0.2, 1),
+    opacity 420ms ease-out,
+    box-shadow 420ms ease-out,
+    padding 420ms ease-out;
+}
+
+/* Generic smooth transitions already applied to `.bento-item` */
+
+/* Expanded close removed (legacy) */
+
+/* Expanded articles list (default template) */
+.expanded-articles {
+  list-style: none;
+  padding: 0;
+  margin: 2.2rem 0 0 0;
+  display: block;
+}
+
+.expanded-articles li {
+  margin: 0.6rem 0;
+}
+
+.expanded-articles a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 400;
+}
+
+/* Article list row styling */
+.expanded-articles {
+  padding: 0;
+}
+
+.expanded-articles li {
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.expanded-articles a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0.5rem;
+  color: rgba(255, 255, 255, 0.95);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    color 200ms ease,
+    background 200ms ease;
+}
+
+.expanded-articles a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.expanded-articles a::after {
+  content: "\2192";
+  opacity: 0.7;
+  margin-left: 0.75rem;
+  transform: translateX(0);
+  transition:
+    transform 220ms cubic-bezier(0.2, 0.9, 0.2, 1),
+    opacity 200ms ease;
+}
+
+.expanded-articles a:hover::after {
+  transform: translateX(8px);
+  opacity: 1;
+}
+
+.expanded-articles a:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Template carousel styles */
+.template-carousel {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.template-carousel .carousel-track img {
+  width: 100%;
+  height: auto;
+  display: inline-block;
+}
+
 /* ── Responsive ── */
 
 @media (max-width: 1130px) {
@@ -86,6 +244,27 @@
   .bento-item h3 {
     font-size: var(--text-base);
   }
+  .bento-grid-work,
+  .bento-grid-personal,
+  .bento-grid-others {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Medium screens: reduce columns and adapt expanded panels */
+@media (max-width: 800px) {
+  .bento-grid-work,
+  .bento-grid-personal,
+  .bento-grid-others {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .bento-item {
+    padding: 1rem;
+  }
+
+  /* Legacy expanded-item rules removed; in-place content is used on all viewports */
 }
 
 @media (max-width: 480px) {
@@ -95,8 +274,9 @@
   .bento-item {
     border-radius: 1rem;
     padding: 1rem;
+    /* Allow the item to grow on small screens */
+    max-height: none;
   }
-
 
   .bento-item h2 {
     font-size: var(--text-lg);
@@ -109,4 +289,13 @@
   .bento-item p {
     font-size: var(--text-sm);
   }
+
+  .bento-grid-work,
+  .bento-grid-personal,
+  .bento-grid-others {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  /* Removed legacy expanded-item/mobile rules */
 }

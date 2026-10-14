@@ -194,7 +194,10 @@
             data-href="Habittracker.html"
             style="
               cursor: pointer;
-              background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(ProjectThumbnails/Habbittracker.webp) center/cover no-repeat;"
+              background:
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url(ProjectThumbnails/Habbittracker.webp) center/cover no-repeat;
+            "
           >
             <h2>Habit Tracker</h2>
             <p>Product Design, Vibe Coding</p>
@@ -202,55 +205,109 @@
           <div
             class="bento-item b4 bentoMove"
             data-href="https://www.behance.net/gallery/158633441/AR-based-Chemistry-learning-tool"
-              style="cursor: pointer;
-              background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url(ProjectThumbnails/P2\ cover.webp) center/cover no-repeat;"
+            style="
+              cursor: pointer;
+              background:
+                linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+                url(ProjectThumbnails/P2\ cover.webp) center/cover no-repeat;
+            "
           >
             <h3>AR Based Chemistry Learning toolkit</h3>
             <p>Immersive Media, Education</p>
           </div>
           <div
-              class="bento-item b5 bentoMove"
-              data-href="https://www.behance.net/gallery/108041663/Packaging-Design-Tiggle"
-                style="cursor: pointer;
-                background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url(ProjectThumbnails/tiggle.webp) center/cover no-repeat;"
-              >
-              <h3>Tiggle - Packaging Design</h3>
-              <p>Graphic Design, Branding</p>
+            class="bento-item b5 bentoMove"
+            data-href="https://www.behance.net/gallery/108041663/Packaging-Design-Tiggle"
+            style="
+              cursor: pointer;
+              background:
+                linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+                url(ProjectThumbnails/tiggle.webp) center/cover no-repeat;
+            "
+          >
+            <h3>Tiggle - Packaging Design</h3>
+            <p>Graphic Design, Branding</p>
           </div>
         </div>
 
         <div class="bento-grid-others bentoToggle" id="others">
           <div class="bento-item c1 bentoMove">
-            <h2>Photo Carousel</h2>
-            <p>Sneak Peek into life</p>
+            <blockquote class="quote-block">
+              "I enjoy living somewhere between logic and creativity — figuring
+              out how things work, why they don’t, and how they could work
+              better. It’s about making them make sense, feel right, and
+              occasionally bring a little joy to someone’s day."
+            </blockquote>
           </div>
-          <div class="bento-item c2 bentoMove">
-            <h2>Articles, writings and short notes</h2>
-            <p>
-              I write about design, technology, and philosophy. Just sharing my
-              thoughts and experiences.
-            </p>
+          <div
+            class="bento-item c2 bentoMove"
+            data-template="articles-list-template"
+            style="cursor: pointer"
+          >
+            <div class="bento-default">
+              <h2>Articles, writings and short notes</h2>
+              <p>
+                I write about design, technology, and philosophy. Just sharing
+                my thoughts and experiences.
+              </p>
+            </div>
           </div>
           <div class="bento-item c3 bentoMove">
             <h2>Movies of the month</h2>
+            <p>
+              I am a sucker for good movies. Here are some of my recent
+              favourites.
+            </p>
           </div>
           <div class="bento-item c4 bentoMove">
-            <h2>Sketches and Photographs</h2>
+            <p>
+              Designed and built with love, lot of caffeine, and an unreasonable
+              amount of help from Claude and Copilot.
+            </p>
+            <br />
+            <p>
+              If you are reading this on weekend, I'll probably be somehwhere in
+              the western ghats riding my scramby!
+            </p>
           </div>
-          <div class="bento-item c5 bentoMove">
-            <h2>About me</h2>
-          </div>
+          <div
+            class="bento-item c5 bentoMove"
+            data-href="bhoral.html"
+            style="cursor: pointer; background-image: url(Bike.webp)"
+          ></div>
         </div>
       </main>
 
-      <section id="contact" class="contact">
-        <h2>Contact</h2>
-        <p>
-          Let’s collaborate! I’d love to hear about your project and how I can
-          help.
-        </p>
-        <a href="mailto:alexdoe@example.com" class="cta">Get in Touch</a>
-      </section>
+      <!-- Templates for expanded bento content -->
+      <template id="articles-list-template">
+        <div class="template-articles">
+          <h2>Articles, writings and short notes</h2>
+          <ul class="expanded-articles">
+            <li><a href="article-demo.html">Articles Index</a></li>
+            <li><a href="sddfordesigners.html">Sddf for Designers</a></li>
+            <li><a href="article-demo.html">Articles Index</a></li>
+            <li><a href="sddfordesigners.html">Sddf for Designers</a></li>
+            <li><a href="article-demo.html">Articles Index</a></li>
+            <li><a href="sddfordesigners.html">Sddf for Designers</a></li>
+            <li><a href="sddfordesigners.html">Sddf for Designers</a></li>
+            <li><a href="article-demo.html">Articles Index</a></li>
+            <li><a href="sddfordesigners.html">Sddf for Designers</a></li>
+            <li><a href="article-demo.html">Articles Index</a></li>
+            <li><a href="sddfordesigners.html">Sddf for Designers</a></li>
+          </ul>
+        </div>
+      </template>
+
+      <template id="carousel-template">
+        <div class="template-carousel init-carousel">
+          <div class="carousel-track">
+            <img src="ProjectThumbnails/car1.jpg" alt="" />
+            <img src="ProjectThumbnails/car2.jpg" alt="" />
+            <img src="ProjectThumbnails/car3.jpg" alt="" />
+          </div>
+        </div>
+      </template>
+
 
       <footer>
         <p>&copy; 2025 Rubayat. All Rights Reserved.</p>
