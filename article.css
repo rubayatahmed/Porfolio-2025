@@ -41,7 +41,9 @@ body.article-page {
   color: var(--text-body);
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
-  transition: background 0.35s ease, color 0.35s ease;
+  transition:
+    background 0.35s ease,
+    color 0.35s ease;
 }
 
 body.article-page.light {
@@ -75,6 +77,23 @@ body.article-page.light {
   --navbar-link: #333;
 }
 
+.wipe-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  z-index: 9999;
+  transform: translateX(-100%);
+  transition: transform 0.6s ease-in-out;
+  pointer-events: none;
+}
+
+.wipe-overlay.active {
+  transform: translateX(0);
+}
+
 /* ── Layout Shell ── */
 .article-layout {
   display: flex;
@@ -104,7 +123,9 @@ body.article-page.light {
   font-weight: 500;
   padding: 0.35rem 0.75rem;
   border-left: 2px solid transparent;
-  transition: color 0.2s, border-color 0.2s;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
 }
 
 .article-sidenav a:hover {
@@ -167,7 +188,9 @@ body.article-page.light {
   color: var(--like-text);
   font-size: var(--text-sm);
   cursor: pointer;
-  transition: border-color 0.2s, color 0.2s;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
   user-select: none;
 }
 
@@ -213,7 +236,9 @@ body.article-page.light {
   height: 18px;
   background: var(--toggle-knob);
   border-radius: 50%;
-  transition: transform 0.3s ease, background 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -397,7 +422,9 @@ body.article-page.light .theme-toggle .toggle-knob::after {
     font-weight: 500;
     padding: 0.25rem 0;
     border-bottom: 2px solid transparent;
-    transition: color 0.2s, border-color 0.2s;
+    transition:
+      color 0.2s,
+      border-color 0.2s;
     flex-shrink: 0;
   }
 

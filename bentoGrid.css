@@ -77,14 +77,20 @@
   transition: transform 0.05s ease-in;
 }
 
+.bento-item h1 {
+  font-size: var(--text-2xl);
+  font-weight: 300;
+}
+
 .bento-item h2 {
   font-size: var(--text-xl);
   font-weight: 300;
 }
 
 .bento-item h3 {
-  font-size: var(--text-xl);
-  font-weight: 400;
+  font-size: var(--text-lg);
+  font-weight: 300;
+  color: #f7f8f9aa;
 }
 
 .bento-item p {

@@ -117,54 +117,182 @@ function resetScrollToTop() {
   if (document.body) document.body.scrollTop = 0;
 }
 
+function triggerWipeOverlay() {
+  const overlay = document.querySelector(".wipe-overlay");
+  if (!overlay) return false;
+  requestAnimationFrame(() => {
+    overlay.classList.add("active");
+  });
+  return true;
+}
+
+let pendingPageTransition = null;
+
+function cancelPendingPageTransition() {
+  if (pendingPageTransition) {
+    clearTimeout(pendingPageTransition);
+    pendingPageTransition = null;
+  }
+}
+
+function schedulePageTransition(url, delay = 450) {
+  cancelPendingPageTransition();
+  const target = new URL(url, window.location.href).href;
+  pendingPageTransition = setTimeout(() => {
+    pendingPageTransition = null;
+    if (window.location.href !== target) {
+      window.location.href = target;
+    }
+  }, delay);
+}
+
+const validTabs = ["home", "work", "personal", "others"];
+
+function getStoredTab() {
+  try {
+    const localTab = localStorage.getItem("activeTab");
+    if (localTab && validTabs.includes(localTab)) return localTab;
+  } catch (e) {}
+
+  try {
+    const sessionTab = sessionStorage.getItem("activeTab");
+    if (sessionTab && validTabs.includes(sessionTab)) return sessionTab;
+  } catch (e) {}
+
+  return "home";
+}
+
+function saveStoredTab(tabId) {
+  if (!validTabs.includes(tabId)) return;
+
+  try {
+    localStorage.setItem("activeTab", tabId);
+  } catch (e) {}
+
+  try {
+    sessionStorage.setItem("activeTab", tabId);
+  } catch (e) {}
+}
+
+function applyTab(tabId) {
+  const safeTab = validTabs.includes(tabId) ? tabId : "home";
+
+  document.querySelectorAll(".bentoToggle").forEach((box) => {
+    box.classList.toggle("active", box.id === safeTab);
+  });
+
+  document
+    .querySelectorAll(".separator .content, .floating-tab-btn")
+    .forEach((tab) => {
+      const matches = tab.getAttribute("data-target") === safeTab;
+      tab.classList.toggle("active", matches);
+    });
+
+  const activeTabExists = document.querySelector(".bentoToggle.active");
+  if (!activeTabExists) {
+    document.querySelector("#home")?.classList.add("active");
+    document
+      .querySelector('.floating-tab-btn[data-target="home"]')
+      ?.classList.add("active");
+  }
+
+  saveStoredTab(safeTab);
+  resetScrollToTop();
+}
+
 // Bento box tab switching with animation
 document
   .querySelectorAll(".separator .content, .floating-tab-btn")
   .forEach((tab) => {
     tab.addEventListener("click", function () {
       const targetId = this.getAttribute("data-target");
-
-      document
-        .querySelectorAll(".separator .content, .floating-tab-btn")
-        .forEach((t) => {
-          t.classList.toggle(
-            "active",
-            t.getAttribute("data-target") === targetId,
-          );
-        });
-
-      sessionStorage.setItem("activeTab", targetId);
-      document.querySelectorAll(".bentoToggle").forEach((box) => {
-        box.classList.toggle("active", box.id === targetId);
-      });
-
-      resetScrollToTop();
+      applyTab(targetId);
     });
   });
 
-// Restore the tab from the URL hash when available; otherwise default to home on first load.
-function restoreLastTab() {
-  const validTabs = ["home", "work", "personal", "others"];
-  const hashTab = window.location.hash.replace("#", "").trim();
-  const savedTab = sessionStorage.getItem("activeTab");
-  const targetTab = validTabs.includes(hashTab) ? hashTab : "home";
+function navigateWithWipe(url, delay = 800) {
+  const target = new URL(url, window.location.href);
+  const isExternal = target.origin !== window.location.origin;
 
-  const targetBox = document.querySelector(".bentoToggle#" + targetTab);
-  if (targetBox) targetBox.classList.add("active");
+  if (isExternal) {
+    window.open(target.href, "_blank", "noopener,noreferrer");
+    return;
+  }
 
-  document
-    .querySelectorAll(".separator .content, .floating-tab-btn")
-    .forEach((tab) => {
-      const matches = tab.getAttribute("data-target") === targetTab;
-      tab.classList.toggle("active", matches);
-    });
+  const activeTab =
+    document
+      .querySelector(".floating-tab-btn.active")
+      ?.getAttribute("data-target") || getStoredTab();
+  if (activeTab) saveStoredTab(activeTab);
 
-  resetScrollToTop();
-  sessionStorage.setItem("activeTab", targetTab);
+  triggerWipeOverlay();
+  schedulePageTransition(target.href, delay);
 }
+
+function navigateToUrl(url) {
+  navigateWithWipe(url, 800);
+}
+
+function restoreLastTab() {
+  const stored = getStoredTab();
+  const target = validTabs.includes(stored) ? stored : "home";
+  const wipeOverlay = document.querySelector(".wipe-overlay");
+  if (wipeOverlay) wipeOverlay.classList.remove("active");
+  applyTab(target);
+}
+
+function handlePageRestore() {
+  const wipeOverlay = document.querySelector(".wipe-overlay");
+  if (wipeOverlay) wipeOverlay.classList.remove("active");
+
+  const navEntries = performance.getEntriesByType("navigation");
+  const isBackForward =
+    navEntries.length > 0 ? navEntries[0].type === "back_forward" : false;
+
+  if (isBackForward || document.visibilityState === "visible") {
+    requestAnimationFrame(restoreLastTab);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", restoreLastTab);
-if (document.readyState === "interactive" || document.readyState === "complete")
-  restoreLastTab();
+window.addEventListener("pageshow", handlePageRestore);
+window.addEventListener("popstate", handlePageRestore);
+window.addEventListener("beforeunload", () => {
+  cancelPendingPageTransition();
+  const activeTab =
+    document
+      .querySelector(".floating-tab-btn.active")
+      ?.getAttribute("data-target") || getStoredTab();
+  saveStoredTab(activeTab);
+});
+window.addEventListener("pagehide", cancelPendingPageTransition);
+if (
+  document.readyState === "interactive" ||
+  document.readyState === "complete"
+) {
+  const wipeOverlay = document.querySelector(".wipe-overlay");
+  if (wipeOverlay) wipeOverlay.classList.remove("active");
+  requestAnimationFrame(restoreLastTab);
+}
+
+document.querySelectorAll("a[href]").forEach((link) => {
+  link.addEventListener("click", function (event) {
+    const href = this.getAttribute("href");
+    if (!href || href.startsWith("#")) return;
+
+    const target = new URL(href, window.location.href);
+    const isExternal = target.origin !== window.location.origin;
+
+    if (isExternal) {
+      window.open(href, "_blank", "noopener,noreferrer");
+      event.preventDefault();
+      return;
+    }
+
+    event.preventDefault();
+    navigateWithWipe(href, 800);
+  });
+});
 
 document.querySelectorAll(".copy-email-btn").forEach((button) => {
   button.addEventListener("click", async () => {
@@ -408,11 +536,18 @@ document.querySelectorAll(".bento-item").forEach((box) => {
         anchors.forEach((a) => {
           a.addEventListener("click", (ev) => {
             ev.stopPropagation();
-            if (/^https?:\/\//i.test(a.href)) window.open(a.href, "_blank");
-            else {
-              if (overlay) overlay.classList.add("active");
-              setTimeout(() => (window.location.href = a.href), 400);
+            const targetUrl = a.href;
+            const isExternal =
+              new URL(targetUrl, window.location.href).origin !==
+              window.location.origin;
+
+            if (isExternal) {
+              window.open(targetUrl, "_blank", "noopener,noreferrer");
+              return;
             }
+
+            triggerWipeOverlay();
+            schedulePageTransition(targetUrl, 400);
           });
         });
       };
@@ -447,11 +582,19 @@ document.querySelectorAll(".bento-item").forEach((box) => {
           a.textContent = title;
           a.addEventListener("click", (ev) => {
             ev.stopPropagation();
-            if (/^https?:\/\//i.test(a.href)) window.open(a.href, "_blank");
-            else {
-              if (overlay) overlay.classList.add("active");
-              setTimeout(() => (window.location.href = a.href), 400);
+            const href = a.getAttribute("href") || "";
+            if (!href || href.startsWith("#")) return;
+
+            const target = new URL(href, window.location.href);
+            const isExternal = target.origin !== window.location.origin;
+
+            if (isExternal) {
+              window.open(href, "_blank", "noopener,noreferrer");
+              return;
             }
+
+            ev.preventDefault();
+            navigateWithWipe(href, 400);
           });
           li.appendChild(a);
           list.appendChild(li);
@@ -552,13 +695,15 @@ document.querySelectorAll(".bento-item").forEach((box) => {
 
     // Otherwise normal navigation
     if (!targetUrl) return;
-    if (/^https?:\/\//i.test(targetUrl)) {
-      window.open(targetUrl, "_blank");
+    const isExternal =
+      new URL(targetUrl, window.location.href).origin !==
+      window.location.origin;
+    if (isExternal) {
+      window.open(targetUrl, "_blank", "noopener,noreferrer");
       if (overlay) overlay.classList.remove("active");
       return;
     }
-    if (overlay) overlay.classList.add("active");
-    setTimeout(() => (window.location.href = targetUrl), 800);
+    navigateWithWipe(targetUrl, 800);
   });
 });
 

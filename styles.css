@@ -404,6 +404,31 @@ header {
 
 
 @media (max-width: 1130px) {
+  .bentoToggle,
+  .bento-grid-work,
+  .bento-grid-personal,
+  .bento-grid-others,
+  .bento-grid-home {
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow-x: clip;
+  }
+
+  .work-lock-overlay {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    margin: calc(50% - 50vw);
+    overflow: hidden;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.751);
+  }
 
   .hero {
     padding: 6rem 2rem 6rem;

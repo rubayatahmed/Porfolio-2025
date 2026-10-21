@@ -256,7 +256,49 @@
       </main>
     </div>
 
+    <div class="wipe-overlay"></div>
+
     <script>
+      (function () {
+        const overlay = document.querySelector(".wipe-overlay");
+        let pendingTransition = null;
+
+        function cancelPendingTransition() {
+          if (pendingTransition) {
+            clearTimeout(pendingTransition);
+            pendingTransition = null;
+          }
+        }
+
+        document.querySelectorAll("a[href]").forEach((link) => {
+          link.addEventListener("click", function (event) {
+            const href = this.getAttribute("href");
+            if (!href || href.startsWith("#")) return;
+
+            const target = new URL(href, window.location.href);
+            const isExternal = target.origin !== window.location.origin;
+            if (isExternal) {
+              window.open(href, "_blank", "noopener,noreferrer");
+              event.preventDefault();
+              return;
+            }
+
+            event.preventDefault();
+            cancelPendingTransition();
+            requestAnimationFrame(() => {
+              if (overlay) overlay.classList.add("active");
+            });
+            pendingTransition = setTimeout(() => {
+              pendingTransition = null;
+              window.location.href = href;
+            }, 450);
+          });
+        });
+
+        window.addEventListener("pagehide", cancelPendingTransition);
+        window.addEventListener("beforeunload", cancelPendingTransition);
+      })();
+
       // ── Like System (localStorage-backed) ──
       // For a shared count across users, replace with a POST/GET to your API.
       (function () {
