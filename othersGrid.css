@@ -48,6 +48,14 @@
   grid-row: 3 / 5;
 }
 
+.mini-link {
+  display: inline-block;
+  margin-top: 0.85rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
 .c4 {
   grid-column: 3 / 5;
   grid-row: 3 / 5;
@@ -61,15 +69,14 @@
 /* ── Responsive ── */
 
 @media (max-width: 1130px) {
-
   .c1 {
     grid-column: span 3;
     grid-row: span 2;
   }
 
   .c1 .quote-block {
-  font-size: 1.2rem;
-}
+    font-size:x-large;
+  }
 
   .c2 {
     grid-column: span 3;

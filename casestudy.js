@@ -120,32 +120,94 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Carousel functionality
-  const track = document.querySelector(".carousel-track");
-  const items = Array.from(track.children);
-  const nextButton = document.querySelector(".carousel-btn.next");
-  const prevButton = document.querySelector(".carousel-btn.prev");
+  // Lightbox / zoom viewer for case-study images
+  const modal = document.createElement("div");
+  modal.className = "case-study-modal";
+  modal.innerHTML = `
+    <div class="case-study-modal-inner">
+      <button class="case-study-modal-close" type="button" aria-label="Close image">×</button>
+      <img src="" alt="" />
+    </div>
+  `;
+  document.body.appendChild(modal);
 
-  let currentIndex = 0;
-
-  const updateCarousel = () => {
-    items.forEach((item, index) => {
-      const offset = index - currentIndex;
-      item.style.transform = `translateX(${offset * 100}%)`;
-      item.style.visibility = "visible"; // Make all divs visible
-    });
+  const modalImage = modal.querySelector("img");
+  const closeModal = () => {
+    modal.classList.remove("open");
+    modalImage.classList.remove("zoomed");
+    document.body.style.overflow = "";
   };
 
-  nextButton.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % items.length;
-    updateCarousel();
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) closeModal();
   });
 
-  prevButton.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + items.length) % items.length;
-    updateCarousel();
+  modal
+    .querySelector(".case-study-modal-close")
+    .addEventListener("click", closeModal);
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeModal();
   });
 
-  // Initialize carousel positions
-  updateCarousel();
+  document.querySelectorAll("img").forEach((img) => {
+    if (img.closest(".project-card")) {
+      return;
+    }
+
+    if (
+      !img.closest(".container") &&
+      !img.closest(".cs-grid") &&
+      !img.closest(".cs-header")
+    ) {
+      return;
+    }
+
+    img.classList.add("case-study-clickable-image");
+    img.title = "Click to open";
+
+    img.addEventListener("click", () => {
+      modalImage.src = img.src;
+      modalImage.alt = img.alt || "Expanded case study image";
+      modalImage.classList.remove("zoomed");
+      modal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    });
+
+    img.addEventListener("dblclick", () => {
+      modalImage.classList.toggle("zoomed");
+    });
+  });
+
+  // Carousel functionality
+  const track = document.querySelector(".carousel-track");
+  if (track) {
+    const items = Array.from(track.children);
+    const nextButton = document.querySelector(".carousel-btn.next");
+    const prevButton = document.querySelector(".carousel-btn.prev");
+
+    if (items.length && nextButton && prevButton) {
+      let currentIndex = 0;
+
+      const updateCarousel = () => {
+        items.forEach((item, index) => {
+          const offset = index - currentIndex;
+          item.style.transform = `translateX(${offset * 100}%)`;
+          item.style.visibility = "visible";
+        });
+      };
+
+      nextButton.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCarousel();
+      });
+
+      prevButton.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        updateCarousel();
+      });
+
+      updateCarousel();
+    }
+  }
 });

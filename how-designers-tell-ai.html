@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      How designers tell AI how to implement their designs – Rubayat Ahmed
+    </title>
+    <link rel="stylesheet" href="typography.css" />
+    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="article.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="article-page">
+    <nav style="color: var(--text-primary)">
+      <div class="nav-breadcrumb" style="color: var(--text-muted)">
+        <a href="Index.html" style="color: var(--text-muted)">Home</a> / Article
+      </div>
+      <button class="hamburger" aria-label="Toggle navigation">
+        <span style="background: var(--text-primary)"></span>
+        <span style="background: var(--text-primary)"></span>
+        <span style="background: var(--text-primary)"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="Index.html#home">Home</a></li>
+        <li><a href="Index.html#work">Work</a></li>
+        <li><a href="Index.html#personal">Personal</a></li>
+        <li><a href="Index.html#others">About</a></li>
+      </ul>
+    </nav>
+    <div class="nav-overlay"></div>
+
+    <nav class="cs-mobilenav" id="mobilenav">
+      <a href="#intro">Intro</a>
+      <a href="#prompting">Prompting</a>
+      <a href="#artifacts">Artefacts</a>
+      <a href="#mcps">MCPs</a>
+      <a href="#takeaway">Takeaway</a>
+    </nav>
+
+    <div class="article-layout">
+      <aside class="scrollspy-nav" id="sidenav">
+        <a href="#intro">Introduction</a>
+        <a href="#prompting">Prompting</a>
+        <a href="#artifacts">Reference artefacts</a>
+        <a href="#mcps">MCPs</a>
+        <a href="#takeaway">Takeaway</a>
+      </aside>
+
+      <main class="article-main">
+        <div class="article-topbar">
+          <div class="article-meta">
+            <span class="date">October 2026</span>
+            <span class="reading-time">6 min read</span>
+          </div>
+          <div class="topbar-actions">
+            <button
+              class="like-btn"
+              id="likeBtn"
+              aria-label="Like this article"
+            >
+              <span class="heart">&#9825;</span>
+              <span class="like-count" id="likeCount">0</span>
+            </button>
+            <button
+              class="theme-toggle"
+              id="themeToggle"
+              aria-label="Toggle light/dark mode"
+            >
+              <span class="toggle-knob"></span>
+            </button>
+          </div>
+        </div>
+
+        <header class="article-header">
+          <h1>How do designers tell AI how to implement their designs?</h1>
+          <p class="subtitle">
+            A more structured approach might exist rather than staring blankly
+            at the prompt field in Cursor or VS Code.
+          </p>
+        </header>
+
+        <article class="article-body">
+          <h2 id="intro">Introduction</h2>
+          <p>
+            Articulating designs to AI in a logical, machine-understandable
+            natural language has already unlocked a superpower for designers.
+            But there is still friction while translating context. We once
+            thought natural language would be the final abstraction layer that
+            solved everything — yet here we are, still struggling to explain our
+            designs to AI effectively.
+          </p>
+          <p>
+            Over the last few weeks, I explored how different methods help
+            designers contextualize their designs for AI systems. If we leave
+            aside infrastructure setups like connecting design systems,
+            codebases, and libraries, there are primarily three major
+            context-giving methods:
+          </p>
+
+          <ol>
+            <li>Prompting</li>
+            <li>Reference artefacts</li>
+            <li>MCPs</li>
+          </ol>
+          <img src="ArticleFIles/Methods.png" alt="" />
+
+          <hr />
+
+          <h2 id="prompting">1. Prompting</h2>
+          <p>
+            Prompting is the clearest way to define intent. It lets a designer
+            explain why a flow exists, how the interaction should behave, and
+            what trade-offs matter. When the product requires nuanced behaviour,
+            prompting becomes essential because a screenshot or design file
+            alone cannot always capture the reasoning behind a decision.
+          </p>
+          <p>
+            A good prompt can describe not just what the UI looks like, but what
+            the user is trying to accomplish, what happens in edge states, and
+            how the system should respond when the user is confused, rushed, or
+            error-prone. This is especially useful in AI-assisted
+            implementation, because the model needs more than geometry — it
+            needs product context.
+          </p>
+
+          <h2 id="artifacts">2. Reference artefacts</h2>
+          <p>
+            Reference artefacts give AI the visual and behavioural map of the
+            system. This includes screenshots, flow diagrams, existing product
+            examples, or component references. They help orient the model to the
+            broader design language and reduce ambiguity before implementation
+            even starts.
+          </p>
+          <p>
+            This is especially helpful when there are multiple states or when a
+            designer needs to explain a complex interaction using a broader
+            frame. A good reference artefact is not a substitute for reasoning,
+            but it is often the fastest way to reduce visual uncertainty.
+          </p>
+
+          <h2 id="mcps">3. MCPs</h2>
+          <p>
+            MCPs are useful because they connect the AI directly to structured
+            sources of truth. In design workflows, a Figma MCP can carry the
+            visual structure of a UI directly into the coding environment. That
+            creates huge leverage because the model does not need to infer the
+            layout from scratch.
+          </p>
+          <p>
+            However, even with rich design metadata, MCPs still do not fully
+            capture the human reasoning that explains the design. They can tell
+            you what is there; they still need prompting to explain why it is
+            there and what the experience should feel like under different
+            conditions.
+          </p>
+
+          <hr />
+
+          <h2 id="takeaway">Takeaway</h2>
+          <p>
+            The real opportunity is not choosing one perfect method. It is
+            building a layered context model: structured infrastructure, visual
+            references, and explicit product intent together. That is when AI
+            becomes useful as a design collaborator rather than a vague
+            image-to-code tool.
+          </p>
+          <p>
+            For example, a Figma MCP already carries a rich understanding of the
+            design — layout, spacing, typography, component hierarchy, and other
+            visual structures. But it still doesn’t understand the rationale
+            behind those decisions. That is where prompting becomes important.
+            Prompts are powerful for communicating intent, edge cases,
+            interaction logic, motion and animation behavior, and product
+            reasoning. Similarly, for complex applications with multi-state
+            flows and interconnected interactions, high-level screenshots or
+            flow references can help AI grasp the bigger picture much faster.
+          </p>
+          <p>
+            Designing for AI is not only about describing the interface. It is
+            about describing the logic, the constraints, and the reasoning
+            behind the decisions. When we do that well, implementation becomes
+            easier, more accurate, and more aligned with the original design
+            intent. The most effective approach is rarely a single method.
+            Designers will likely need to combine prompting, artefacts, MCPs,
+            and infrastructure context together — because each method has its
+            own strengths and weaknesses.
+          </p>
+        </article>
+
+        <footer class="article-footer">
+          <p>&copy; 2026 Rubayat Ahmed</p>
+        </footer>
+      </main>
+    </div>
+
+    <div class="wipe-overlay"></div>
+
+    <script
+      src="article-shell.js"
+      data-like-key="article_like_ai_design_context"
+    ></script>
+  </body>
+</html>

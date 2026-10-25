@@ -32,7 +32,7 @@
     <div class="nav-overlay"></div>
 
     <!-- Mobile sticky nav (visible <=960px) -->
-    <nav class="article-mobilenav" id="mobilenav">
+    <nav class="cs-mobilenav" id="mobilenav">
       <a href="#intro">Intro</a>
       <a href="#mindset">Mindset</a>
       <a href="#framework">Framework</a>
@@ -42,7 +42,7 @@
 
     <div class="article-layout">
       <!-- Desktop side nav -->
-      <aside class="article-sidenav" id="sidenav">
+      <aside class="scrollspy-nav" id="sidenav">
         <a href="#intro">Introduction</a>
         <a href="#mindset">The Right Mindset</a>
         <a href="#framework">A Lightweight Framework</a>
@@ -265,145 +265,9 @@
 
     <div class="wipe-overlay"></div>
 
-    <script>
-      (function () {
-        const overlay = document.querySelector(".wipe-overlay");
-        let pendingTransition = null;
-
-        function cancelPendingTransition() {
-          if (pendingTransition) {
-            clearTimeout(pendingTransition);
-            pendingTransition = null;
-          }
-        }
-
-        document.querySelectorAll("a[href]").forEach((link) => {
-          link.addEventListener("click", function (event) {
-            const href = this.getAttribute("href");
-            if (!href || href.startsWith("#")) return;
-
-            const target = new URL(href, window.location.href);
-            const isExternal = target.origin !== window.location.origin;
-            if (isExternal) {
-              window.open(href, "_blank", "noopener,noreferrer");
-              event.preventDefault();
-              return;
-            }
-
-            event.preventDefault();
-            cancelPendingTransition();
-            requestAnimationFrame(() => {
-              if (overlay) overlay.classList.add("active");
-            });
-            pendingTransition = setTimeout(() => {
-              pendingTransition = null;
-              window.location.href = href;
-            }, 450);
-          });
-        });
-
-        window.addEventListener("pagehide", cancelPendingTransition);
-        window.addEventListener("beforeunload", cancelPendingTransition);
-      })();
-
-      // ── Like System (localStorage-backed) ──
-      // For a shared count across users, replace with a POST/GET to your API.
-      (function () {
-        const STORAGE_KEY = "article_like_solving_complex_problems";
-        const btn = document.getElementById("likeBtn");
-        const countEl = document.getElementById("likeCount");
-
-        let state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
-          liked: false,
-          count: 12,
-        };
-
-        function render() {
-          countEl.textContent = state.count;
-          btn.classList.toggle("liked", state.liked);
-          btn.querySelector(".heart").innerHTML = state.liked
-            ? "&#9829;"
-            : "&#9825;";
-        }
-
-        btn.addEventListener("click", function () {
-          state.liked = !state.liked;
-          state.count += state.liked ? 1 : -1;
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-          render();
-        });
-
-        render();
-      })();
-
-      // ── Scrollspy (shared between side nav & mobile nav) ──
-      (function () {
-        const sideLinks = document.querySelectorAll(".article-sidenav a");
-        const mobileLinks = document.querySelectorAll(".article-mobilenav a");
-        const allLinks = [...sideLinks, ...mobileLinks];
-
-        const sectionIds = [
-          ...new Set(
-            [...sideLinks].map((a) => a.getAttribute("href").slice(1)),
-          ),
-        ];
-        const sections = sectionIds
-          .map((id) => document.getElementById(id))
-          .filter(Boolean);
-
-        function onScroll() {
-          let current = 0;
-          const offset = 120;
-          sections.forEach((sec, i) => {
-            if (sec.getBoundingClientRect().top - offset <= 0) {
-              current = i;
-            }
-          });
-          allLinks.forEach((link) => {
-            const href = link.getAttribute("href").slice(1);
-            link.classList.toggle("active", href === sectionIds[current]);
-          });
-        }
-
-        window.addEventListener("scroll", onScroll, { passive: true });
-        onScroll();
-      })();
-
-      // ── Theme Toggle ──
-      (function () {
-        const THEME_KEY = "article_theme";
-        const body = document.body;
-        const toggle = document.getElementById("themeToggle");
-
-        // Restore saved preference
-        if (localStorage.getItem(THEME_KEY) === "light") {
-          body.classList.add("light");
-        }
-
-        toggle.addEventListener("click", function () {
-          body.classList.toggle("light");
-          localStorage.setItem(
-            THEME_KEY,
-            body.classList.contains("light") ? "light" : "dark",
-          );
-        });
-      })();
-
-      // ── Hamburger toggle (reuse from main site) ──
-      (function () {
-        const hamburger = document.querySelector(".hamburger");
-        const navLinks = document.querySelector(".nav-links");
-        const navOverlay = document.querySelector(".nav-overlay");
-
-        function toggleNav() {
-          if (navLinks) navLinks.classList.toggle("show");
-          if (hamburger) hamburger.classList.toggle("active");
-          if (navOverlay) navOverlay.classList.toggle("show");
-        }
-
-        if (hamburger) hamburger.addEventListener("click", toggleNav);
-        if (navOverlay) navOverlay.addEventListener("click", toggleNav);
-      })();
-    </script>
+    <script
+      src="article-shell.js"
+      data-like-key="article_like_solving_complex_problems"
+    ></script>
   </body>
 </html>

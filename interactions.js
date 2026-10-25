@@ -80,3 +80,75 @@ if (glitchElement) {
     startAsciiGlitch(glitchElement);
   });
 }
+
+const movieLibraryGrid = document.getElementById("movieLibraryGrid");
+
+const movieLibrary = [
+  {
+    title: "Spirited Away",
+    poster: "https://image.tmdb.org/t/p/w500/39wmItIWsg5sZMyRUgR8YgF7J7A.jpg",
+    favorite: true,
+  },
+  {
+    title: "The Prestige",
+    poster: "https://image.tmdb.org/t/p/w500/5MXyQfz8xUP3dIFPTubhT3jQyQ5.jpg",
+    favorite: false,
+  },
+  {
+    title: "Parasite",
+    poster: "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+    favorite: true,
+  },
+  {
+    title: "Arrival",
+    poster: "https://image.tmdb.org/t/p/w500/yzVxScXhM0y2P3wiablQv9A4eLm.jpg",
+    favorite: false,
+  },
+  {
+    title: "The Matrix",
+    poster: "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
+    favorite: true,
+  },
+  {
+    title: "La La Land",
+    poster: "https://image.tmdb.org/t/p/w500/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg",
+    favorite: false,
+  },
+  {
+    title: "Blade Runner 2049",
+    poster: "https://image.tmdb.org/t/p/w500/gajva2L0rPYkEWjzgFlBXCAVBE5.jpg",
+    favorite: false,
+  },
+  {
+    title: "Moonlight",
+    poster: "https://image.tmdb.org/t/p/w500/2568c5KEq5yegPaRdsfUUS2Tr1L.jpg",
+    favorite: true,
+  },
+  {
+    title: "Whiplash",
+    poster: "https://image.tmdb.org/t/p/w500/4yZQ3sFx6QWO8L08M5B1R7ThUzo.jpg",
+    favorite: false,
+  },
+];
+
+if (movieLibraryGrid) {
+  movieLibrary.forEach((movie) => {
+    const card = document.createElement("article");
+    card.className = `movie-poster-card ${movie.favorite ? "favorite" : ""}`;
+    card.tabIndex = 0;
+    card.setAttribute("aria-label", movie.title);
+
+    const img = document.createElement("img");
+    img.src = movie.poster;
+    img.alt = movie.title;
+    img.loading = "lazy";
+
+    const meta = document.createElement("div");
+    meta.className = "movie-meta";
+    meta.innerHTML = `<span class="movie-title">${movie.title}</span>`;
+
+    card.appendChild(img);
+    card.appendChild(meta);
+    movieLibraryGrid.appendChild(card);
+  });
+}
