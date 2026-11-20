@@ -154,7 +154,7 @@ nav {
 }
 
 .scrollspy-nav a {
-  color: #7a7a7a;
+  color: var(--nav-inactive, #7a7a7a);
   text-decoration: none;
   font-size: var(--text-sm);
   font-weight: 500;
@@ -166,12 +166,12 @@ nav {
 }
 
 .scrollspy-nav a:hover {
-  color: #555555;
+  color: var(--nav-hover, var(--nav-active, var(--cs-heading, #555555)));
 }
 
 .scrollspy-nav a.active {
-  color: #111111;
-  border-left-color: #111111;
+  color: var(--nav-active, var(--cs-heading, #111111));
+  border-left-color: var(--nav-active, var(--cs-heading, #111111));
 }
 
 .cs-mobilenav {
@@ -188,7 +188,10 @@ nav {
     position: sticky;
     top: 0;
     z-index: 20;
-    background: rgba(255, 255, 255, 0.6);
+    background: var(
+      --mobile-nav-bg,
+      var(--cs-mobile-nav-bg, rgba(255, 255, 255, 0.6))
+    );
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -199,7 +202,7 @@ nav {
   }
 
   .cs-mobilenav a {
-    color: #7a7a7a;
+    color: var(--nav-inactive, #7a7a7a);
     text-decoration: none;
     font-size: var(--text-xs);
     font-weight: 500;
@@ -211,9 +214,13 @@ nav {
     flex-shrink: 0;
   }
 
+  .cs-mobilenav a:hover {
+    color: var(--nav-hover, var(--nav-active, var(--cs-heading, #555555)));
+  }
+
   .cs-mobilenav a.active {
-    color: #111111;
-    border-bottom-color: #111111;
+    color: var(--nav-active, var(--cs-heading, #111111));
+    border-bottom-color: var(--nav-active, var(--cs-heading, #111111));
   }
 }
 

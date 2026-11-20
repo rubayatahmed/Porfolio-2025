@@ -557,12 +557,33 @@ document.querySelectorAll(".bento-item").forEach((box) => {
         if (tpl) {
           const clone = tpl.content.cloneNode(true);
           attachLinkHandlers(clone);
-          inplace.appendChild(clone);
-          if (defaultEl) defaultEl.classList.add("hidden-default");
-          else while (this.firstChild) this.removeChild(this.firstChild);
-          this.appendChild(inplace);
+
+          if (templateId === "articles-list-template") {
+            const defaultEl = this.querySelector(".bento-default");
+            const titleEl = defaultEl && defaultEl.querySelector("h2");
+            const paragraphEl = defaultEl && defaultEl.querySelector("p");
+
+            if (paragraphEl) {
+              paragraphEl.hidden = true;
+              this._articleParagraph = paragraphEl;
+            }
+
+            if (titleEl) {
+              titleEl.insertAdjacentElement("afterend", inplace);
+            } else {
+              this.appendChild(inplace);
+            }
+
+            inplace.appendChild(clone);
+          } else {
+            inplace.appendChild(clone);
+            if (defaultEl) defaultEl.classList.add("hidden-default");
+            else while (this.firstChild) this.removeChild(this.firstChild);
+            this.appendChild(inplace);
+          }
+
           requestAnimationFrame(() => {
-            inplace.classList.add("show");
+            inplace.className = "inplace-content show";
             adjustHeight();
           });
           if (inplace.querySelector && inplace.querySelector(".init-carousel"))
@@ -618,6 +639,10 @@ document.querySelectorAll(".bento-item").forEach((box) => {
             const curr = this.querySelector(".inplace-content");
             if (curr && curr.parentNode) curr.parentNode.removeChild(curr);
             defaultEl.classList.remove("hidden-default");
+            if (this._articleParagraph) {
+              this._articleParagraph.hidden = false;
+              delete this._articleParagraph;
+            }
           } else {
             if (this._origHtml !== undefined) this.innerHTML = this._origHtml;
             else {
